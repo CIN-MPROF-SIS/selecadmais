@@ -1,10 +1,6 @@
 package selecadmais
 
 class CandidatoLingua {
-	Candidato candidato
-	Nivel nivel
-	Lingua lingua
-
 	static belongsTo = [ 
 		candidato : Candidato,
 		nivel : Nivel,

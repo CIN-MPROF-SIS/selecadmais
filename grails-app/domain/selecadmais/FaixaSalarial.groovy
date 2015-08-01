@@ -6,4 +6,8 @@ class FaixaSalarial {
     static constraints = {
     	valor(size: 0..20, blank:false)
     }
+
+	String toString(){
+	  	return valor
+	} 
 }
