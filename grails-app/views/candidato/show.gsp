@@ -133,6 +133,17 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${candidatoInstance?.certificados}">
+				<li class="fieldcontain">
+					<span id="certificados-label" class="property-label"><g:message code="candidato.certificados.label" default="Certificados" /></span>
+					
+						<g:each in="${candidatoInstance.certificados}" var="c">
+						<span class="property-value" aria-labelledby="certificados-label"><g:link controller="certificado" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${candidatoInstance?.complemento}">
 				<li class="fieldcontain">
 					<span id="complemento-label" class="property-label"><g:message code="candidato.complemento.label" default="Complemento" /></span>

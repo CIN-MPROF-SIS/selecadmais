@@ -13,8 +13,16 @@ class Candidato extends Pessoa {
     static hasMany = [ 
     	candidatosLingua : CandidatoLingua, 
     	experienciasProfissionais : ExperienciaProfissional,
-    	formacoesAcademicas : FormacaoAcademica
+    	formacoesAcademicas : FormacaoAcademica,
+        certificados : Certificado
 	]
+ 
+    static mapping = {
+        candidatosLingua(cascade:"all-delete-orphan")
+        experienciasProfissionais(cascade:"all-delete-orphan")
+        formacoesAcademicas(cascade:"all-delete-orphan")
+        certificados(cascade:"all-delete-orphan", sort :'descricao', order:'asc')
+    }
 
     static constraints = {
     	cpf(size:0..14, unique: true, blank:false)
@@ -22,4 +30,6 @@ class Candidato extends Pessoa {
     	foto(size:0..200,nullable:true)
     	curriculo(size:0..200,nullable:true)
     }
+
+
 }

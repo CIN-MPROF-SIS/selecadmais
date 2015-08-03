@@ -61,6 +61,21 @@ class CandidatoController {
             respond candidatoInstance.errors, view:'edit'
             return
         }
+        // find the phones that are marked for deletion
+        def _certificadosToBeDeleted = []
+println "antes each3"
+        candidatoInstance.certificados.findAll {
+            println it?.deleted
+            if (it?.deleted || (it == null)) {
+                println "it"
+                _certificadosToBeDeleted << it
+            }
+        }
+
+        // if there are phones to be deleted remove them all
+        if (_certificadosToBeDeleted) {
+            candidatoInstance.certificados.removeAll(_certificadosToBeDeleted)
+        }
 
         candidatoInstance.save flush:true
 

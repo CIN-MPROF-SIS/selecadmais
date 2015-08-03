@@ -119,6 +119,18 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'certificados', 'error')} ">
+	<label for="certificados">
+		<g:message code="candidato.certificados.label" default="Certificados" />
+		
+	</label>
+	
+	<!-- Render the phones template (_certificados.gsp) here -->
+	<g:render template="certificados" model="['candidatoInstance':candidatoInstance]" />
+	<!-- Render the phones template (_certificados.gsp) here -->
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'complemento', 'error')} required">
 	<label for="complemento">
 		<g:message code="candidato.complemento.label" default="Complemento" />

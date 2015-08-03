@@ -306,6 +306,11 @@ ul.one-to-many li.add {
 	list-style-type: none;
 }
 
+ul.one-to-many li {
+	list-style-type: none;
+	margin-bottom: 5px;
+}
+
 /* EMBEDDED PROPERTIES */
 
 fieldset.embedded {
