@@ -101,36 +101,6 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'candidatosLingua', 'error')} ">
-	<label for="candidatosLingua">
-		<g:message code="candidato.candidatosLingua.label" default="Candidatos Lingua" />
-		
-	</label>
-	
-<ul class="one-to-many">
-<g:each in="${candidatoInstance?.candidatosLingua?}" var="c">
-    <li><g:link controller="candidatoLingua" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
-</g:each>
-<li class="add">
-<g:link controller="candidatoLingua" action="create" params="['candidato.id': candidatoInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'candidatoLingua.label', default: 'CandidatoLingua')])}</g:link>
-</li>
-</ul>
-
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'certificados', 'error')} ">
-	<label for="certificados">
-		<g:message code="candidato.certificados.label" default="Certificados" />
-		
-	</label>
-	
-	<!-- Render the phones template (_certificados.gsp) here -->
-	<g:render template="certificados" model="['candidatoInstance':candidatoInstance]" />
-	<!-- Render the phones template (_certificados.gsp) here -->
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'complemento', 'error')} required">
 	<label for="complemento">
 		<g:message code="candidato.complemento.label" default="Complemento" />
@@ -146,6 +116,30 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:datePicker name="dataNascimento" precision="day"  value="${candidatoInstance?.dataNascimento}"  />
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'certificados', 'error')} ">
+	<label for="certificados">
+		<g:message code="candidato.certificados.label" default="Certificados" />
+		
+	</label>
+	
+	<!-- Render the phones template (_certificados.gsp) here -->
+	<g:render template="certificados" model="['candidatoInstance':candidatoInstance]" />
+	<!-- Render the phones template (_certificados.gsp) here -->
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'candidatosLingua', 'error')} ">
+	<label for="certificados">
+		<g:message code="candidato.candidatosLingua.label" default="Candidatos Lingua" />
+		
+	</label>
+	
+	<!-- Render the phones template (_certificados.gsp) here -->
+	<g:render template="candidatos_linguas" model="['candidatoInstance':candidatoInstance]" />
+	<!-- Render the phones template (_certificados.gsp) here -->
 
 </div>
 

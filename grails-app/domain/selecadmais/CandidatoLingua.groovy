@@ -9,4 +9,8 @@ class CandidatoLingua {
     static constraints = {
     	id composite: ['candidato', 'nivel', 'lingua']
     }
+
+	String toString(){
+	  	return "${lingua} - ${nivel}"
+	} 
 }

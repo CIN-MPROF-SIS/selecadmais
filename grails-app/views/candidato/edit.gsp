@@ -37,9 +37,8 @@
 					<g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
 				</fieldset>
 			</g:form>
-		    <!-- Render the phone template (_phone.gsp) hidden so we can clone it -->
 		    <g:render template='certificado' model="['certificado':null,'i':'_clone','hidden':true]"/>
-		    <!-- Render the phone template (_phone.gsp) hidden so we can clone it -->
+		    <g:render template='candidato_lingua' model="['candidatoLingua':null,'i':'_clone','hidden':true]"/>
 		</div>
 	</body>
 </html>
