@@ -115,7 +115,8 @@
 		<g:message code="candidato.dataNascimento.label" default="Data Nascimento" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="dataNascimento" precision="day"  value="${candidatoInstance?.dataNascimento}"  />
+
+    <calendar:datePicker name="dataNascimento"  dateFormat= "%d/%m/%Y" defaultValue="${candidatoInstance?.dataNascimento}"/>
 
 </div>
 
@@ -133,31 +134,21 @@
 
 <div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'candidatosLingua', 'error')} ">
 	<label for="certificados">
-		<g:message code="candidato.candidatosLingua.label" default="Candidatos Lingua" />
+		<g:message code="candidato.candidatosLingua.label" default="Língua" />
 		
 	</label>
 	
-	<!-- Render the phones template (_certificados.gsp) here -->
 	<g:render template="candidatos_linguas" model="['candidatoInstance':candidatoInstance]" />
-	<!-- Render the phones template (_certificados.gsp) here -->
 
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'experienciasProfissionais', 'error')} ">
 	<label for="experienciasProfissionais">
-		<g:message code="candidato.experienciasProfissionais.label" default="Experiencias Profissionais" />
+		<g:message code="candidato.experienciasProfissionais.label" default="Experiências Profissionais" />
 		
 	</label>
 	
-<ul class="one-to-many">
-<g:each in="${candidatoInstance?.experienciasProfissionais?}" var="e">
-    <li><g:link controller="experienciaProfissional" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></li>
-</g:each>
-<li class="add">
-<g:link controller="experienciaProfissional" action="create" params="['candidato.id': candidatoInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'experienciaProfissional.label', default: 'ExperienciaProfissional')])}</g:link>
-</li>
-</ul>
-
+	<g:render template="experiencias_profissionais" model="['candidatoInstance':candidatoInstance]" />
 
 </div>
 
