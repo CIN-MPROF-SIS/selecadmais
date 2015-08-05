@@ -18,7 +18,7 @@ class Candidato extends Pessoa {
 	]
  
     static mapping = {
-        candidatosLingua(cascade:"all-delete-orphan")
+        candidatosLingua(cascade:"all-delete-orphan", sort :'lingua', order:'asc')
         experienciasProfissionais(cascade:"all-delete-orphan")
         formacoesAcademicas(cascade:"all-delete-orphan")
         certificados(cascade:"all-delete-orphan", sort :'descricao', order:'asc')

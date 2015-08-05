@@ -63,18 +63,46 @@ class CandidatoController {
         }
         // find the phones that are marked for deletion
         def _certificadosToBeDeleted = []
-println "antes each3"
-        candidatoInstance.certificados.findAll {
-            println it?.deleted
-            if (it?.deleted || (it == null)) {
-                println "it"
+
+        def cont = 0
+        candidatoInstance.certificados.each {
+            if (params["certificados[" + cont + "].deleted"] == "true") {
                 _certificadosToBeDeleted << it
             }
+            cont++
         }
 
         // if there are phones to be deleted remove them all
         if (_certificadosToBeDeleted) {
             candidatoInstance.certificados.removeAll(_certificadosToBeDeleted)
+        }
+
+        def _candidatosLinguasToBeDeleted = []
+        cont = 0
+        candidatoInstance.candidatosLingua.each {
+            if (params["candidatosLingua[" + cont + "].deleted"] == "true") {
+                _candidatosLinguasToBeDeleted << it
+            }
+            cont++
+        }
+
+        // if there are phones to be deleted remove them all
+        if (_candidatosLinguasToBeDeleted) {
+            candidatoInstance.candidatosLingua.removeAll(_candidatosLinguasToBeDeleted)
+        }
+
+        def _experienciasProfissionaisToBeDeleted = []
+        cont = 0
+        candidatoInstance.experienciasProfissionais.each {
+            if (params["experienciasProfissionais[" + cont + "].deleted"] == "true") {
+                _experienciasProfissionaisToBeDeleted << it
+            }
+            cont++
+        }
+
+        // if there are phones to be deleted remove them all
+        if (_experienciasProfissionaisToBeDeleted) {
+            candidatoInstance.experienciasProfissionais.removeAll(_experienciasProfissionaisToBeDeleted)
         }
 
         candidatoInstance.save flush:true

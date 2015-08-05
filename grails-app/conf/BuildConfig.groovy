@@ -66,9 +66,13 @@ grails.project.dependency.resolution = {
         compile ":asset-pipeline:2.1.5"
 		compile ':heroku:1.0.1'
 		compile ':cloud-support:1.0.11'
+<<<<<<< HEAD
         compile ":spring-security-core:2.0-RC5"
 
 		
+=======
+        compile ':calendar:1.2.1'
+>>>>>>> 5fb609c6f7ec5dc98710036d88b8774d7b925b6d
 	 
 
         // plugins needed at runtime but not for compilation

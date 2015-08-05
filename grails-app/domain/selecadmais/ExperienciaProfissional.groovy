@@ -14,4 +14,8 @@ class ExperienciaProfissional {
     	areaAtuacao(size:0..100, blank:false)
     	dataConclusao(nullable: true)
     }
+
+    String toString(){
+        return "${empresa} - ${areaAtuacao} - " + dataInicio.format('dd/MM/yyyy') + " - " + dataConclusao.format('dd/MM/yyyy')
+    } 
 }
