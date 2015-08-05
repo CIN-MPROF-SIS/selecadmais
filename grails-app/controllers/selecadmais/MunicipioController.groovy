@@ -5,12 +5,14 @@ package selecadmais
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
+
 @Transactional(readOnly = true)
 class MunicipioController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def index(Integer max) {
+	
+	def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Municipio.list(params), model:[municipioInstanceCount: Municipio.count()]
     }

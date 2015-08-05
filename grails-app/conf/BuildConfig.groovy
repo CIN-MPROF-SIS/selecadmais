@@ -44,6 +44,7 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
+		mavenRepo "http://repo.spring.io/milestone/"
     }
 
     dependencies {
@@ -65,6 +66,9 @@ grails.project.dependency.resolution = {
         compile ":asset-pipeline:2.1.5"
 		compile ':heroku:1.0.1'
 		compile ':cloud-support:1.0.11'
+        compile ":spring-security-core:2.0-RC5"
+
+		
 	 
 
         // plugins needed at runtime but not for compilation
