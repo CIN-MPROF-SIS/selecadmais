@@ -2,7 +2,7 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'nome', 'error')} required">
+<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'nome', 'error')} required">
 	<label for="nome">
 		<g:message code="candidato.nome.label" default="Nome" />
 		<span class="required-indicator">*</span>
@@ -11,7 +11,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'email', 'error')} required">
+<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'email', 'error')} required">
 	<label for="email">
 		<g:message code="candidato.email.label" default="Email" />
 		<span class="required-indicator">*</span>
@@ -20,7 +20,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'telefone', 'error')} required">
+<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'telefone', 'error')} required">
 	<label for="telefone">
 		<g:message code="candidato.telefone.label" default="Telefone" />
 		<span class="required-indicator">*</span>
@@ -29,7 +29,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'logradouro', 'error')} required">
+<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'logradouro', 'error')} required">
 	<label for="logradouro">
 		<g:message code="candidato.logradouro.label" default="Logradouro" />
 		<span class="required-indicator">*</span>
@@ -38,7 +38,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'complemento', 'error')} required">
+<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'complemento', 'error')} required">
 	<label for="complemento">
 		<g:message code="candidato.complemento.label" default="Complemento" />
 		<span class="required-indicator">*</span>
@@ -47,7 +47,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'numero', 'error')} ">
+<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'numero', 'error')} ">
 	<label for="numero">
 		<g:message code="candidato.numero.label" default="Numero" />
 		
@@ -56,7 +56,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'bairro', 'error')} required">
+<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'bairro', 'error')} required">
 	<label for="bairro">
 		<g:message code="candidato.bairro.label" default="Bairro" />
 		<span class="required-indicator">*</span>
@@ -65,7 +65,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'cep', 'error')} required">
+<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'cep', 'error')} required">
 	<label for="cep">
 		<g:message code="candidato.cep.label" default="Cep" />
 		<span class="required-indicator">*</span>
@@ -74,7 +74,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'municipio', 'error')} required">
+<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'municipio', 'error')} required">
 	<label for="municipio">
 		<g:message code="candidato.municipio.unidadeFederativa.label" default="Unidade Federativa" />
 		<span class="required-indicator">*</span>
@@ -88,7 +88,7 @@
                 )}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'municipio', 'error')} required">
+<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'municipio', 'error')} required">
 	<label for="municipio">
 		<g:message code="candidato.municipio.label" default="Municipio" />
 		<span class="required-indicator">*</span>
@@ -97,7 +97,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'cpf', 'error')} required">
+<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'cpf', 'error')} required">
 	<label for="cpf">
 		<g:message code="candidato.cpf.label" default="Cpf" />
 		<span class="required-indicator">*</span>
@@ -106,7 +106,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'nacionalidade', 'error')} required">
+<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'nacionalidade', 'error')} required">
 	<label for="nacionalidade">
 		<g:message code="candidato.nacionalidade.label" default="Nacionalidade" />
 		<span class="required-indicator">*</span>
@@ -115,7 +115,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'naturalidade', 'error')} required">
+<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'naturalidade', 'error')} required">
 	<label for="municipio">
 		<g:message code="candidato.municipio.label" default="Municipio" />
 		<span class="required-indicator">*</span>
@@ -129,7 +129,7 @@
             )}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'naturalidade', 'error')} required">
+<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'naturalidade', 'error')} required">
 	<label for="naturalidade">
 		<g:message code="candidato.naturalidade.label" default="Naturalidade" />
 		<span class="required-indicator">*</span>
@@ -138,7 +138,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'foto', 'error')} ">
+<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'foto', 'error')} ">
 	<label for="foto">
 		<g:message code="candidato.foto.label" default="Foto" />
 		
@@ -147,7 +147,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'curriculo', 'error')} ">
+<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'curriculo', 'error')} ">
 	<label for="curriculo">
 		<g:message code="candidato.curriculo.label" default="Curriculo" />
 		
@@ -156,7 +156,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'dataNascimento', 'error')} required">
+<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'dataNascimento', 'error')} required">
 	<label for="dataNascimento">
 		<g:message code="candidato.dataNascimento.label" default="Data Nascimento" />
 		<span class="required-indicator">*</span>
@@ -166,44 +166,10 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'certificados', 'error')} ">
-	<label for="certificados">
-		<g:message code="candidato.certificados.label" default="Certificados" />
-		
-	</label>
-	
-	<!-- Render the phones template (_certificados.gsp) here -->
-	<g:render template="certificados" model="['candidatoInstance':candidatoInstance]" />
-	<!-- Render the phones template (_certificados.gsp) here -->
+<g:render template="certificados" model="['candidatoInstance':candidatoInstance]" />
 
-</div>
+<g:render template="candidatos_linguas" model="['candidatoInstance':candidatoInstance]" />
 
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'candidatosLingua', 'error')} ">
-	<label for="certificados">
-		<g:message code="candidato.candidatosLingua.label" default="Língua" />
-		
-	</label>
-	
-	<g:render template="candidatos_linguas" model="['candidatoInstance':candidatoInstance]" />
+<g:render template="experiencias_profissionais" model="['candidatoInstance':candidatoInstance]" />
 
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'experienciasProfissionais', 'error')} ">
-	<label for="experienciasProfissionais">
-		<g:message code="candidato.experienciasProfissionais.label" default="Experiências Profissionais" />
-		
-	</label>
-	
-	<g:render template="experiencias_profissionais" model="['candidatoInstance':candidatoInstance]" />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'formacoesAcademicas', 'error')} ">
-	<label for="formacoesAcademicas">
-		<g:message code="candidato.formacoesAcademicas.label" default="Formações Acadêmicas" />
-		
-	</label>
-	
-	<g:render template="formacoes_academicas" model="['candidatoInstance':candidatoInstance]" />
-
-</div>
+<g:render template="formacoes_academicas" model="['candidatoInstance':candidatoInstance]" />

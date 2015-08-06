@@ -1,15 +1,22 @@
 <script type="text/javascript">
-    var childCount = ${candidatoInstance?.certificados?.size()} + 0;
+    var childCountCertificados = ${candidatoInstance?.certificados?.size()} + 0;
  </script>
-<ul id="childListCertificados" class="one-to-many">
-    <g:each var="certificado" in="${candidatoInstance.certificados}" status="i">
-        <g:render template='certificado' model="['certificado':certificado,'i':i,'hidden':false]"/>
-    </g:each>
-</ul>
-<div>
-  <label for="formacoesAcademicas">
-    &nbsp;
-    
-  </label>
-    <input type="button" value="Add certificado" onclick="addCertificado();" />
-</div>
+
+<fieldset>
+	<legend>Certificados</legend>
+	<ol>
+		<div class="nested-fields">
+			<table width="100%" id="childListCertificados">
+				<tr>
+					<td>Certificado</td>
+				<td></td>
+				</tr>
+
+				<g:each var="certificado" in="${candidatoInstance.certificados}" status="i">
+					<g:render template='certificado' model="['certificado':certificado,'i':i,'hidden':false]"/>
+				</g:each>
+			</table>
+		</div>
+	</ol>
+	<input type="button" value="Adicionar Certificado" onclick="addCertificado();" />
+</fieldset>

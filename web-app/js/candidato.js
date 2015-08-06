@@ -95,7 +95,7 @@ function formacoesAcademicas_dataConclusao_updated(calendar)
 
 function addCertificado(){
   var clone = $("#certificado_clone").clone()
-  var htmlId = 'certificados['+childCount+'].';
+  var htmlId = 'certificados['+childCountCertificados+'].';
   var certificadoInput = clone.find("input[id$=descricao]");
 
   clone.find("input[id$=id]")
@@ -111,17 +111,17 @@ function addCertificado(){
   certificadoInput.attr('id',htmlId + 'descricao')
           .attr('name',htmlId + 'descricao');
 
-  //clone.attr('id', 'certificado'+childCount);
+  clone.attr('id', 'certificado'+childCountCertificados);
   
   $("#childListCertificados").append(clone);
   clone.show();
   certificadoInput.focus();
-  childCount++;
+  childCountCertificados++;
 }
 
 function addLingua(){
   var clone = $("#candidatoLingua_clone").clone()
-  var htmlId = 'candidatosLingua['+childCount+'].';
+  var htmlId = 'candidatosLingua['+childCountLinguas+'].';
   var linguaInput = clone.find("select[id$='lingua.id']");
   var nivelInput = clone.find("select[id$='nivel.id']");
 
@@ -140,17 +140,17 @@ function addLingua(){
   nivelInput.attr('id',htmlId + 'nivel.id')
           .attr('name',htmlId + 'nivel.id');
 
-  //clone.attr('id', 'candidatoLingua'+childCount);
+  clone.attr('id', 'candidatoLingua'+childCountLinguas);
   
-  $("#childListCandidatosLinguas").append(clone);
+  $("#childListLinguas").append(clone);
   clone.show();
   linguaInput.focus();
-  childCount++;
+  childCountLinguas++;
 }
 
 function addExperienciaProfissional(){
   var clone = $("#experienciaProfissional_clone").clone()
-  var htmlId = 'experienciasProfissionais['+childCount+'].';
+  var htmlId = 'experienciasProfissionais['+childCountExperienciasProfissionais+'].';
   var empresaInput = clone.find("input[id$=empresa]");
   var areaAtuacaoInput = clone.find("input[id$=areaAtuacao]");
   var dataInicioInput = clone.find("input[id$=dataInicio]");
@@ -218,17 +218,17 @@ function addExperienciaProfissional(){
           .attr('name',htmlId + 'dataConclusao-trigger');
 
 
-  //clone.attr('id', 'experienciaProfissional'+childCount);
+  clone.attr('id', 'experienciaProfissional'+childCountExperienciasProfissionais);
   
   $("#childListExperienciasProfissionais").append(clone);
   clone.show();
   empresaInput.focus();
 
   Calendar.setup({
-      name:"experienciasProfissionais[" + childCount + "].dataInicio",
-      inputField:"experienciasProfissionais[" + childCount + "].dataInicio_value",
+      name:"experienciasProfissionais[" + childCountExperienciasProfissionais + "].dataInicio",
+      inputField:"experienciasProfissionais[" + childCountExperienciasProfissionais + "].dataInicio_value",
       ifFormat:"%d/%m/%Y",
-      button:"experienciasProfissionais[" + childCount + "].dataInicio-trigger",                            
+      button:"experienciasProfissionais[" + childCountExperienciasProfissionais + "].dataInicio-trigger",                            
       showsTime:false,
       timeFormat:"24",
       onUpdate:experienciasProfissionais_dataInicio_updated,
@@ -237,7 +237,7 @@ function addExperienciaProfissional(){
       
   });
 
-  dataInicio_triggerImage.attr("indice", childCount)
+  dataInicio_triggerImage.attr("indice", childCountExperienciasProfissionais)
 
   dataInicio_triggerImage.click(
     function()
@@ -248,10 +248,10 @@ function addExperienciaProfissional(){
 
 
   Calendar.setup({
-      name:"experienciasProfissionais[" + childCount + "].dataConclusao",
-      inputField:"experienciasProfissionais[" + childCount + "].dataConclusao_value",
+      name:"experienciasProfissionais[" + childCountExperienciasProfissionais + "].dataConclusao",
+      inputField:"experienciasProfissionais[" + childCountExperienciasProfissionais + "].dataConclusao_value",
       ifFormat:"%d/%m/%Y",
-      button:"experienciasProfissionais[" + childCount + "].dataConclusao-trigger",                            
+      button:"experienciasProfissionais[" + childCountExperienciasProfissionais + "].dataConclusao-trigger",                            
       showsTime:false,
       timeFormat:"24",
       onUpdate:experienciasProfissionais_dataConclusao_updated,
@@ -260,7 +260,7 @@ function addExperienciaProfissional(){
       
   });
 
-  dataConclusao_triggerImage.attr("indice", childCount)
+  dataConclusao_triggerImage.attr("indice", childCountExperienciasProfissionais)
 
   dataConclusao_triggerImage.click(
     function()
@@ -269,12 +269,12 @@ function addExperienciaProfissional(){
     }
   );
 
-  childCount++;
+  childCountExperienciasProfissionais++;
 }
 
 function addFormacaoAcademica(){
   var clone = $("#formacaoAcademica_clone").clone()
-  var htmlId = 'formacoesAcademicas['+childCount+'].';
+  var htmlId = 'formacoesAcademicas['+childCountFormacoesAcademicas+'].';
   var instituicaoInput = clone.find("input[id$=instituicao]");
   var cargaHorariaInput = clone.find("input[id$=cargaHoraria]");
   var grauFormacaoInput = clone.find("input[id$='grauFormacao.id']");
@@ -345,17 +345,17 @@ function addFormacaoAcademica(){
           .attr('name',htmlId + 'dataConclusao-trigger');
 
 
-  //clone.attr('id', 'formacaoAcademica'+childCount);
+  clone.attr('id', 'formacaoAcademica'+childCountFormacoesAcademicas);
   
   $("#childListFormacoesAcademicas").append(clone);
   clone.show();
   instituicaoInput.focus();
 
   Calendar.setup({
-      name:"formacoesAcademicas[" + childCount + "].dataInicio",
-      inputField:"formacoesAcademicas[" + childCount + "].dataInicio_value",
+      name:"formacoesAcademicas[" + childCountFormacoesAcademicas + "].dataInicio",
+      inputField:"formacoesAcademicas[" + childCountFormacoesAcademicas + "].dataInicio_value",
       ifFormat:"%d/%m/%Y",
-      button:"formacoesAcademicas[" + childCount + "].dataInicio-trigger",                            
+      button:"formacoesAcademicas[" + childCountFormacoesAcademicas + "].dataInicio-trigger",                            
       showsTime:false,
       timeFormat:"24",
       onUpdate:formacoesAcademicas_dataInicio_updated,
@@ -364,7 +364,7 @@ function addFormacaoAcademica(){
       
   });
 
-  dataInicio_triggerImage.attr("indice", childCount)
+  dataInicio_triggerImage.attr("indice", childCountFormacoesAcademicas)
 
   dataInicio_triggerImage.click(
     function()
@@ -375,10 +375,10 @@ function addFormacaoAcademica(){
 
 
   Calendar.setup({
-      name:"formacoesAcademicas[" + childCount + "].dataConclusao",
-      inputField:"formacoesAcademicas[" + childCount + "].dataConclusao_value",
+      name:"formacoesAcademicas[" + childCountFormacoesAcademicas + "].dataConclusao",
+      inputField:"formacoesAcademicas[" + childCountFormacoesAcademicas + "].dataConclusao_value",
       ifFormat:"%d/%m/%Y",
-      button:"formacoesAcademicas[" + childCount + "].dataConclusao-trigger",                            
+      button:"formacoesAcademicas[" + childCountFormacoesAcademicas + "].dataConclusao-trigger",                            
       showsTime:false,
       timeFormat:"24",
       onUpdate:formacoesAcademicas_dataConclusao_updated,
@@ -387,7 +387,7 @@ function addFormacaoAcademica(){
       
   });
 
-  dataConclusao_triggerImage.attr("indice", childCount)
+  dataConclusao_triggerImage.attr("indice", childCountFormacoesAcademicas)
 
   dataConclusao_triggerImage.click(
     function()
@@ -396,7 +396,7 @@ function addFormacaoAcademica(){
     }
   );
 
-  childCount++;
+  childCountFormacoesAcademicas++;
 }
 
 $( document ).ready(function() {
@@ -405,7 +405,8 @@ $( document ).ready(function() {
     //bind click event on delete buttons using jquery live
     $('.del-certificado').on('click', function() {
         //find the parent div
-        var prnt = $(this).parents(".certificado-div");
+        var prnt = $(this).parent().parent();
+        
         //find the deleted hidden input
         var delInput = prnt.find("input[id$=deleted]");
         //check if this is still not persisted
@@ -423,7 +424,7 @@ $( document ).ready(function() {
 
     $('.del-candidatoLingua').on('click', function() {
         //find the parent div
-        var prnt = $(this).parents(".candidatoLingua-div");
+        var prnt = $(this).parent().parent();
         //find the deleted hidden input
         var delInput = prnt.find("input[id$=deleted]");
         //check if this is still not persisted
@@ -441,7 +442,7 @@ $( document ).ready(function() {
 
     $('.del-experienciaProfissional').on('click', function() {
         //find the parent div
-        var prnt = $(this).parents(".experienciaProfissional-div");
+        var prnt = $(this).parent().parent();
         //find the deleted hidden input
         var delInput = prnt.find("input[id$=deleted]");
         //check if this is still not persisted
@@ -459,7 +460,7 @@ $( document ).ready(function() {
 
     $('.del-formacaoAcademica').on('click', function() {
         //find the parent div
-        var prnt = $(this).parents(".formacaoAcademica-div");
+        var prnt = $(this).parent().parent();
         //find the deleted hidden input
         var delInput = prnt.find("input[id$=deleted]");
         //check if this is still not persisted
