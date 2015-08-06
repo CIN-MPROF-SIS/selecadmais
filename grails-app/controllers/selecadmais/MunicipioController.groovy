@@ -12,7 +12,7 @@ class MunicipioController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-	@Secured(['PAPEL_MODERADOR'])
+	
 	def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Municipio.list(params), model:[municipioInstanceCount: Municipio.count()]
