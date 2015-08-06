@@ -1,3 +1,5 @@
+
+
 // locations to search for config files that get merged into the main config;
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
@@ -117,10 +119,11 @@ log4j.main = {
 }
 
 
+
 // Added by the Spring Security Core plugin:
-grails.plugin.springsecurity.userLookup.userDomainClassName = 'selecadmais.Secuser'
-grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'selecadmais.SecuserSecRole'
-grails.plugin.springsecurity.authority.className = 'selecadmais.SecRole'
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'selecadmais.Usuario'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'selecadmais.UsuarioPapel'
+grails.plugin.springsecurity.authority.className = 'selecadmais.Papel'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                ['permitAll'],
 	'/index':           ['permitAll'],
@@ -130,6 +133,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/css/**':       ['permitAll'],
 	'/**/images/**':    ['permitAll'],
 	'/**/favicon.ico':  ['permitAll'],
-	'/municipio/index': ['ROLE_MODERADOR', 'IS_AUTHENTICATED_FULLY'],
+	'/**':  ['permitAll']
+	
 ]
 
