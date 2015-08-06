@@ -58,6 +58,15 @@
 					
 				</li>
 				</g:if>
+
+				<g:if test="${candidatoInstance?.complemento}">
+				<li class="fieldcontain">
+					<span id="complemento-label" class="property-label"><g:message code="candidato.complemento.label" default="Complemento" /></span>
+					
+						<span class="property-value" aria-labelledby="complemento-label"><g:fieldValue bean="${candidatoInstance}" field="complemento"/></span>
+					
+				</li>
+				</g:if>
 			
 				<g:if test="${candidatoInstance?.numero}">
 				<li class="fieldcontain">
@@ -85,6 +94,15 @@
 					
 				</li>
 				</g:if>
+
+				<g:if test="${candidatoInstance?.municipio}">
+				<li class="fieldcontain">
+					<span id="municipio-label" class="property-label"><g:message code="candidato.municipio.label" default="Municipio" /></span>
+					
+						<span class="property-value" aria-labelledby="municipio-label"><g:link controller="municipio" action="show" id="${candidatoInstance?.municipio?.id}">${candidatoInstance?.municipio?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
 			
 				<g:if test="${candidatoInstance?.cpf}">
 				<li class="fieldcontain">
@@ -100,6 +118,15 @@
 					<span id="nacionalidade-label" class="property-label"><g:message code="candidato.nacionalidade.label" default="Nacionalidade" /></span>
 					
 						<span class="property-value" aria-labelledby="nacionalidade-label"><g:fieldValue bean="${candidatoInstance}" field="nacionalidade"/></span>
+					
+				</li>
+				</g:if>
+
+				<g:if test="${candidatoInstance?.naturalidade}">
+				<li class="fieldcontain">
+					<span id="naturalidade-label" class="property-label"><g:message code="candidato.naturalidade.label" default="Naturalidade" /></span>
+					
+						<span class="property-value" aria-labelledby="naturalidade-label"><g:link controller="municipio" action="show" id="${candidatoInstance?.naturalidade?.id}">${candidatoInstance?.naturalidade?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -144,20 +171,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${candidatoInstance?.complemento}">
-				<li class="fieldcontain">
-					<span id="complemento-label" class="property-label"><g:message code="candidato.complemento.label" default="Complemento" /></span>
-					
-						<span class="property-value" aria-labelledby="complemento-label"><g:fieldValue bean="${candidatoInstance}" field="complemento"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${candidatoInstance?.dataNascimento}">
 				<li class="fieldcontain">
 					<span id="dataNascimento-label" class="property-label"><g:message code="candidato.dataNascimento.label" default="Data Nascimento" /></span>
 					
-						<span class="property-value" aria-labelledby="dataNascimento-label"><g:formatDate date="${candidatoInstance?.dataNascimento}" /></span>
+						<span class="property-value" aria-labelledby="dataNascimento-label"><g:formatDate date="${candidatoInstance?.dataNascimento}" format="dd/MM/yyyy"/></span>
 					
 				</li>
 				</g:if>
@@ -180,24 +198,6 @@
 						<g:each in="${candidatoInstance.formacoesAcademicas}" var="f">
 						<span class="property-value" aria-labelledby="formacoesAcademicas-label"><g:link controller="formacaoAcademica" action="show" id="${f.id}">${f?.encodeAsHTML()}</g:link></span>
 						</g:each>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${candidatoInstance?.municipio}">
-				<li class="fieldcontain">
-					<span id="municipio-label" class="property-label"><g:message code="candidato.municipio.label" default="Municipio" /></span>
-					
-						<span class="property-value" aria-labelledby="municipio-label"><g:link controller="municipio" action="show" id="${candidatoInstance?.municipio?.id}">${candidatoInstance?.municipio?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${candidatoInstance?.naturalidade}">
-				<li class="fieldcontain">
-					<span id="naturalidade-label" class="property-label"><g:message code="candidato.naturalidade.label" default="Naturalidade" /></span>
-					
-						<span class="property-value" aria-labelledby="naturalidade-label"><g:link controller="municipio" action="show" id="${candidatoInstance?.naturalidade?.id}">${candidatoInstance?.naturalidade?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

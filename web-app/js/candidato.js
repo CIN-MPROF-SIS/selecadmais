@@ -252,6 +252,8 @@ function addFormacaoAcademica(){
   var clone = $("#formacaoAcademica_clone").clone()
   var htmlId = 'formacoesAcademicas['+childCount+'].';
   var instituicaoInput = clone.find("input[id$=instituicao]");
+  var cargaHorariaInput = clone.find("input[id$=cargaHoraria]");
+  var grauFormacaoInput = clone.find("input[id$='grauFormacao.id']");
   var dataInicioInput = clone.find("input[id$=dataInicio]");
   var dataInicio_yearInput = clone.find("input[id$=dataInicio_year]");
   var dataInicio_monthInput = clone.find("input[id$=dataInicio_month]");
@@ -281,6 +283,10 @@ function addFormacaoAcademica(){
           .attr('value', 'true');
   instituicaoInput.attr('id',htmlId + 'instituicao')
           .attr('name',htmlId + 'instituicao');
+  cargaHorariaInput.attr('id',htmlId + 'cargaHoraria')
+          .attr('name',htmlId + 'cargaHoraria');
+  grauFormacaoInput.attr('id',htmlId + 'grauFormacao.id')
+          .attr('name',htmlId + 'grauFormacao.id');
   dataInicioInput.attr('id',htmlId + 'dataInicio')
           .attr('name',htmlId + 'dataInicio');
   dataInicio_yearInput.attr('id',htmlId + 'dataInicio_year')

@@ -3,7 +3,7 @@
  </script>
 <ul id="childListFormacoesAcademicas" class="one-to-many">
     <g:each var="formacaoAcademica" in="${candidatoInstance.formacoesAcademicas}" status="i">
-        <g:render template='experiencia_profissional' model="['formacaoAcademica':formacaoAcademica,'i':i,'hidden':false]"/>
+        <g:render template='formacao_academica' model="['formacaoAcademica':formacaoAcademica,'i':i,'hidden':false]"/>
     </g:each>
 </ul>
 <div>

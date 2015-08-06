@@ -35,8 +35,11 @@
             timeFormat:"24",
             onUpdate:experienciasProfissionais_dataInicio_updated,
             singleClick:true,
-            range:[1999,2999],
-            date:new Date(${formatDate(format:'yyyy',date:experienciaProfissional?.dataInicio)},${formatDate(format:'MM',date:experienciaProfissional?.dataInicio)},${formatDate(format:'dd',date:experienciaProfissional?.dataInicio)},0,0)
+            range:[1999,2999]
+            <g:if test="${ experienciaProfissional?.dataInicio != null}">
+            ,
+            date:new Date(${formatDate(format:'yyyy',date:experienciaProfissional?.dataInicio)},${formatDate(format:'MM',date:experienciaProfissional?.dataInicio)} - 1,${formatDate(format:'dd',date:experienciaProfissional?.dataInicio)},0,0)
+            </g:if>
         });
 
         var dataInicio_triggerImage = $("[id='experienciasProfissionais[${i}].dataInicio-trigger']");
@@ -74,11 +77,14 @@
             timeFormat:"24",
             onUpdate:experienciasProfissionais_dataConclusao_updated,
             singleClick:true,
-            range:[1999,2999],
-            date:new Date(${formatDate(format:'yyyy',date:experienciaProfissional?.dataConclusao)},${formatDate(format:'MM',date:experienciaProfissional?.dataConclusao)},${formatDate(format:'dd',date:experienciaProfissional?.dataConclusao)},0,0)
+            range:[1999,2999]
+            <g:if test="${ experienciaProfissional?.dataConclusao != null}">
+            ,
+            date:new Date(${formatDate(format:'yyyy',date:experienciaProfissional?.dataConclusao)},${formatDate(format:'MM',date:experienciaProfissional?.dataConclusao)} - 1,${formatDate(format:'dd',date:experienciaProfissional?.dataConclusao)},0,0)
+            </g:if>
         });
 
-        var dataConclusao_triggerImage = $("[id='experienciasProfissionais[${i}].dataInicio-trigger']");
+        var dataConclusao_triggerImage = $("[id='experienciasProfissionais[${i}].dataConclusao-trigger']");
           dataConclusao_triggerImage.attr("indice", "${i}")
 
           dataConclusao_triggerImage.click(

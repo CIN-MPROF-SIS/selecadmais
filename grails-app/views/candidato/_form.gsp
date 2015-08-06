@@ -38,6 +38,15 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'complemento', 'error')} required">
+	<label for="complemento">
+		<g:message code="candidato.complemento.label" default="Complemento" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="complemento" required="" value="${candidatoInstance?.complemento}"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'numero', 'error')} ">
 	<label for="numero">
 		<g:message code="candidato.numero.label" default="Numero" />
@@ -70,7 +79,7 @@
 		<g:message code="candidato.municipio.label" default="Municipio" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="municipio" name="municipio.id" from="${selecadmais.Municipio.list()}" optionKey="id" required="" value="${candidatoInstance?.municipio?.id}" class="many-to-one"/>
+	<g:select id="municipio" name="municipio.id" from="${selecadmais.Municipio.list()}" optionKey="id" required="" value="${candidatoInstance?.municipio?.id}" class="many-to-one" noSelection="['':'']"/>
 
 </div>
 
@@ -97,7 +106,7 @@
 		<g:message code="candidato.naturalidade.label" default="Naturalidade" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="naturalidade" name="naturalidade.id" from="${selecadmais.Municipio.list()}" optionKey="id" required="" value="${candidatoInstance?.naturalidade?.id}" class="many-to-one"/>
+	<g:select id="naturalidade" name="naturalidade.id" from="${selecadmais.Municipio.list()}" optionKey="id" required="" value="${candidatoInstance?.naturalidade?.id}" class="many-to-one" noSelection="['':'']"/>
 
 </div>
 
@@ -116,15 +125,6 @@
 		
 	</label>
 	<g:textField name="curriculo" maxlength="200" value="${candidatoInstance?.curriculo}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'complemento', 'error')} required">
-	<label for="complemento">
-		<g:message code="candidato.complemento.label" default="Complemento" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="complemento" required="" value="${candidatoInstance?.complemento}"/>
 
 </div>
 
