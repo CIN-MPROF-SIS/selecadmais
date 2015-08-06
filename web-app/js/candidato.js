@@ -1,6 +1,30 @@
 var indiceExperienciaProfissional;
 var indiceFormacaoAcademica;
 
+function montarMunicipios(ar, combo)
+{
+    var $municipio = $('#' + combo)
+      $municipio.append($('<option>', { 
+          value: "",
+          text : "" 
+      }));
+
+    for(var cont = 0; cont < ar.length; cont++)
+    {
+      var objeto = ar[cont];
+        $municipio.append($('<option>', { 
+            value: objeto.id,
+            text : objeto.nome 
+        }));
+    }
+    /*alert(valor);
+    pegar valor de um hidden
+    if(valor != null && valor != undefined)
+    {
+      $municipio.val(valor);
+    }*/
+}
+
 function experienciasProfissionais_dataInicio_updated(calendar) 
 {
     document.getElementById('experienciasProfissionais['+ indiceExperienciaProfissional + '].dataInicio').value='struct'
@@ -376,7 +400,8 @@ function addFormacaoAcademica(){
 }
 
 $( document ).ready(function() {
- 
+  $("#cmdUnidadeFederativa").change();
+  $("#cmdUnidadeFederativaNaturalidade").change();
     //bind click event on delete buttons using jquery live
     $('.del-certificado').on('click', function() {
         //find the parent div

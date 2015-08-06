@@ -76,10 +76,24 @@
 
 <div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'municipio', 'error')} required">
 	<label for="municipio">
+		<g:message code="candidato.municipio.unidadeFederativa.label" default="Unidade Federativa" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="cmdUnidadeFederativa" name="cmdUnidadeFederativa" from="${selecadmais.UnidadeFederativa.list()}" optionKey="id" required="" value="${candidatoInstance?.municipio?.unidadeFederativa?.id}" class="many-to-one" noSelection="['':'']"
+		onchange="${remoteFunction (
+                        controller: 'candidato',
+                        action: 'getMunicipios',
+                        params: '\'uf=\' + this.value + \'&update=municipio&id=' + candidatoInstance?.municipio?.id + '\'',
+                        update: 'municipio'
+                )}"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'municipio', 'error')} required">
+	<label for="municipio">
 		<g:message code="candidato.municipio.label" default="Municipio" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="municipio" name="municipio.id" from="${selecadmais.Municipio.list()}" optionKey="id" required="" value="${candidatoInstance?.municipio?.id}" class="many-to-one" noSelection="['':'']"/>
+	<g:select id="municipio" name="municipio.id" from="${[]}" optionKey="id" required="" value="${candidatoInstance?.municipio?.id}" class="many-to-one" noSelection="['':'']"/>
 
 </div>
 
@@ -102,11 +116,25 @@
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'naturalidade', 'error')} required">
+	<label for="municipio">
+		<g:message code="candidato.municipio.label" default="Municipio" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="cmdUnidadeFederativaNaturalidade" name="cmdUnidadeFederativaNaturalidade" from="${selecadmais.UnidadeFederativa.list()}" optionKey="id" required="" value="${candidatoInstance?.naturalidade?.unidadeFederativa?.id}" class="many-to-one" noSelection="['':'']"
+	onchange="${remoteFunction (
+                    controller: 'candidato',
+                    action: 'getMunicipios',
+                    params: '\'uf=\' + this.value + \'&update=naturalidade&id=' + candidatoInstance?.naturalidade?.id + '\'',
+                    update: 'naturalidade'
+            )}"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'naturalidade', 'error')} required">
 	<label for="naturalidade">
 		<g:message code="candidato.naturalidade.label" default="Naturalidade" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="naturalidade" name="naturalidade.id" from="${selecadmais.Municipio.list()}" optionKey="id" required="" value="${candidatoInstance?.naturalidade?.id}" class="many-to-one" noSelection="['':'']"/>
+	<g:select id="naturalidade" name="naturalidade.id" from="${[]}" optionKey="id" required="" value="${candidatoInstance?.naturalidade?.id}" class="many-to-one" noSelection="['':'']"/>
 
 </div>
 

@@ -4,6 +4,7 @@ package selecadmais
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import grails.converters.*
 
 @Transactional(readOnly = true)
 class CandidatoController {
@@ -157,5 +158,20 @@ class CandidatoController {
             }
             '*'{ render status: NOT_FOUND }
         }
+    }
+
+    def getMunicipios() {
+        def uf = params.uf
+        def locations = Municipio.findAll(sort:"nome")
+        {
+            unidadeFederativa.id == uf
+        }
+
+        render g.select(id:params.update, name: params.update + '.id', value: params.id,
+            from:locations, optionKey:'id', noSelection:['':'']
+        )
+        //render locations as JSON
+        //render locations.collectEntries{["id" : it.id, "nome" : it.nome]} as JSON
+
     }
 }
