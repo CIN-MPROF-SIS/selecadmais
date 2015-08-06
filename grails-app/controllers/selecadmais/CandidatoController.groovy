@@ -105,6 +105,20 @@ class CandidatoController {
             candidatoInstance.experienciasProfissionais.removeAll(_experienciasProfissionaisToBeDeleted)
         }
 
+        def _formacoesAcademicasToBeDeleted = []
+        cont = 0
+        candidatoInstance.formacoesAcademicas.each {
+            if (params["formacoesAcademicas[" + cont + "].deleted"] == "true") {
+                _formacoesAcademicasToBeDeleted << it
+            }
+            cont++
+        }
+
+        // if there are phones to be deleted remove them all
+        if (_formacoesAcademicasToBeDeleted) {
+            candidatoInstance.formacoesAcademicas.removeAll(_formacoesAcademicasToBeDeleted)
+        }
+
         candidatoInstance.save flush:true
 
         request.withFormat {

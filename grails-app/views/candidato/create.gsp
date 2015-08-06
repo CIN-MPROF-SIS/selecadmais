@@ -39,6 +39,7 @@
 		    <g:render template='certificado' model="['certificado':null,'i':'_clone','hidden':true]"/>
 		     <g:render template='candidato_lingua' model="['candidatoLingua':null,'i':'_clone','hidden':true]"/>
 		     <g:render template='experiencia_profissional' model="['experienciaProfissional':null,'i':'_clone','hidden':true]"/>
+		     <g:render template='formacao_academica' model="['formacaoAcademica':null,'i':'_clone','hidden':true]"/>
 		</div>
 	</body>
 </html>

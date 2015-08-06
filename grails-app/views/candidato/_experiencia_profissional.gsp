@@ -20,7 +20,7 @@
 
     <g:textField id='experienciasProfissionais[${i}].dataInicio_value' name='experienciasProfissionais[${i}].dataInicio_value' value="${formatDate(format:'dd/MM/yyyy',date:experienciaProfissional?.dataInicio)}" size="10"/>
     
-    <img src="/selecadmais/plugins/calendar-1.2.1/images/skin/calendar.png" id="experienciasProfissionais[${i}].dataInicio-trigger" alt="Date"/>
+    <img src="/plugins/calendar-1.2.1/images/skin/calendar.png" id="experienciasProfissionais[${i}].dataInicio-trigger" alt="Date"/>
 
     <g:if test="${i != '_clone'}">
 
@@ -36,7 +36,7 @@
             onUpdate:experienciasProfissionais_dataInicio_updated,
             singleClick:true,
             range:[1999,2999],
-            date:new Date(2015,7,18,0,0)
+            date:new Date(${formatDate(format:'yyyy',date:experienciaProfissional?.dataInicio)},${formatDate(format:'MM',date:experienciaProfissional?.dataInicio)},${formatDate(format:'dd',date:experienciaProfissional?.dataInicio)},0,0)
         });
 
         var dataInicio_triggerImage = $("[id='experienciasProfissionais[${i}].dataInicio-trigger']");
@@ -60,7 +60,7 @@
 
     <g:textField id='experienciasProfissionais[${i}].dataConclusao_value' name='experienciasProfissionais[${i}].dataConclusao_value' value='${formatDate(format:'dd/MM/yyyy',date:experienciaProfissional?.dataConclusao)}' size="10"/>
     
-    <img src="/selecadmais/plugins/calendar-1.2.1/images/skin/calendar.png" id="experienciasProfissionais[${i}].dataConclusao-trigger" alt="Date"/>
+    <img src="/plugins/calendar-1.2.1/images/skin/calendar.png" id="experienciasProfissionais[${i}].dataConclusao-trigger" alt="Date"/>
 
     <g:if test="${i != '_clone'}">
     <script type="text/javascript">
@@ -75,7 +75,7 @@
             onUpdate:experienciasProfissionais_dataConclusao_updated,
             singleClick:true,
             range:[1999,2999],
-            date:new Date(2015,7,18,0,0)
+            date:new Date(${formatDate(format:'yyyy',date:experienciaProfissional?.dataConclusao)},${formatDate(format:'MM',date:experienciaProfissional?.dataConclusao)},${formatDate(format:'dd',date:experienciaProfissional?.dataConclusao)},0,0)
         });
 
         var dataConclusao_triggerImage = $("[id='experienciasProfissionais[${i}].dataInicio-trigger']");

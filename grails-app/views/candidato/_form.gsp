@@ -65,6 +65,15 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'municipio', 'error')} required">
+	<label for="municipio">
+		<g:message code="candidato.municipio.label" default="Municipio" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="municipio" name="municipio.id" from="${selecadmais.Municipio.list()}" optionKey="id" required="" value="${candidatoInstance?.municipio?.id}" class="many-to-one"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'cpf', 'error')} required">
 	<label for="cpf">
 		<g:message code="candidato.cpf.label" default="Cpf" />
@@ -80,6 +89,15 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="nacionalidade" maxlength="50" required="" value="${candidatoInstance?.nacionalidade}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'naturalidade', 'error')} required">
+	<label for="naturalidade">
+		<g:message code="candidato.naturalidade.label" default="Naturalidade" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="naturalidade" name="naturalidade.id" from="${selecadmais.Municipio.list()}" optionKey="id" required="" value="${candidatoInstance?.naturalidade?.id}" class="many-to-one"/>
 
 </div>
 
@@ -154,37 +172,10 @@
 
 <div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'formacoesAcademicas', 'error')} ">
 	<label for="formacoesAcademicas">
-		<g:message code="candidato.formacoesAcademicas.label" default="Formacoes Academicas" />
+		<g:message code="candidato.formacoesAcademicas.label" default="Formações Acadêmicas" />
 		
 	</label>
 	
-<ul class="one-to-many">
-<g:each in="${candidatoInstance?.formacoesAcademicas?}" var="f">
-    <li><g:link controller="formacaoAcademica" action="show" id="${f.id}">${f?.encodeAsHTML()}</g:link></li>
-</g:each>
-<li class="add">
-<g:link controller="formacaoAcademica" action="create" params="['candidato.id': candidatoInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'formacaoAcademica.label', default: 'FormacaoAcademica')])}</g:link>
-</li>
-</ul>
-
+	<g:render template="formacoes_academicas" model="['candidatoInstance':candidatoInstance]" />
 
 </div>
-
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'municipio', 'error')} required">
-	<label for="municipio">
-		<g:message code="candidato.municipio.label" default="Municipio" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="municipio" name="municipio.id" from="${selecadmais.Municipio.list()}" optionKey="id" required="" value="${candidatoInstance?.municipio?.id}" class="many-to-one"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: candidatoInstance, field: 'naturalidade', 'error')} required">
-	<label for="naturalidade">
-		<g:message code="candidato.naturalidade.label" default="Naturalidade" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="naturalidade" name="naturalidade.id" from="${selecadmais.Municipio.list()}" optionKey="id" required="" value="${candidatoInstance?.naturalidade?.id}" class="many-to-one"/>
-
-</div>
-
