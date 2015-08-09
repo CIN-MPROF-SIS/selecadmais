@@ -165,10 +165,10 @@
 		<g:message code="candidato.curriculo.label" default="Curriculo" />
 		
 	</label>
+	<input type="file" name="fileCurriculo" id="fileCurriculo" />
 	<g:if test="${candidatoInstance?.curriculo}">
 		<a href="${candidatoInstance?.curriculo}" target="_blank">Download</a>
 	</g:if>
-	<input type="file" name="fileCurriculo" id="fileCurriculo" />
 </div>
 
 <g:render template="certificados" model="['candidatoInstance':candidatoInstance]" />

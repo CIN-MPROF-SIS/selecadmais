@@ -10,7 +10,7 @@ class FileUploadService {
 	boolean transactional = true
 
 	def String uploadFile(MultipartFile file, String name, String destinationDirectory) {
-
+        destinationDirectory = "uploads/${destinationDirectory}"
         def servletContext = ServletContextHolder.servletContext
         def storagePath = servletContext.getRealPath(destinationDirectory)
 
