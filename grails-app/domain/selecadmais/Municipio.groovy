@@ -11,6 +11,6 @@ class Municipio {
 	static belongsTo = [ unidadeFederativa : UnidadeFederativa ] 
 
 	String toString(){
-	  return "${nome}-${unidadeFederativa.sigla}"
+		return "${nome}-${unidadeFederativa?.sigla}"
 	} 
 }

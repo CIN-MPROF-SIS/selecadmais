@@ -133,7 +133,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/css/**':       ['permitAll'],
 	'/**/images/**':    ['permitAll'],
 	'/**/favicon.ico':  ['permitAll'],
-	'/municipio/create': 	['ROLE_MODERADOR', 'IS_AUTHENTICATED_FULLY'],
+//	'/municipio/create': 	['ROLE_MODERADOR', 'IS_AUTHENTICATED_FULLY'],
 	'/**':  			['permitAll']
 	
 ]

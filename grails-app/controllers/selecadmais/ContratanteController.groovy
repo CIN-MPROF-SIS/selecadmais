@@ -8,7 +8,8 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class ContratanteController {
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    FileUploadService fileUploadService
+    static allowedMethods = [save: "POST", update: "POST", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -33,6 +34,26 @@ class ContratanteController {
         if (contratanteInstance.hasErrors()) {
             respond contratanteInstance.errors, view:'create'
             return
+        }
+
+        def extensoes_logo = ['jpg', 'jpeg', 'gif', 'png']
+        def logo = request.getFile('fileLogo')
+    
+        if (!logo.isEmpty()) {
+            if(!extensoes_logo.contains(logo.getOriginalFilename().split("\\.")[1].toLowerCase()))
+            {
+                request.withFormat {
+                    form multipartForm {
+                            candidatoInstance.errors.rejectValue(
+                            'logo',
+                            'Formato da logo não é de imagem')
+                        render(view: "create", model: [contratanteInstance: contratanteInstance])
+                    }
+                    '*'{ respond contratanteInstance, [status: error] }
+                }
+                return;
+            }
+            contratanteInstance.logo = fileUploadService.uploadFile(logo, logo.getOriginalFilename(), "logos/" + contratanteInstance.id)
         }
 
         contratanteInstance.save flush:true
@@ -60,6 +81,26 @@ class ContratanteController {
         if (contratanteInstance.hasErrors()) {
             respond contratanteInstance.errors, view:'edit'
             return
+        }
+
+        def extensoes_logo = ['jpg', 'jpeg', 'gif', 'png']
+        def logo = request.getFile('fileLogo')
+    
+        if (!logo.isEmpty()) {
+            if(!extensoes_logo.contains(logo.getOriginalFilename().split("\\.")[1].toLowerCase()))
+            {
+                request.withFormat {
+                    form multipartForm {
+                            candidatoInstance.errors.rejectValue(
+                            'logo',
+                            'Formato da logo não é de imagem')
+                        render(view: "edit", model: [contratanteInstance: contratanteInstance])
+                    }
+                    '*'{ respond contratanteInstance, [status: error] }
+                }
+                return;
+            }
+            contratanteInstance.logo = fileUploadService.uploadFile(logo, logo.getOriginalFilename(), "logos/" + contratanteInstance.id)
         }
 
         contratanteInstance.save flush:true

@@ -4,6 +4,8 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'contratante.label', default: 'Contratante')}" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
+		<script src="../js/contratante.js" type="text/javascript" ></script>
+		<calendar:resources lang="en" theme="tiger"/>
 	</head>
 	<body>
 		<a href="#create-contratante" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -25,14 +27,14 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-			<g:form url="[resource:contratanteInstance, action:'save']" >
+			<g:uploadForm url="[resource:contratanteInstance, action:'save']" >
 				<fieldset class="form">
 					<g:render template="form"/>
 				</fieldset>
 				<fieldset class="buttons">
 					<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
 				</fieldset>
-			</g:form>
+			</g:uploadForm>
 		</div>
 	</body>
 </html>

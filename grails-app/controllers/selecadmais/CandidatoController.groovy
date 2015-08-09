@@ -42,13 +42,12 @@ class CandidatoController {
         if (!foto.isEmpty()) {
             if(!extensoes_foto.contains(foto.getOriginalFilename().split("\\.")[1].toLowerCase()))
             {
-                println "entrou if"
                 request.withFormat {
                     form multipartForm {
                             candidatoInstance.errors.rejectValue(
                             'foto',
                             'Formato da foto não é de imagem')
-                        render(view: "edit", model: [candidatoInstance: candidatoInstance])
+                        render(view: "create", model: [candidatoInstance: candidatoInstance])
                     }
                     '*'{ respond candidatoInstance, [status: error] }
                 }
