@@ -22,6 +22,13 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list candidato">
+
+				<g:if test="${candidatoInstance?.foto}">
+				<li class="fieldcontain">
+					<img src="${candidatoInstance?.foto}" style="max-width:100px;max-height:100px">
+					
+				</li>
+				</g:if>
 			
 				<g:if test="${candidatoInstance?.nome}">
 				<li class="fieldcontain">
@@ -131,35 +138,27 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${candidatoInstance?.foto}">
+				<g:if test="${candidatoInstance?.dataNascimento}">
 				<li class="fieldcontain">
-					<span id="foto-label" class="property-label"><g:message code="candidato.foto.label" default="Foto" /></span>
+					<span id="dataNascimento-label" class="property-label"><g:message code="candidato.dataNascimento.label" default="Data Nascimento" /></span>
 					
-						<span class="property-value" aria-labelledby="foto-label"><g:fieldValue bean="${candidatoInstance}" field="foto"/></span>
+						<span class="property-value" aria-labelledby="dataNascimento-label"><g:formatDate date="${candidatoInstance?.dataNascimento}" format="dd/MM/yyyy"/></span>
 					
 				</li>
 				</g:if>
-			
+
 				<g:if test="${candidatoInstance?.curriculo}">
 				<li class="fieldcontain">
 					<span id="curriculo-label" class="property-label"><g:message code="candidato.curriculo.label" default="Curriculo" /></span>
 					
-						<span class="property-value" aria-labelledby="curriculo-label"><g:fieldValue bean="${candidatoInstance}" field="curriculo"/></span>
+					<span class="property-value" aria-labelledby="curriculo-label">
+						<a href="${candidatoInstance?.curriculo}" target="_blank">Download</a>
+					</span>
+						
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${candidatoInstance?.candidatosLingua}">
-				<li class="fieldcontain">
-					<span id="candidatosLingua-label" class="property-label"><g:message code="candidato.candidatosLingua.label" default="Candidatos Lingua" /></span>
-					
-						<g:each in="${candidatoInstance.candidatosLingua}" var="c">
-						<span class="property-value" aria-labelledby="candidatosLingua-label"><g:link controller="candidatoLingua" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			
+
 				<g:if test="${candidatoInstance?.certificados}">
 				<li class="fieldcontain">
 					<span id="certificados-label" class="property-label"><g:message code="candidato.certificados.label" default="Certificados" /></span>
@@ -170,12 +169,14 @@
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${candidatoInstance?.dataNascimento}">
+
+				<g:if test="${candidatoInstance?.candidatosLingua}">
 				<li class="fieldcontain">
-					<span id="dataNascimento-label" class="property-label"><g:message code="candidato.dataNascimento.label" default="Data Nascimento" /></span>
+					<span id="candidatosLingua-label" class="property-label"><g:message code="candidato.candidatosLingua.label" default="Candidatos Lingua" /></span>
 					
-						<span class="property-value" aria-labelledby="dataNascimento-label"><g:formatDate date="${candidatoInstance?.dataNascimento}" format="dd/MM/yyyy"/></span>
+						<g:each in="${candidatoInstance.candidatosLingua}" var="c">
+						<span class="property-value" aria-labelledby="candidatosLingua-label"><g:link controller="candidatoLingua" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>

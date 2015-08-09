@@ -138,24 +138,6 @@
 
 </div>
 
-<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'foto', 'error')} ">
-	<label for="foto">
-		<g:message code="candidato.foto.label" default="Foto" />
-		
-	</label>
-	<g:textField name="foto" maxlength="200" value="${candidatoInstance?.foto}"/>
-
-</div>
-
-<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'curriculo', 'error')} ">
-	<label for="curriculo">
-		<g:message code="candidato.curriculo.label" default="Curriculo" />
-		
-	</label>
-	<g:textField name="curriculo" maxlength="200" value="${candidatoInstance?.curriculo}"/>
-
-</div>
-
 <div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'dataNascimento', 'error')} required">
 	<label for="dataNascimento">
 		<g:message code="candidato.dataNascimento.label" default="Data Nascimento" />
@@ -164,6 +146,29 @@
 
     <calendar:datePicker name="dataNascimento"  dateFormat= "%d/%m/%Y" defaultValue="${candidatoInstance?.dataNascimento}"/>
 
+</div>
+
+<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'foto', 'error')} ">
+	<label for="foto">
+		<g:message code="candidato.foto.label" default="Foto" />
+		
+	</label>
+	<input type="file" name="fileFoto" id="fileFoto" />
+
+	<g:if test="${candidatoInstance?.foto}">
+		<img src="${candidatoInstance?.foto}" style="max-width:100px;max-height:100px">
+	</g:if>
+</div>
+
+<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'curriculo', 'error')} ">
+	<label for="curriculo">
+		<g:message code="candidato.curriculo.label" default="Curriculo" />
+		
+	</label>
+	<g:if test="${candidatoInstance?.curriculo}">
+		<a href="${candidatoInstance?.curriculo}" target="_blank">Download</a>
+	</g:if>
+	<input type="file" name="fileCurriculo" id="fileCurriculo" />
 </div>
 
 <g:render template="certificados" model="['candidatoInstance':candidatoInstance]" />

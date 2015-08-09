@@ -402,6 +402,23 @@ function addFormacaoAcademica(){
 $( document ).ready(function() {
   $("#cmdUnidadeFederativa").change();
   $("#cmdUnidadeFederativaNaturalidade").change();
+
+  //if($("#dataNascimento_year").val() != "")
+  $("#dataNascimento").val("struct");
+  
+
+  for(var cont = 0; cont <= childCountExperienciasProfissionais; cont++)
+  {
+    $("#experienciasProfissionais[" + cont + "].dataInicio").val("struct");
+    $("#experienciasProfissionais[" + cont + "].dataConclusao").val("struct");
+  }
+
+  for(var cont = 0; cont <= childCountFormacoesAcademicas; cont++)
+  {
+    $("#formacoesAcademicas[" + cont + "].dataInicio").val("struct");
+    $("#formacoesAcademicas[" + cont + "].dataConclusao").val("struct");
+  }
+
     //bind click event on delete buttons using jquery live
     $('.del-certificado').on('click', function() {
         //find the parent div
