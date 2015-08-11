@@ -1,4 +1,3 @@
-
 <%@ page import="selecadmais.Candidato" %>
 <!DOCTYPE html>
 <html>
