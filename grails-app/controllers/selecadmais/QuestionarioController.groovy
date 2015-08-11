@@ -61,7 +61,7 @@ class QuestionarioController {
             respond questionarioInstance.errors, view:'edit'
             return
         }
-
+println questionarioInstance.questoes
         questionarioInstance.save flush:true
 
         request.withFormat {

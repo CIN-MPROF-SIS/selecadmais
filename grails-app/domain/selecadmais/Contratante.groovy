@@ -15,4 +15,8 @@ class Contratante extends Pessoa {
     	logo(size:0..200,nullable:true)
     	
     }
+
+    String toString(){
+        return nome
+    }
 }

@@ -14,6 +14,10 @@ class Questionario {
     	descricao(size: 5..100, blank:false)
     }
 
+	static mapping = {
+	    questoes sort: 'descricao'
+	}
+
 	String toString(){
 	  	return descricao
 	} 
