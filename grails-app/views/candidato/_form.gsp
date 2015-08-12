@@ -117,7 +117,7 @@
 
 <div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'naturalidade', 'error')} required">
 	<label for="municipio">
-		<g:message code="candidato.municipio.label" default="Municipio" />
+		<g:message code="candidato.municipio.label" default="Unidade Federativa" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="cmdUnidadeFederativaNaturalidade" name="cmdUnidadeFederativaNaturalidade" from="${selecadmais.UnidadeFederativa.list()}" optionKey="id" required="" value="${candidatoInstance?.naturalidade?.unidadeFederativa?.id}" class="many-to-one" noSelection="['':'']"
