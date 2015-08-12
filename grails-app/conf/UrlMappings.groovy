@@ -9,6 +9,9 @@ class UrlMappings {
 		
 		"/login/$action?"(controller: "login")
 		"/logout/$action?"(controller: "logout")
+		"/questionario/vaga/$id?"(controller:"questionario", action:"index")
+		"/questionario/responder/$id?"(controller:"questionario", action:"responder")
+		"/questionario/responder/save"(controller:"questionario", action:"salvarRespostas")
 	
 		"/"(view:"/index")
 		"500"(view:'/error')

@@ -8,11 +8,13 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class QuestionarioController {
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE", salvarRespostas: "POST"]
 
     def index(Integer max) {
+        def vaga = Vaga.findById(params.id)
+
         params.max = Math.min(max ?: 10, 100)
-        respond Questionario.list(params), model:[questionarioInstanceCount: Questionario.count()]
+        respond Questionario.findAllByVaga(vaga), model:[questionarioInstanceCount: Questionario.count()]
     }
 
     def show(Questionario questionarioInstance) {
@@ -21,6 +23,45 @@ class QuestionarioController {
 
     def create() {
         respond new Questionario(params)
+    }
+
+    def responder(){
+        def questionarioInstance = Questionario.findById(params.id)
+        respond questionarioInstance
+    }
+
+    def salvarRespostas(){
+        def candidato = Candidato.findById(2)
+        def questionarioInstance = Questionario.findById(params.id)
+
+/*        def respostas = Resposta.withCriteria
+        {
+            and{
+                opcao.questao.questionario.id == questionarioInstance.id
+                opcao.candidato.id == 2
+            }
+        }.deleteAll()*/
+        
+        def cont = 0
+        questionarioInstance.questoes.each {
+            if (params["resposta[" + it.id + "]"] != null){
+                def o = Opcao.findById(params["resposta[" + it.id + "]"])
+                def r = new Resposta()
+
+                r.opcao = o
+                r.candidato = candidato//@current_user.pessoa
+                r.save flush:true
+            }
+
+            cont++
+        }
+
+        params["resposta"].each{
+            println "it " + it
+
+        }
+
+        redirect  (controller: "questionario" , action:"index", params: [id: params.idVaga])
     }
 
     @Transactional
@@ -61,7 +102,7 @@ class QuestionarioController {
             respond questionarioInstance.errors, view:'edit'
             return
         }
-println questionarioInstance.questoes
+
         questionarioInstance.save flush:true
 
         request.withFormat {

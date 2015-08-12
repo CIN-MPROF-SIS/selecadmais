@@ -20,15 +20,6 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: vagaInstance, field: 'dataCadastro', 'error')} required">
-	<label for="dataCadastro">
-		<g:message code="vaga.dataCadastro.label" default="Data Cadastro" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="dataCadastro" precision="day"  value="${vagaInstance?.dataCadastro}"  />
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: vagaInstance, field: 'contratante', 'error')} required">
 	<label for="contratante">
 		<g:message code="vaga.contratante.label" default="Contratante" />
@@ -43,7 +34,7 @@
 		<g:message code="vaga.dataInicioInscricao.label" default="Data Inicio Inscricao" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="dataInicioInscricao" precision="day"  value="${vagaInstance?.dataInicioInscricao}"  />
+	<calendar:datePicker name="dataInicioInscricao"  dateFormat= "%d/%m/%Y" defaultValue="${vagaInstance?.dataInicioInscricao}"/>
 
 </div>
 
@@ -52,7 +43,7 @@
 		<g:message code="vaga.dataTerminoInscricao.label" default="Data Termino Inscricao" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="dataTerminoInscricao" precision="day"  value="${vagaInstance?.dataTerminoInscricao}"  />
+	<calendar:datePicker name="dataTerminoInscricao"  dateFormat= "%d/%m/%Y" defaultValue="${vagaInstance?.dataTerminoInscricao}"/>
 
 </div>
 

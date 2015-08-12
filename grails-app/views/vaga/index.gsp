@@ -46,13 +46,13 @@
 					
 						<td>${fieldValue(bean: vagaInstance, field: "cargo")}</td>
 					
-						<td><g:formatDate date="${vagaInstance.dataCadastro}" /></td>
+						<td><g:formatDate date="${vagaInstance.dataCadastro}" format="dd/MM/yyyy"/></td>
 					
 						<td>${fieldValue(bean: vagaInstance, field: "contratante")}</td>
 					
-						<td><g:formatDate date="${vagaInstance.dataInicioInscricao}" /></td>
+						<td><g:formatDate date="${vagaInstance.dataInicioInscricao}" format="dd/MM/yyyy"/></td>
 					
-						<td><g:formatDate date="${vagaInstance.dataTerminoInscricao}" /></td>
+						<td><g:formatDate date="${vagaInstance.dataTerminoInscricao}" format="dd/MM/yyyy"/></td>
 					
 					</tr>
 				</g:each>
