@@ -106,7 +106,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'dataNascimento', 'error')} required">
+<div class="field fieldcontain ${hasErrors(bean: contratanteInstance, field: 'dataNascimento', 'error')} required">
 	<label for="dataNascimento">
 		<g:message code="contratante.dataNascimento.label" default="Data Nascimento" />
 		<span class="required-indicator">*</span>
