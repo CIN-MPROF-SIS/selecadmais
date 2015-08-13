@@ -13,7 +13,7 @@
 
 <div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'email', 'error')} required">
 	<label for="email">
-		<g:message code="candidato.email.label" default="Email" />
+		<g:message code="candidato.email.label" default="E-mail" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:field type="email" name="email" maxlength="50" required="" value="${candidatoInstance?.email}"/>
@@ -49,7 +49,7 @@
 
 <div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'numero', 'error')} ">
 	<label for="numero">
-		<g:message code="candidato.numero.label" default="Numero" />
+		<g:message code="candidato.numero.label" default="Número" />
 		
 	</label>
 	<g:textField name="numero" maxlength="20" value="${candidatoInstance?.numero}"/>
@@ -67,7 +67,7 @@
 
 <div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'cep', 'error')} required">
 	<label for="cep">
-		<g:message code="candidato.cep.label" default="Cep" />
+		<g:message code="candidato.cep.label" default="CEP" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="cep" maxlength="9" required="" value="${candidatoInstance?.cep}"/>
@@ -90,7 +90,7 @@
 
 <div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'municipio', 'error')} required">
 	<label for="municipio">
-		<g:message code="candidato.municipio.label" default="Municipio" />
+		<g:message code="candidato.municipio.label" default="Município" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="municipio" name="municipio.id" from="${[]}" optionKey="id" required="" value="${candidatoInstance?.municipio?.id}" class="many-to-one" noSelection="['':'']"/>
@@ -99,7 +99,7 @@
 
 <div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'cpf', 'error')} required">
 	<label for="cpf">
-		<g:message code="candidato.cpf.label" default="Cpf" />
+		<g:message code="candidato.cpf.label" default="CPF" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="cpf" maxlength="14" required="" value="${candidatoInstance?.cpf}"/>
@@ -162,7 +162,7 @@
 
 <div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'curriculo', 'error')} ">
 	<label for="curriculo">
-		<g:message code="candidato.curriculo.label" default="Curriculo" />
+		<g:message code="candidato.curriculo.label" default="Currículo" />
 		
 	</label>
 	<input type="file" name="fileCurriculo" id="fileCurriculo" />
