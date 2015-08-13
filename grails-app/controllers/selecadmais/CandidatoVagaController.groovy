@@ -15,6 +15,35 @@ class CandidatoVagaController {
         respond CandidatoVaga.list(params), model:[candidatoVagaInstanceCount: CandidatoVaga.count()]
     }
 
+    def home(){
+        def dataAtual = new Date()
+        def criteria = Vaga.createCriteria()
+
+        def vagas = criteria.list
+        {
+            and
+            {
+                lt("dataInicioInscricao",dataAtual)
+                gt("dataTerminoInscricao",dataAtual)
+            }
+            order("dataInicioInscricao")
+        }
+        //def vagas = Vaga.findAll()
+        def candidato = Candidato.findById(2)
+
+        def candidaturas = [:]
+        CandidatoVaga.findAllByCandidato(candidato).each{
+            candidaturas[it.vaga.id] = true
+        }
+
+        render (view:"home", model: [candidaturas: candidaturas, vagas: vagas])
+    }
+
+    def candidatar(){
+        def vagaInstance = Vaga.findById(params.id)
+        [vagaInstance: vagaInstance]
+    }
+
     def show(CandidatoVaga candidatoVagaInstance) {
         respond candidatoVagaInstance
     }
@@ -24,26 +53,24 @@ class CandidatoVagaController {
     }
 
     @Transactional
-    def save(CandidatoVaga candidatoVagaInstance) {
-        if (candidatoVagaInstance == null) {
-            notFound()
-            return
-        }
+    def save() {
+        def candidatoVagaInstance = new CandidatoVaga()
+        def vaga = Vaga.findById(params.vaga)
+        def candidato = Candidato.findById(2)//trocar pelo usuário da sessão
+
 
         if (candidatoVagaInstance.hasErrors()) {
             respond candidatoVagaInstance.errors, view:'create'
             return
         }
 
+        candidatoVagaInstance.vaga = vaga
+        candidatoVagaInstance.candidato = candidato
+        candidatoVagaInstance.selecionado = false
+
         candidatoVagaInstance.save flush:true
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'candidatoVaga.label', default: 'CandidatoVaga'), candidatoVagaInstance.id])
-                redirect candidatoVagaInstance
-            }
-            '*' { respond candidatoVagaInstance, [status: CREATED] }
-        }
+        home()
     }
 
     def edit(CandidatoVaga candidatoVagaInstance) {
