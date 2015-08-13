@@ -7,7 +7,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'cnpj', 'error')} " pj>
 	<label for="cnpj">
-		<g:message code="contratante.cnpj.label" default="Cnpj" />
+		<g:message code="contratante.cnpj.label" default="CNPJ" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="cnpj" required="" value="${contratanteInstance?.cnpj}"/>
