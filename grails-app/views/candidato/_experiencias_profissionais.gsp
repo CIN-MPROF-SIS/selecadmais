@@ -3,7 +3,7 @@
  </script>
 
 <fieldset>
-	<legend>Esperiências Profissionais</legend>
+	<legend>Experiências Profissionais</legend>
 	<ol>
 		<div class="nested-fields">
 			<table width="100%" id="childListExperienciasProfissionais">
