@@ -20,6 +20,15 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'pessoa', 'error')} ">
+	<label for="pessoa">
+		<g:message code="usuario.pessoa.label" default="Pessoa" />
+		
+	</label>
+	<g:select id="pessoa" name="pessoa.id" from="${selecadmais.Pessoa.list()}" optionKey="id" value="${usuarioInstance?.pessoa?.id}" class="many-to-one" noSelection="['null': '']"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'accountExpired', 'error')} ">
 	<label for="accountExpired">
 		<g:message code="usuario.accountExpired.label" default="Account Expired" />

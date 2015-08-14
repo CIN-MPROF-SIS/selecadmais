@@ -41,6 +41,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${usuarioInstance?.pessoa}">
+				<li class="fieldcontain">
+					<span id="pessoa-label" class="property-label"><g:message code="usuario.pessoa.label" default="Pessoa" /></span>
+					
+						<span class="property-value" aria-labelledby="pessoa-label"><g:link controller="pessoa" action="show" id="${usuarioInstance?.pessoa?.id}">${usuarioInstance?.pessoa?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${usuarioInstance?.accountExpired}">
 				<li class="fieldcontain">
 					<span id="accountExpired-label" class="property-label"><g:message code="usuario.accountExpired.label" default="Account Expired" /></span>

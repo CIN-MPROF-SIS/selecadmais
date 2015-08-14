@@ -68,7 +68,7 @@ grails.project.dependency.resolution = {
 		compile ':cloud-support:1.0.11'
         compile ':spring-security-core:2.0-RC5'
         compile ':calendar:1.2.1'
-	 
+		compile ":database-session:1.2.1"
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate4:4.3.8.1" // or ":hibernate:3.6.10.18"

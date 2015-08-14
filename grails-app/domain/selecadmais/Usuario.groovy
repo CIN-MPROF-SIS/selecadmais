@@ -12,6 +12,10 @@ class Usuario implements Serializable {
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
+	
+	Pessoa pessoa
+	
+	static belongsTo = [ pessoa : Pessoa ]
 
 	Usuario(String username, String password) {
 		this()
@@ -57,6 +61,7 @@ class Usuario implements Serializable {
 	static constraints = {
 		username blank: false, unique: true
 		password blank: false
+		pessoa(nullable:true)
 	}
 
 	static mapping = {

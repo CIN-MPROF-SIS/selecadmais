@@ -1,4 +1,4 @@
-
+import grails.plugin.springsecurity.SecurityConfigType
 
 // locations to search for config files that get merged into the main config;
 // config files can be ConfigSlurper scripts, Java properties files, or classes
@@ -89,7 +89,8 @@ grails.hibernate.osiv.readonly = false
 
 environments {
     development {
-        grails.logging.jul.usebridge = true
+       	grails.logging.jul.usebridge = true
+		grails.plugin.springsecurity.debug.useFilter = true
     }
     production {
         grails.logging.jul.usebridge = false
@@ -104,6 +105,8 @@ log4j.main = {
     //appenders {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
     //}
+	
+	info 'grails.plugin.springsecurity.web.filter.DebugFilter'
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP
@@ -116,15 +119,24 @@ log4j.main = {
            'org.springframework',
            'org.hibernate',
            'net.sf.ehcache.hibernate'
+	
+	debug 'org.springframework.security'
 }
 
 
 
+
 // Added by the Spring Security Core plugin:
+//grails.plugin.springsecurity.rememberMe.persistent = true
+//grails.plugin.springsecurity.rememberMe.persistentToken.domainClassName = 'selecadmais.PersistentLogin'
+grails.plugins.springsecurity.successHandler.alwaysUseDefaultTargetUrl = false
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'selecadmais.Usuario'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'selecadmais.UsuarioPapel'
 grails.plugin.springsecurity.authority.className = 'selecadmais.Papel'
-grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+//grails.plugin.springsecurity.auth.loginFormUrl = '/login/auth'
+grails.plugin.springsecurity.logout.postOnly = false
+grails.plugin.springsecurity.securityConfigType = SecurityConfigType.InterceptUrlMap
+grails.plugin.springsecurity.interceptUrlMap = [	 
 	'/':                ['permitAll'],
 	'/index':           ['permitAll'],
 	'/index.gsp':       ['permitAll'],
@@ -133,8 +145,23 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/css/**':       ['permitAll'],
 	'/**/images/**':    ['permitAll'],
 	'/**/favicon.ico':  ['permitAll'],
-	'/municipio/create': 	['ROLE_MODERADOR', 'IS_AUTHENTICATED_FULLY'],
-	'/**':  			['permitAll']
-	
-]
+	'/login/**':        ['permitAll'],
+	'/logout/**':       ['permitAll'],
+//	'/municipio/**': 	['PAPEL_MODERADOR', 'IS_AUTHENTICATED_FULLY'],
+	'/j_spring_security_switch_user': ['PAPEL_MODERADOR'],
+	'/j_spring_security_exit_user':   ['permitAll'],
+	'/**':               ['IS_AUTHENTICATED_ANONYMOUSLY']
+
+ ]
+
+//grails.plugin.springsecurity.securityConfigType = 'Annotation'
+//grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+//    '/':                              ['permitAll'],
+//    '/index':                         ['permitAll'],
+//    '/index.gsp':                     ['permitAll'],
+//    '/**/js/**':                      ['permitAll'],
+//    '/**/css/**':                     ['permitAll'],
+//    '/**/images/**':                  ['permitAll'],
+//    '/**/favicon.ico':                ['permitAll']
+//    ]
 
