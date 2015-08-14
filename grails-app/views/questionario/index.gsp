@@ -27,7 +27,7 @@
 						<g:sortableColumn property="descricao" title="${message(code: 'questionario.descricao.label', default: 'Descricao')}" />
 					
 						<th><g:message code="questionario.vaga.label" default="Vaga" /></th>
-					
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -37,7 +37,9 @@
 						<td><g:link action="show" id="${questionarioInstance.id}">${fieldValue(bean: questionarioInstance, field: "descricao")}</g:link></td>
 					
 						<td>${fieldValue(bean: questionarioInstance, field: "vaga")}</td>
-					
+						<td>
+							<a href="/questionario/responder/${questionarioInstance.id}">Questionário</a>
+						</td>
 					</tr>
 				</g:each>
 				</tbody>

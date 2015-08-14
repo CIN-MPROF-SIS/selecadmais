@@ -11,6 +11,14 @@ class Questao {
     	descricao(size: 5..100, blank:false)
     }
 
+    static hasMany = [ 
+    	opcoes : Opcao
+	]
+
+	static mapping = {
+	    opcoes sort: 'descricao'
+	}
+
 	String toString(){
 	  	return descricao
 	} 

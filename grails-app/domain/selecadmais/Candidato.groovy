@@ -31,5 +31,8 @@ class Candidato extends Pessoa {
     	curriculo(size:0..200,nullable:true)
     }
 
+    String toString(){
+        return nome
+    } 
 
 }

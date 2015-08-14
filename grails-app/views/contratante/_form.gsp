@@ -1,6 +1,37 @@
 <%@ page import="selecadmais.Contratante" %>
 
+  <div class="fieldcontain" style="width: 100%">
+    <input type="radio" id="rdTipoPessoaPF" name="rdTipoPessoa" value="PF" onclick="rdTipoPessoa_Click(this.value)"> Pessoa Física
+    <input type="radio" id="rdTipoPessoaPJ" name="rdTipoPessoa" value="PJ" onclick="rdTipoPessoa_Click(this.value)"> Pessoa Jurídica
+  </div>
 
+<div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'cnpj', 'error')} " pj>
+	<label for="cnpj">
+		<g:message code="contratante.cnpj.label" default="CNPJ" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="cnpj" required="" value="${contratanteInstance?.cnpj}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'inscricaoEstadual', 'error')} " pj>
+	<label for="inscricaoEstadual">
+		<g:message code="contratante.inscricaoEstadual.label" default="Inscricao Estadual" />
+		
+	</label>
+	<g:textField name="inscricaoEstadual" maxlength="50" value="${contratanteInstance?.inscricaoEstadual}"/>
+
+</div>
+
+
+<div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'cpf', 'error')} " pf style="display:none">
+	<label for="cpf">
+		<g:message code="contratante.cpf.label" default="Cpf" />
+		
+	</label>
+	<g:textField name="cpf" maxlength="14" value="${contratanteInstance?.cpf}"/>
+
+</div>
 
 <div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'nome', 'error')} required">
 	<label for="nome">
@@ -38,6 +69,16 @@
 
 </div>
 
+
+<div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'complemento', 'error')} required">
+	<label for="complemento">
+		<g:message code="contratante.complemento.label" default="Complemento" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="complemento" required="" value="${contratanteInstance?.complemento}"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'numero', 'error')} ">
 	<label for="numero">
 		<g:message code="contratante.numero.label" default="Numero" />
@@ -65,76 +106,27 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'cpf', 'error')} ">
-	<label for="cpf">
-		<g:message code="contratante.cpf.label" default="Cpf" />
-		
-	</label>
-	<g:textField name="cpf" maxlength="14" value="${contratanteInstance?.cpf}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'nacionalidade', 'error')} ">
-	<label for="nacionalidade">
-		<g:message code="contratante.nacionalidade.label" default="Nacionalidade" />
-		
-	</label>
-	<g:textField name="nacionalidade" maxlength="50" value="${contratanteInstance?.nacionalidade}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'naturalidade', 'error')} ">
-	<label for="naturalidade">
-		<g:message code="contratante.naturalidade.label" default="Naturalidade" />
-		
-	</label>
-	<g:select id="naturalidade" name="naturalidade.id" from="${selecadmais.Municipio.list()}" optionKey="id" value="${contratanteInstance?.naturalidade?.id}" class="many-to-one" noSelection="['null': '']"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'inscricaoEstadual', 'error')} ">
-	<label for="inscricaoEstadual">
-		<g:message code="contratante.inscricaoEstadual.label" default="Inscricao Estadual" />
-		
-	</label>
-	<g:textField name="inscricaoEstadual" maxlength="50" value="${contratanteInstance?.inscricaoEstadual}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'logo', 'error')} ">
-	<label for="logo">
-		<g:message code="contratante.logo.label" default="Logo" />
-		
-	</label>
-	<g:textField name="logo" maxlength="200" value="${contratanteInstance?.logo}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'complemento', 'error')} required">
-	<label for="complemento">
-		<g:message code="contratante.complemento.label" default="Complemento" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="complemento" required="" value="${contratanteInstance?.complemento}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'cpnj', 'error')} required">
-	<label for="cpnj">
-		<g:message code="contratante.cpnj.label" default="Cpnj" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="cpnj" required="" value="${contratanteInstance?.cpnj}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'dataNascimento', 'error')} required">
+<div class="field fieldcontain ${hasErrors(bean: contratanteInstance, field: 'dataNascimento', 'error')} required">
 	<label for="dataNascimento">
 		<g:message code="contratante.dataNascimento.label" default="Data Nascimento" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="dataNascimento" precision="day"  value="${contratanteInstance?.dataNascimento}"  />
 
+	<calendar:datePicker name="dataNascimento"  dateFormat= "%d/%m/%Y" defaultValue="${contratanteInstance?.dataNascimento}"/>
+</div>
+
+<div class="field fieldcontain ${hasErrors(bean: contratanteInstance, field: 'municipio', 'error')} required">
+	<label for="municipio">
+		<g:message code="contratante.municipio.unidadeFederativa.label" default="Unidade Federativa" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="cmdUnidadeFederativa" name="cmdUnidadeFederativa" from="${selecadmais.UnidadeFederativa.list()}" optionKey="id" required="" value="${contratanteInstance?.municipio?.unidadeFederativa?.id}" class="many-to-one" noSelection="['':'']"
+		onchange="${remoteFunction (
+                        controller: 'candidato',
+                        action: 'getMunicipios',
+                        params: '\'uf=\' + this.value + \'&update=municipio&id=' + contratanteInstance?.municipio?.id + '\'',
+                        update: 'municipio'
+                )}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'municipio', 'error')} required">
@@ -142,7 +134,30 @@
 		<g:message code="contratante.municipio.label" default="Municipio" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="municipio" name="municipio.id" from="${selecadmais.Municipio.list()}" optionKey="id" required="" value="${contratanteInstance?.municipio?.id}" class="many-to-one"/>
+	<g:select id="municipio" name="municipio.id" from="${[]}" optionKey="id" required="" value="${contratanteInstance?.municipio?.id}" class="many-to-one"/>
 
 </div>
 
+<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'logo', 'error')} ">
+	<label for="logo">
+		<g:message code="contratante.logo.label" default="Logo" />
+		
+	</label>
+	<input type="file" name="fileLogo" id="fileLogo" />
+
+	<g:if test="${contratanteInstance?.logo}">
+		<img src="${contratanteInstance?.logo}" style="max-width:100px;max-height:100px">
+	</g:if>
+</div>
+
+<script>
+	<g:if test="${contratanteInstance?.cnpj}">
+  		var tipoPessoa = "PJ";
+  	</g:if>
+	<g:if test="${contratanteInstance?.cpf}">
+  		var tipoPessoa = "PF";
+  	</g:if>
+	<g:if test="${contratanteInstance?.cnpj == null && contratanteInstance?.cpf == null}">
+  		var tipoPessoa = "PJ";
+  	</g:if>
+</script>

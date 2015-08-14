@@ -4,6 +4,7 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'vaga.label', default: 'Vaga')}" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
+		<script src="../js/vaga.js" type="text/javascript" ></script>
 	</head>
 	<body>
 		<a href="#create-vaga" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>

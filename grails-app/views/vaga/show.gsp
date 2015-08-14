@@ -41,15 +41,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${vagaInstance?.dataCadastro}">
-				<li class="fieldcontain">
-					<span id="dataCadastro-label" class="property-label"><g:message code="vaga.dataCadastro.label" default="Data Cadastro" /></span>
-					
-						<span class="property-value" aria-labelledby="dataCadastro-label"><g:formatDate date="${vagaInstance?.dataCadastro}" /></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${vagaInstance?.contratante}">
 				<li class="fieldcontain">
 					<span id="contratante-label" class="property-label"><g:message code="vaga.contratante.label" default="Contratante" /></span>
@@ -63,7 +54,8 @@
 				<li class="fieldcontain">
 					<span id="dataInicioInscricao-label" class="property-label"><g:message code="vaga.dataInicioInscricao.label" default="Data Inicio Inscricao" /></span>
 					
-						<span class="property-value" aria-labelledby="dataInicioInscricao-label"><g:formatDate date="${vagaInstance?.dataInicioInscricao}" /></span>
+						<span class="property-value" aria-labelledby="dataInicioInscricao-label">
+						<g:formatDate date="${vagaInstance?.dataInicioInscricao}" format="dd/MM/yyyy" /></span>
 					
 				</li>
 				</g:if>
@@ -72,7 +64,7 @@
 				<li class="fieldcontain">
 					<span id="dataTerminoInscricao-label" class="property-label"><g:message code="vaga.dataTerminoInscricao.label" default="Data Termino Inscricao" /></span>
 					
-						<span class="property-value" aria-labelledby="dataTerminoInscricao-label"><g:formatDate date="${vagaInstance?.dataTerminoInscricao}" /></span>
+						<span class="property-value" aria-labelledby="dataTerminoInscricao-label"><g:formatDate date="${vagaInstance?.dataTerminoInscricao}" format="dd/MM/yyyy"/></span>
 					
 				</li>
 				</g:if>

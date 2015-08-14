@@ -22,6 +22,40 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list contratante">
+
+				<g:if test="${contratanteInstance?.logo}">
+				<li class="fieldcontain">
+					<img src="${contratanteInstance?.logo}" style="max-width:100px;max-height:100px">
+					
+				</li>
+				</g:if>
+
+				<g:if test="${contratanteInstance?.cpf}">
+				<li class="fieldcontain">
+					<span id="cpf-label" class="property-label"><g:message code="contratante.cpf.label" default="Cpf" /></span>
+					
+						<span class="property-value" aria-labelledby="cpf-label"><g:fieldValue bean="${contratanteInstance}" field="cpf"/></span>
+					
+				</li>
+				</g:if>
+
+				<g:if test="${contratanteInstance?.cnpj}">
+				<li class="fieldcontain">
+					<span id="cnpj-label" class="property-label"><g:message code="contratante.cnpj.label" default="CNPJ" /></span>
+					
+						<span class="property-value" aria-labelledby="cnpj-label"><g:fieldValue bean="${contratanteInstance}" field="cnpj"/></span>
+					
+				</li>
+				</g:if>
+
+				<g:if test="${contratanteInstance?.inscricaoEstadual}">
+				<li class="fieldcontain">
+					<span id="inscricaoEstadual-label" class="property-label"><g:message code="contratante.inscricaoEstadual.label" default="Inscricao Estadual" /></span>
+					
+						<span class="property-value" aria-labelledby="inscricaoEstadual-label"><g:fieldValue bean="${contratanteInstance}" field="inscricaoEstadual"/></span>
+					
+				</li>
+				</g:if>
 			
 				<g:if test="${contratanteInstance?.nome}">
 				<li class="fieldcontain">
@@ -86,65 +120,13 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${contratanteInstance?.cpf}">
-				<li class="fieldcontain">
-					<span id="cpf-label" class="property-label"><g:message code="contratante.cpf.label" default="Cpf" /></span>
-					
-						<span class="property-value" aria-labelledby="cpf-label"><g:fieldValue bean="${contratanteInstance}" field="cpf"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${contratanteInstance?.nacionalidade}">
-				<li class="fieldcontain">
-					<span id="nacionalidade-label" class="property-label"><g:message code="contratante.nacionalidade.label" default="Nacionalidade" /></span>
-					
-						<span class="property-value" aria-labelledby="nacionalidade-label"><g:fieldValue bean="${contratanteInstance}" field="nacionalidade"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${contratanteInstance?.naturalidade}">
-				<li class="fieldcontain">
-					<span id="naturalidade-label" class="property-label"><g:message code="contratante.naturalidade.label" default="Naturalidade" /></span>
-					
-						<span class="property-value" aria-labelledby="naturalidade-label"><g:link controller="municipio" action="show" id="${contratanteInstance?.naturalidade?.id}">${contratanteInstance?.naturalidade?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${contratanteInstance?.inscricaoEstadual}">
-				<li class="fieldcontain">
-					<span id="inscricaoEstadual-label" class="property-label"><g:message code="contratante.inscricaoEstadual.label" default="Inscricao Estadual" /></span>
-					
-						<span class="property-value" aria-labelledby="inscricaoEstadual-label"><g:fieldValue bean="${contratanteInstance}" field="inscricaoEstadual"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${contratanteInstance?.logo}">
-				<li class="fieldcontain">
-					<span id="logo-label" class="property-label"><g:message code="contratante.logo.label" default="Logo" /></span>
-					
-						<span class="property-value" aria-labelledby="logo-label"><g:fieldValue bean="${contratanteInstance}" field="logo"/></span>
-					
-				</li>
-				</g:if>
+
 			
 				<g:if test="${contratanteInstance?.complemento}">
 				<li class="fieldcontain">
 					<span id="complemento-label" class="property-label"><g:message code="contratante.complemento.label" default="Complemento" /></span>
 					
 						<span class="property-value" aria-labelledby="complemento-label"><g:fieldValue bean="${contratanteInstance}" field="complemento"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${contratanteInstance?.cpnj}">
-				<li class="fieldcontain">
-					<span id="cpnj-label" class="property-label"><g:message code="contratante.cpnj.label" default="Cpnj" /></span>
-					
-						<span class="property-value" aria-labelledby="cpnj-label"><g:fieldValue bean="${contratanteInstance}" field="cpnj"/></span>
 					
 				</li>
 				</g:if>

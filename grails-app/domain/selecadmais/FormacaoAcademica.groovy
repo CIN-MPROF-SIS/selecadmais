@@ -17,4 +17,8 @@ class FormacaoAcademica {
     	instituicao(size:0..100, blank:false)
     	dataConclusao(nullable: true)
     }
+
+    String toString(){
+        return "${instituicao} - ${grauFormacao.descricao} - " + dataInicio.format('dd/MM/yyyy') + " - " + dataConclusao.format('dd/MM/yyyy')
+    } 
 }

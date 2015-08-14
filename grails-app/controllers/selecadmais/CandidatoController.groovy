@@ -1,14 +1,15 @@
 package selecadmais
 
 
-
+//import org.springframework.web.multipart.MultipartFile
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class CandidatoController {
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    FileUploadService fileUploadService
+    static allowedMethods = [save: "POST", update: "POST", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -35,7 +36,36 @@ class CandidatoController {
             return
         }
 
-        candidatoInstance.save flush:true
+        def extensoes_foto = ['jpg', 'jpeg', 'gif', 'png']
+        def foto = request.getFile('fileFoto')
+    
+        if (!foto.isEmpty()) {
+            if(!extensoes_foto.contains(foto.getOriginalFilename().split("\\.")[1].toLowerCase()))
+            {
+                request.withFormat {
+                    form multipartForm {
+                            candidatoInstance.errors.rejectValue(
+                            'foto',
+                            'Formato da foto não é de imagem')
+                        render(view: "create", model: [candidatoInstance: candidatoInstance])
+                    }
+                    '*'{ respond candidatoInstance, [status: error] }
+                }
+                return;
+            }
+            candidatoInstance.foto = fileUploadService.uploadFile(foto, foto.getOriginalFilename(), "fotos/" + candidatoInstance.id)
+        }
+        /*else
+            candidatoInstance.foto = null*/
+
+        def curriculo = request.getFile('fileCurriculo')
+        if (!curriculo.isEmpty()) {
+            candidatoInstance.curriculo = fileUploadService.uploadFile(curriculo, curriculo.getOriginalFilename(), "curriculos/" + candidatoInstance.id)
+        }
+        /*else
+            candidatoInstance.curriculo = null*/
+
+        candidatoInstance.save(flush:true)
 
         request.withFormat {
             form multipartForm {
@@ -105,7 +135,50 @@ class CandidatoController {
             candidatoInstance.experienciasProfissionais.removeAll(_experienciasProfissionaisToBeDeleted)
         }
 
-        candidatoInstance.save flush:true
+        def _formacoesAcademicasToBeDeleted = []
+        cont = 0
+        candidatoInstance.formacoesAcademicas.each {
+            if (params["formacoesAcademicas[" + cont + "].deleted"] == "true") {
+                _formacoesAcademicasToBeDeleted << it
+            }
+            cont++
+        }
+
+        // if there are phones to be deleted remove them all
+        if (_formacoesAcademicasToBeDeleted) {
+            candidatoInstance.formacoesAcademicas.removeAll(_formacoesAcademicasToBeDeleted)
+        }
+
+        def extensoes_foto = ['jpg', 'jpeg', 'gif', 'png']
+        def foto = request.getFile('fileFoto')
+    
+        if (!foto.isEmpty()) {
+            if(!extensoes_foto.contains(foto.getOriginalFilename().split("\\.")[1].toLowerCase()))
+            {
+                request.withFormat {
+                    form multipartForm {
+                            candidatoInstance.errors.rejectValue(
+                            'foto',
+                            'Formato da foto não é de imagem')
+                        render(view: "edit", model: [candidatoInstance: candidatoInstance])
+                    }
+                    '*'{ respond candidatoInstance, [status: error] }
+                }
+                return;
+            }
+            candidatoInstance.foto = fileUploadService.uploadFile(foto, foto.getOriginalFilename(), "fotos/" + candidatoInstance.id)
+        }
+        /*else
+            candidatoInstance.foto = null*/
+
+        def curriculo = request.getFile('fileCurriculo')
+        if (!curriculo.isEmpty()) {
+            candidatoInstance.curriculo = fileUploadService.uploadFile(curriculo, curriculo.getOriginalFilename(), "curriculos/" + candidatoInstance.id)
+        }
+        /*else
+            candidatoInstance.curriculo = null*/
+
+        candidatoInstance.save(flush:true)
 
         request.withFormat {
             form multipartForm {
@@ -143,5 +216,20 @@ class CandidatoController {
             }
             '*'{ render status: NOT_FOUND }
         }
+    }
+
+    def getMunicipios() {
+        def uf = params.uf
+        def locations = Municipio.findAll(sort:"nome")
+        {
+            unidadeFederativa.id == uf
+        }
+
+        render g.select(id:params.update, name: params.update + '.id', value: params.id,
+            from:locations, optionKey:'id', noSelection:['':'']
+        )
+        //render locations as JSON
+        //render locations.collectEntries{["id" : it.id, "nome" : it.nome]} as JSON
+
     }
 }

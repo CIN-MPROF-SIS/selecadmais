@@ -5,6 +5,7 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'questionario.label', default: 'Questionario')}" />
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
+		<script src="../../js/questionario.js" type="text/javascript" ></script>
 	</head>
 	<body>
 		<a href="#edit-questionario" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -36,6 +37,8 @@
 					<g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
 				</fieldset>
 			</g:form>
+			<g:render template='questao' model="['questao':null,'i':'_clone','hidden':true]"/>
+			<g:render template='opcao' model="['opcao':null,'i':'_clone', 'io':'_clone','hidden':true]"/>
 		</div>
 	</body>
 </html>

@@ -145,6 +145,7 @@ grails.plugin.springsecurity.interceptUrlMap = [
 	'/**/css/**':       ['permitAll'],
 	'/**/images/**':    ['permitAll'],
 	'/**/favicon.ico':  ['permitAll'],
+<<<<<<< HEAD
 	'/login/**':        ['permitAll'],
 	'/logout/**':       ['permitAll'],
 //	'/municipio/**': 	['PAPEL_MODERADOR', 'IS_AUTHENTICATED_FULLY'],
@@ -164,4 +165,10 @@ grails.plugin.springsecurity.interceptUrlMap = [
 //    '/**/images/**':                  ['permitAll'],
 //    '/**/favicon.ico':                ['permitAll']
 //    ]
+=======
+//	'/municipio/create': 	['ROLE_MODERADOR', 'IS_AUTHENTICATED_FULLY'],
+	'/**':  			['permitAll']
+	
+]
+>>>>>>> 6bc5fcfcecb6e0c4be3cda8fce4585e139a8d89e
 

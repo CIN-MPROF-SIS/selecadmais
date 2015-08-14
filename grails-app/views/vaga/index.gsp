@@ -35,6 +35,7 @@
 						<g:sortableColumn property="dataInicioInscricao" title="${message(code: 'vaga.dataInicioInscricao.label', default: 'Data Inicio Inscricao')}" />
 					
 						<g:sortableColumn property="dataTerminoInscricao" title="${message(code: 'vaga.dataTerminoInscricao.label', default: 'Data Termino Inscricao')}" />
+						<th></th>
 					
 					</tr>
 				</thead>
@@ -46,14 +47,15 @@
 					
 						<td>${fieldValue(bean: vagaInstance, field: "cargo")}</td>
 					
-						<td><g:formatDate date="${vagaInstance.dataCadastro}" /></td>
+						<td><g:formatDate date="${vagaInstance.dataCadastro}" format="dd/MM/yyyy"/></td>
 					
 						<td>${fieldValue(bean: vagaInstance, field: "contratante")}</td>
 					
-						<td><g:formatDate date="${vagaInstance.dataInicioInscricao}" /></td>
+						<td><g:formatDate date="${vagaInstance.dataInicioInscricao}" format="dd/MM/yyyy"/></td>
 					
-						<td><g:formatDate date="${vagaInstance.dataTerminoInscricao}" /></td>
+						<td><g:formatDate date="${vagaInstance.dataTerminoInscricao}" format="dd/MM/yyyy"/></td>
 					
+						<td><g:link controller="candidatoVaga" action="avaliar" params='[vaga:"${vagaInstance.id}"]'>Selecionar</g:link></td>
 					</tr>
 				</g:each>
 				</tbody>

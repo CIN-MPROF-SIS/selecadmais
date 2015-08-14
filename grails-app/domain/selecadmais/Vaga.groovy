@@ -18,4 +18,8 @@ class Vaga {
     	cargo(size:0..100, blank:false)
     	dataCadastro(defaultValue: "now()")
     }
+
+    String toString(){
+        return cargo
+    }
 }
