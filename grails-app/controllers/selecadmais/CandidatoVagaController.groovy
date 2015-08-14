@@ -44,6 +44,31 @@ class CandidatoVagaController {
         [vagaInstance: vagaInstance]
     }
 
+    def avaliar(){
+        def vaga = Vaga.findById(params.vaga)
+        def candidaturas = CandidatoVaga.findAllByVaga(vaga)
+
+        render(view:"avaliar", model:[candidaturas: candidaturas, vaga: vaga])
+    }
+
+    def selecionar(){
+        def vaga = Vaga.findById(params.vaga)
+
+        CandidatoVaga.findAllByVaga(vaga).each{
+            it.selecionado = false
+            it.save flush:true
+        }
+
+
+        params.list("candidatura").each{
+            def candidatura = CandidatoVaga.findById(it)
+            candidatura.selecionado = true
+
+            candidatura.save flush:true
+        }
+        avaliar()
+    }
+
     def show(CandidatoVaga candidatoVagaInstance) {
         respond candidatoVagaInstance
     }

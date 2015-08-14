@@ -35,6 +35,7 @@
 						<g:sortableColumn property="dataInicioInscricao" title="${message(code: 'vaga.dataInicioInscricao.label', default: 'Data Inicio Inscricao')}" />
 					
 						<g:sortableColumn property="dataTerminoInscricao" title="${message(code: 'vaga.dataTerminoInscricao.label', default: 'Data Termino Inscricao')}" />
+						<th></th>
 					
 					</tr>
 				</thead>
@@ -54,6 +55,7 @@
 					
 						<td><g:formatDate date="${vagaInstance.dataTerminoInscricao}" format="dd/MM/yyyy"/></td>
 					
+						<td><g:link controller="candidatoVaga" action="avaliar" params='[vaga:"${vagaInstance.id}"]'>Selecionar</g:link></td>
 					</tr>
 				</g:each>
 				</tbody>
