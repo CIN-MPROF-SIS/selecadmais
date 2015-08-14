@@ -8,97 +8,124 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class VagaController {
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond Vaga.list(params), model:[vagaInstanceCount: Vaga.count()]
-    }
+	def index(Integer max) {
+		params.max = Math.min(max ?: 10, 100)
+		respond Vaga.list(params), model:[vagaInstanceCount: Vaga.count()]
+	}
 
-    def show(Vaga vagaInstance) {
-        respond vagaInstance
-    }
+	def vagasDisponiveis() {
+		def dataAtual = new Date()
+		def criteria = Vaga.createCriteria()
 
-    def create() {
-        respond new Vaga(params)
-    }
+		def vagas = criteria.list {
+			and {
+				lt("dataInicioInscricao",dataAtual)
+				gt("dataTerminoInscricao",dataAtual)
+			}
+			order("dataInicioInscricao")
+		}
 
-    @Transactional
-    def save(Vaga vagaInstance) {
-        if (vagaInstance == null) {
-            notFound()
-            return
-        }
+		render (view:"vagasDisponiveis", model: [vagas: vagas])
+	}
 
-        if (vagaInstance.hasErrors()) {
-            respond vagaInstance.errors, view:'create'
-            return
-        }
+	def show(Vaga vagaInstance) {
+		respond vagaInstance
+	}
 
-        vagaInstance.save flush:true
+	def create() {
+		respond new Vaga(params)
+	}
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'vaga.label', default: 'Vaga'), vagaInstance.id])
-                redirect vagaInstance
-            }
-            '*' { respond vagaInstance, [status: CREATED] }
-        }
-    }
+	@Transactional
+	def save(Vaga vagaInstance) {
+		if (vagaInstance == null) {
+			notFound()
+			return
+		}
 
-    def edit(Vaga vagaInstance) {
-        respond vagaInstance
-    }
+		if (vagaInstance.hasErrors()) {
+			respond vagaInstance.errors, view:'create'
+			return
+		}
 
-    @Transactional
-    def update(Vaga vagaInstance) {
-        if (vagaInstance == null) {
-            notFound()
-            return
-        }
+		vagaInstance.save flush:true
 
-        if (vagaInstance.hasErrors()) {
-            respond vagaInstance.errors, view:'edit'
-            return
-        }
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.created.message', args: [
+					message(code: 'vaga.label', default: 'Vaga'),
+					vagaInstance.id
+				])
+				redirect vagaInstance
+			}
+			'*' { respond vagaInstance, [status: CREATED] }
+		}
+	}
 
-        vagaInstance.save flush:true
+	def edit(Vaga vagaInstance) {
+		respond vagaInstance
+	}
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Vaga.label', default: 'Vaga'), vagaInstance.id])
-                redirect vagaInstance
-            }
-            '*'{ respond vagaInstance, [status: OK] }
-        }
-    }
+	@Transactional
+	def update(Vaga vagaInstance) {
+		if (vagaInstance == null) {
+			notFound()
+			return
+		}
 
-    @Transactional
-    def delete(Vaga vagaInstance) {
+		if (vagaInstance.hasErrors()) {
+			respond vagaInstance.errors, view:'edit'
+			return
+		}
 
-        if (vagaInstance == null) {
-            notFound()
-            return
-        }
+		vagaInstance.save flush:true
 
-        vagaInstance.delete flush:true
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.updated.message', args: [
+					message(code: 'Vaga.label', default: 'Vaga'),
+					vagaInstance.id
+				])
+				redirect vagaInstance
+			}
+			'*'{ respond vagaInstance, [status: OK] }
+		}
+	}
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Vaga.label', default: 'Vaga'), vagaInstance.id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
-    }
+	@Transactional
+	def delete(Vaga vagaInstance) {
 
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'vaga.label', default: 'Vaga'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*'{ render status: NOT_FOUND }
-        }
-    }
+		if (vagaInstance == null) {
+			notFound()
+			return
+		}
+
+		vagaInstance.delete flush:true
+
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.deleted.message', args: [
+					message(code: 'Vaga.label', default: 'Vaga'),
+					vagaInstance.id
+				])
+				redirect action:"index", method:"GET"
+			}
+			'*'{ render status: NO_CONTENT }
+		}
+	}
+
+	protected void notFound() {
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.not.found.message', args: [
+					message(code: 'vaga.label', default: 'Vaga'),
+					params.id
+				])
+				redirect action: "index", method: "GET"
+			}
+			'*'{ render status: NOT_FOUND }
+		}
+	}
 }

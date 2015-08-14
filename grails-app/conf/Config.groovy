@@ -129,7 +129,7 @@ log4j.main = {
 // Added by the Spring Security Core plugin:
 //grails.plugin.springsecurity.rememberMe.persistent = true
 //grails.plugin.springsecurity.rememberMe.persistentToken.domainClassName = 'selecadmais.PersistentLogin'
-grails.plugins.springsecurity.successHandler.alwaysUseDefaultTargetUrl = false
+grails.plugin.springsecurity.successHandler.alwaysUseDefaultTargetUrl = false
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'selecadmais.Usuario'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'selecadmais.UsuarioPapel'
 grails.plugin.springsecurity.authority.className = 'selecadmais.Papel'
@@ -145,10 +145,9 @@ grails.plugin.springsecurity.interceptUrlMap = [
 	'/**/css/**':       ['permitAll'],
 	'/**/images/**':    ['permitAll'],
 	'/**/favicon.ico':  ['permitAll'],
-<<<<<<< HEAD
 	'/login/**':        ['permitAll'],
 	'/logout/**':       ['permitAll'],
-//	'/municipio/**': 	['PAPEL_MODERADOR', 'IS_AUTHENTICATED_FULLY'],
+	'/municipio/**': 	['PAPEL_MODERADOR', 'IS_AUTHENTICATED_FULLY'],
 	'/j_spring_security_switch_user': ['PAPEL_MODERADOR'],
 	'/j_spring_security_exit_user':   ['permitAll'],
 	'/**':               ['IS_AUTHENTICATED_ANONYMOUSLY']
@@ -165,10 +164,5 @@ grails.plugin.springsecurity.interceptUrlMap = [
 //    '/**/images/**':                  ['permitAll'],
 //    '/**/favicon.ico':                ['permitAll']
 //    ]
-=======
-//	'/municipio/create': 	['ROLE_MODERADOR', 'IS_AUTHENTICATED_FULLY'],
-	'/**':  			['permitAll']
-	
-]
->>>>>>> 6bc5fcfcecb6e0c4be3cda8fce4585e139a8d89e
+
 
