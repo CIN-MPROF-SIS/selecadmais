@@ -147,7 +147,7 @@ grails.plugin.springsecurity.interceptUrlMap = [
 	'/**/favicon.ico':  ['permitAll'],
 	'/login/**':        ['permitAll'],
 	'/logout/**':       ['permitAll'],
-	'/municipio/**': 	['PAPEL_MODERADOR', 'IS_AUTHENTICATED_FULLY'],
+	'/municipio/**': 	['hasRole("PAPEL_MODERADOR") ', 'IS_AUTHENTICATED_FULLY'],
 	'/j_spring_security_switch_user': ['PAPEL_MODERADOR'],
 	'/j_spring_security_exit_user':   ['permitAll'],
 	'/**':               ['IS_AUTHENTICATED_ANONYMOUSLY']
