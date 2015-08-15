@@ -1,8 +1,9 @@
 <%@ page import="selecadmais.Candidato" %>
 
 
-
-<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'nome', 'error')} required">
+<h3 style="color:#ccc">Dados Básicos</h3>
+<hr>
+<div class="field  ${hasErrors(bean: candidatoInstance, field: 'nome', 'error')} required" style="width:100%">
 	<label for="nome">
 		<g:message code="candidato.nome.label" default="Nome" />
 		<span class="required-indicator">*</span>
@@ -11,70 +12,26 @@
 
 </div>
 
-<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'email', 'error')} required">
-	<label for="email">
-		<g:message code="candidato.email.label" default="E-mail" />
+<div class="field  ${hasErrors(bean: candidatoInstance, field: 'dataNascimento', 'error')} required">
+	<label for="dataNascimento">
+		<g:message code="candidato.dataNascimento.label" default="Data Nascimento" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field type="email" name="email" maxlength="50" required="" value="${candidatoInstance?.email}"/>
+
+    <calendar:datePicker name="dataNascimento"  dateFormat= "%d/%m/%Y" defaultValue="${candidatoInstance?.dataNascimento}" style="width:100px"/>
 
 </div>
 
-<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'telefone', 'error')} required">
-	<label for="telefone">
-		<g:message code="candidato.telefone.label" default="Telefone" />
+<div class="field  ${hasErrors(bean: candidatoInstance, field: 'cpf', 'error')} required">
+	<label for="cpf">
+		<g:message code="candidato.cpf.label" default="CPF" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="telefone" maxlength="150" required="" value="${candidatoInstance?.telefone}"/>
+	<g:textField name="cpf" maxlength="14" required="" value="${candidatoInstance?.cpf}"/>
 
 </div>
 
-<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'logradouro', 'error')} required">
-	<label for="logradouro">
-		<g:message code="candidato.logradouro.label" default="Logradouro" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="logradouro" maxlength="100" required="" value="${candidatoInstance?.logradouro}"/>
-
-</div>
-
-<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'complemento', 'error')} required">
-	<label for="complemento">
-		<g:message code="candidato.complemento.label" default="Complemento" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="complemento" required="" value="${candidatoInstance?.complemento}"/>
-
-</div>
-
-<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'numero', 'error')} ">
-	<label for="numero">
-		<g:message code="candidato.numero.label" default="Número" />
-		
-	</label>
-	<g:textField name="numero" maxlength="20" value="${candidatoInstance?.numero}"/>
-
-</div>
-
-<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'bairro', 'error')} required">
-	<label for="bairro">
-		<g:message code="candidato.bairro.label" default="Bairro" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="bairro" maxlength="100" required="" value="${candidatoInstance?.bairro}"/>
-
-</div>
-
-<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'cep', 'error')} required">
-	<label for="cep">
-		<g:message code="candidato.cep.label" default="CEP" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="cep" maxlength="9" required="" value="${candidatoInstance?.cep}"/>
-
-</div>
-
-<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'municipio', 'error')} required">
+<div class="field  ${hasErrors(bean: candidatoInstance, field: 'municipio', 'error')} required">
 	<label for="municipio">
 		<g:message code="candidato.municipio.unidadeFederativa.label" default="Unidade Federativa" />
 		<span class="required-indicator">*</span>
@@ -88,7 +45,7 @@
                 )}"/>
 </div>
 
-<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'municipio', 'error')} required">
+<div class="field  ${hasErrors(bean: candidatoInstance, field: 'municipio', 'error')} required">
 	<label for="municipio">
 		<g:message code="candidato.municipio.label" default="Município" />
 		<span class="required-indicator">*</span>
@@ -97,16 +54,7 @@
 
 </div>
 
-<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'cpf', 'error')} required">
-	<label for="cpf">
-		<g:message code="candidato.cpf.label" default="CPF" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="cpf" maxlength="14" required="" value="${candidatoInstance?.cpf}"/>
-
-</div>
-
-<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'nacionalidade', 'error')} required">
+<div class="field  ${hasErrors(bean: candidatoInstance, field: 'nacionalidade', 'error')} required">
 	<label for="nacionalidade">
 		<g:message code="candidato.nacionalidade.label" default="Nacionalidade" />
 		<span class="required-indicator">*</span>
@@ -115,7 +63,101 @@
 
 </div>
 
-<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'naturalidade', 'error')} required">
+<div class="field  ${hasErrors(bean: candidatoInstance, field: 'telefone', 'error')} required">
+	<label for="telefone">
+		<g:message code="candidato.telefone.label" default="Telefone" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="telefone" maxlength="150" required="" value="${candidatoInstance?.telefone}"/>
+
+</div>
+
+<div class="field  ${hasErrors(bean: candidatoInstance, field: 'email', 'error')} required">
+	<label for="email">
+		<g:message code="candidato.email.label" default="E-mail" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:field type="email" name="email" maxlength="50" required="" value="${candidatoInstance?.email}"/>
+
+</div>
+
+
+<div class="field  ${hasErrors(bean: candidatoInstance, field: 'curriculo', 'error')} ">
+	<label for="curriculo">
+		<g:message code="candidato.curriculo.label" default="Currículo" />
+		
+	</label>
+	<input type="file" name="fileCurriculo" id="fileCurriculo" />
+	<g:if test="${candidatoInstance?.curriculo}">
+		<a href="${candidatoInstance?.curriculo}" target="_blank">Download</a>
+	</g:if>
+</div>
+
+
+<div class="field  ${hasErrors(bean: candidatoInstance, field: 'foto', 'error')} " style="width:100%">
+	<label for="foto">
+		<g:message code="candidato.foto.label" default="Foto" />
+		
+	</label>
+	<input type="file" name="fileFoto" id="fileFoto" />
+
+	<g:if test="${candidatoInstance?.foto}">
+		<img src="${candidatoInstance?.foto}" style="max-width:100px;max-height:100px">
+	</g:if>
+</div>
+
+<div class="field" style="width:100%;float:clear">   </div>
+<br>
+<br>
+<h3 style="clear:both;color:#ccc">Endereço</h3>
+<hr>
+
+<div class="field  ${hasErrors(bean: candidatoInstance, field: 'logradouro', 'error')} required" style="width:100%">
+	<label for="logradouro">
+		<g:message code="candidato.logradouro.label" default="Logradouro" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="logradouro" maxlength="100" required="" value="${candidatoInstance?.logradouro}" style="width:95%"/>
+
+</div>
+
+<div class="field  ${hasErrors(bean: candidatoInstance, field: 'complemento', 'error')} required">
+	<label for="complemento">
+		<g:message code="candidato.complemento.label" default="Complemento" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="complemento" required="" value="${candidatoInstance?.complemento}"/>
+
+</div>
+
+<div class="field  ${hasErrors(bean: candidatoInstance, field: 'numero', 'error')} ">
+	<label for="numero">
+		<g:message code="candidato.numero.label" default="Número" />
+		
+	</label>
+	<g:textField name="numero" maxlength="20" value="${candidatoInstance?.numero}"/>
+
+</div>
+
+<div class="field  ${hasErrors(bean: candidatoInstance, field: 'bairro', 'error')} required">
+	<label for="bairro">
+		<g:message code="candidato.bairro.label" default="Bairro" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="bairro" maxlength="100" required="" value="${candidatoInstance?.bairro}"/>
+
+</div>
+
+<div class="field  ${hasErrors(bean: candidatoInstance, field: 'cep', 'error')} required">
+	<label for="cep">
+		<g:message code="candidato.cep.label" default="CEP" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="cep" maxlength="9" required="" value="${candidatoInstance?.cep}"/>
+
+</div>
+
+<div class="field  ${hasErrors(bean: candidatoInstance, field: 'naturalidade', 'error')} required">
 	<label for="municipio">
 		<g:message code="candidato.municipio.label" default="Unidade Federativa" />
 		<span class="required-indicator">*</span>
@@ -129,7 +171,7 @@
             )}"/>
 </div>
 
-<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'naturalidade', 'error')} required">
+<div class="field  ${hasErrors(bean: candidatoInstance, field: 'naturalidade', 'error')} required">
 	<label for="naturalidade">
 		<g:message code="candidato.naturalidade.label" default="Naturalidade" />
 		<span class="required-indicator">*</span>
@@ -138,38 +180,7 @@
 
 </div>
 
-<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'dataNascimento', 'error')} required">
-	<label for="dataNascimento">
-		<g:message code="candidato.dataNascimento.label" default="Data Nascimento" />
-		<span class="required-indicator">*</span>
-	</label>
 
-    <calendar:datePicker name="dataNascimento"  dateFormat= "%d/%m/%Y" defaultValue="${candidatoInstance?.dataNascimento}"/>
-
-</div>
-
-<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'foto', 'error')} ">
-	<label for="foto">
-		<g:message code="candidato.foto.label" default="Foto" />
-		
-	</label>
-	<input type="file" name="fileFoto" id="fileFoto" />
-
-	<g:if test="${candidatoInstance?.foto}">
-		<img src="${candidatoInstance?.foto}" style="max-width:100px;max-height:100px">
-	</g:if>
-</div>
-
-<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'curriculo', 'error')} ">
-	<label for="curriculo">
-		<g:message code="candidato.curriculo.label" default="Currículo" />
-		
-	</label>
-	<input type="file" name="fileCurriculo" id="fileCurriculo" />
-	<g:if test="${candidatoInstance?.curriculo}">
-		<a href="${candidatoInstance?.curriculo}" target="_blank">Download</a>
-	</g:if>
-</div>
 
 <g:render template="certificados" model="['candidatoInstance':candidatoInstance]" />
 

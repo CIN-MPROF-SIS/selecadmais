@@ -1,11 +1,13 @@
 <%@ page import="selecadmais.Contratante" %>
+	<h3 style="color:#ccc">Dados Básicos</h3>
+	<hr>
 
-  <div class="fieldcontain" style="width: 100%">
+  <div class="field" style="width: 100%">
     <input type="radio" id="rdTipoPessoaPF" name="rdTipoPessoa" value="PF" onclick="rdTipoPessoa_Click(this.value)"> Pessoa Física
     <input type="radio" id="rdTipoPessoaPJ" name="rdTipoPessoa" value="PJ" onclick="rdTipoPessoa_Click(this.value)"> Pessoa Jurídica
   </div>
 
-<div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'cnpj', 'error')} " pj>
+<div class="field ${hasErrors(bean: contratanteInstance, field: 'cnpj', 'error')} " pj>
 	<label for="cnpj">
 		<g:message code="contratante.cnpj.label" default="CNPJ" />
 		<span class="required-indicator">*</span>
@@ -14,7 +16,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'inscricaoEstadual', 'error')} " pj>
+<div class="field ${hasErrors(bean: contratanteInstance, field: 'inscricaoEstadual', 'error')} " pj>
 	<label for="inscricaoEstadual">
 		<g:message code="contratante.inscricaoEstadual.label" default="Inscricao Estadual" />
 		
@@ -24,7 +26,7 @@
 </div>
 
 
-<div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'cpf', 'error')} " pf style="display:none">
+<div class="field ${hasErrors(bean: contratanteInstance, field: 'cpf', 'error')} " pf style="display:none">
 	<label for="cpf">
 		<g:message code="contratante.cpf.label" default="Cpf" />
 		
@@ -33,7 +35,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'nome', 'error')} required">
+<div class="field ${hasErrors(bean: contratanteInstance, field: 'nome', 'error')} required">
 	<label for="nome">
 		<g:message code="contratante.nome.label" default="Nome" />
 		<span class="required-indicator">*</span>
@@ -42,16 +44,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'email', 'error')} required">
-	<label for="email">
-		<g:message code="contratante.email.label" default="Email" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field type="email" name="email" maxlength="50" required="" value="${contratanteInstance?.email}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'telefone', 'error')} required">
+<div class="field ${hasErrors(bean: contratanteInstance, field: 'telefone', 'error')} required">
 	<label for="telefone">
 		<g:message code="contratante.telefone.label" default="Telefone" />
 		<span class="required-indicator">*</span>
@@ -60,7 +53,33 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'logradouro', 'error')} required">
+<div class="field ${hasErrors(bean: contratanteInstance, field: 'email', 'error')} required">
+	<label for="email">
+		<g:message code="contratante.email.label" default="Email" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:field type="email" name="email" maxlength="50" required="" value="${contratanteInstance?.email}"/>
+
+</div>
+
+<div class="field field ${hasErrors(bean: candidatoInstance, field: 'logo', 'error')} ">
+	<label for="logo">
+		Logo da Empresa
+		
+	</label>
+	<input type="file" name="fileLogo" id="fileLogo" />
+
+	<g:if test="${contratanteInstance?.logo}">
+		<img src="${contratanteInstance?.logo}" style="max-width:100px;max-height:100px">
+	</g:if>
+</div>
+
+<br>
+<br>
+<h3 style="clear:both;color:#ccc">Endereço</h3>
+<hr>
+
+<div class="field ${hasErrors(bean: contratanteInstance, field: 'logradouro', 'error')} required">
 	<label for="logradouro">
 		<g:message code="contratante.logradouro.label" default="Logradouro" />
 		<span class="required-indicator">*</span>
@@ -70,7 +89,7 @@
 </div>
 
 
-<div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'complemento', 'error')} required">
+<div class="field ${hasErrors(bean: contratanteInstance, field: 'complemento', 'error')} required">
 	<label for="complemento">
 		<g:message code="contratante.complemento.label" default="Complemento" />
 		<span class="required-indicator">*</span>
@@ -79,7 +98,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'numero', 'error')} ">
+<div class="field ${hasErrors(bean: contratanteInstance, field: 'numero', 'error')} ">
 	<label for="numero">
 		<g:message code="contratante.numero.label" default="Numero" />
 		
@@ -88,7 +107,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'bairro', 'error')} required">
+<div class="field ${hasErrors(bean: contratanteInstance, field: 'bairro', 'error')} required">
 	<label for="bairro">
 		<g:message code="contratante.bairro.label" default="Bairro" />
 		<span class="required-indicator">*</span>
@@ -97,16 +116,16 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'cep', 'error')} required">
+<div class="field ${hasErrors(bean: contratanteInstance, field: 'cep', 'error')} required">
 	<label for="cep">
 		<g:message code="contratante.cep.label" default="Cep" />
 		<span class="required-indicator">*</span>
-	</label>
+	</label><br>
 	<g:textField name="cep" maxlength="9" required="" value="${contratanteInstance?.cep}"/>
 
 </div>
 
-<div class="field fieldcontain ${hasErrors(bean: contratanteInstance, field: 'dataNascimento', 'error')} required">
+<div class="field field ${hasErrors(bean: contratanteInstance, field: 'dataNascimento', 'error')} required">
 	<label for="dataNascimento">
 		<g:message code="contratante.dataNascimento.label" default="Data Nascimento" />
 		<span class="required-indicator">*</span>
@@ -115,7 +134,7 @@
 	<calendar:datePicker name="dataNascimento"  dateFormat= "%d/%m/%Y" defaultValue="${contratanteInstance?.dataNascimento}"/>
 </div>
 
-<div class="field fieldcontain ${hasErrors(bean: contratanteInstance, field: 'municipio', 'error')} required">
+<div class="field field ${hasErrors(bean: contratanteInstance, field: 'municipio', 'error')} required">
 	<label for="municipio">
 		<g:message code="contratante.municipio.unidadeFederativa.label" default="Unidade Federativa" />
 		<span class="required-indicator">*</span>
@@ -129,25 +148,13 @@
                 )}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: contratanteInstance, field: 'municipio', 'error')} required">
+<div class="field ${hasErrors(bean: contratanteInstance, field: 'municipio', 'error')} required">
 	<label for="municipio">
 		<g:message code="contratante.municipio.label" default="Municipio" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="municipio" name="municipio.id" from="${[]}" optionKey="id" required="" value="${contratanteInstance?.municipio?.id}" class="many-to-one"/>
 
-</div>
-
-<div class="field fieldcontain ${hasErrors(bean: candidatoInstance, field: 'logo', 'error')} ">
-	<label for="logo">
-		<g:message code="contratante.logo.label" default="Logo" />
-		
-	</label>
-	<input type="file" name="fileLogo" id="fileLogo" />
-
-	<g:if test="${contratanteInstance?.logo}">
-		<img src="${contratanteInstance?.logo}" style="max-width:100px;max-height:100px">
-	</g:if>
 </div>
 
 <script>

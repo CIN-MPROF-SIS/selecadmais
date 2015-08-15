@@ -4,7 +4,7 @@
 <!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
 <!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
-<html lang="en" class="no-js">
+<html lang="pt-BR" class="no-js">
 <!--<![endif]-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -17,47 +17,34 @@
 	href="${assetPath(src: 'apple-touch-icon.png')}">
 <link rel="apple-touch-icon" sizes="114x114"
 	href="${assetPath(src: 'apple-touch-icon-retina.png')}">
-<asset:stylesheet src="application.css" />
+<asset:stylesheet src="screen.css" />
+<asset:stylesheet src="custom.css" />
 <asset:javascript src="application.js" />
+<calendar:resources lang="en" theme="tiger"/>
+
 <g:layoutHead />
 </head>
 <body>
-	<div id="grailsLogo" role="banner">
-		<a href="http://grails.org"><asset:image src="grails_logo.png"
-				alt="Grails" /></a>
-	</div>
-	<div id="page-body" role="main">
-	 <div id="menu">
-		<h1>Moderador</h1>
-		<ul>
-			<li><g:link controller="municipio">Município </g:link></li>
-			<li><g:link controller="faixaSalarial">Faixa Salarial</g:link></li>
-			<li><g:link controller="lingua">Lingua</g:link></li>
-			<li><g:link controller="nivel">Nivel</g:link></li>
-			<li><g:link controller="unidadeFederativa">UnidadeFederativa</g:link></li>
-			<li><g:link controller="usuario">Usuario</g:link></li>
-		</ul>
-		<h1>Candidato</h1>
-		<ul>
-			<li><g:link controller="candidato">Candidato </g:link></li>
-		</ul>
+	<div class="container">
+      <header>
+		  <a href="/">
 
-		<h1>Contratante</h1>
-		<ul>
-			<li><g:link controller="contratante">Contratante </g:link></li>
-			<li><g:link controller="vaga">VagaController </g:link></li>
-		</ul>
-	</div>
-	
-		<div id="controller-list" role="navigation">
+		  <asset:image src='logo.jpg' class="logo"/>
+		  </a>
+		  <nav class="round">
+		    <ul>
+		      <li><a href="/">Home</a></li>
+		      <li><a href="/ajuda">Ajuda</a></li>
+		      
+		        <li><a href="login">Login</a></a></li>
+		        <li><a href="signup">Cadastro</a></a></li>
+		    </ul>
+		  </nav>
+		</header>
+		<main role="main">
 			<g:layoutBody />
-		</div>
-	
+		</main>
 	</div>
-	
-	<div class="footer" role="contentinfo"></div>
-	<div id="spinner" class="spinner" style="display: none;">
-		<g:message code="spinner.alt" default="Loading&hellip;" />
-	</div>
+
 </body>
 </html>

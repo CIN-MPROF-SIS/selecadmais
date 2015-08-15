@@ -5,11 +5,11 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'vaga.label', default: 'Vaga')}" />
-		<title><g:message code="default.list.label" args="[entityName]" /></title>
+		<title>Vagas Disponíveis</title>
 	</head>
 	<body>
 	    	<div id="list-vaga" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
+			<h1>Vagas Disponíveis</h1>
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
