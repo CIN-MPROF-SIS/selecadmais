@@ -15,7 +15,7 @@ class UrlMappings {
 		"/questionario/responder/$id?"(controller:"questionario", action:"responder")
 		"/questionario/responder/save"(controller:"questionario", action:"salvarRespostas")
 	
-		"/"(controller:"vaga", action:"vagasDisponiveis")
+		"/"(controller:"app", action:"home")
 		
 		// "/"(view:"/index")
 		"500"(view:'/error')

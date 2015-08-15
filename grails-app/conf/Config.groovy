@@ -129,7 +129,7 @@ log4j.main = {
 // Added by the Spring Security Core plugin:
 //grails.plugin.springsecurity.rememberMe.persistent = true
 //grails.plugin.springsecurity.rememberMe.persistentToken.domainClassName = 'selecadmais.PersistentLogin'
-grails.plugin.springsecurity.successHandler.alwaysUseDefaultTargetUrl = false
+//grails.plugin.springsecurity.successHandler.alwaysUseDefaultTargetUrl = false
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'selecadmais.Usuario'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'selecadmais.UsuarioPapel'
 grails.plugin.springsecurity.authority.className = 'selecadmais.Papel'
@@ -147,9 +147,10 @@ grails.plugin.springsecurity.interceptUrlMap = [
 	'/**/favicon.ico':  ['permitAll'],
 	'/login/**':        ['permitAll'],
 	'/logout/**':       ['permitAll'],
-	'/municipio/**': 	['hasRole("PAPEL_MODERADOR") ', 'IS_AUTHENTICATED_FULLY'],
-	'/j_spring_security_switch_user': ['PAPEL_MODERADOR'],
-	'/j_spring_security_exit_user':   ['permitAll'],
+	'/nivel/**': 		['hasRole("PAPEL_MODERADOR")'],
+	'/municipio/**': 	['hasRole("PAPEL_MODERADOR")'],
+	//'/j_spring_security_switch_user': ['hasRole("PAPEL_MODERADOR")'],
+	//'/j_spring_security_exit_user':   ['permitAll'],
 	'/**':               ['IS_AUTHENTICATED_ANONYMOUSLY']
 
  ]

@@ -20,30 +20,52 @@
 <asset:stylesheet src="screen.css" />
 <asset:stylesheet src="custom.css" />
 <asset:javascript src="application.js" />
-<calendar:resources lang="en" theme="tiger"/>
+<calendar:resources lang="en" theme="tiger" />
 
 <g:layoutHead />
 </head>
 <body>
 	<div class="container">
-      <header>
-		  <a href="/">
-
-		  <asset:image src='logo.jpg' class="logo"/>
-		  </a>
-		  <nav class="round">
-		    <ul>
-		      <li><a href="/">Home</a></li>
-		      <li><a href="/ajuda">Ajuda</a></li>
-		      
-		        <li><a href="login">Login</a></a></li>
-		        <li><a href="signup">Cadastro</a></a></li>
-		    </ul>
-		  </nav>
+		<header>
+			<a href="/"> <asset:image src='logo.jpg' class="logo" />
+			</a>
+			<nav class="round">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<sec:ifLoggedIn>
+						<sec:loggedInUserInfo field="username"/>
+						
+						<sec:access expression="hasRole('PAPEL_MODERADOR')">
+							<li><g:link controller="municipio">Municípios </g:link></li>
+							<li><g:link controller="faixaSalarial">Faixa Salariais</g:link></li>
+							<li><g:link controller="lingua">Línguas</g:link></li>
+							<li><g:link controller="nivel">Nivel</g:link></li>
+							<li><g:link controller="unidadeFederativa">Unidade Federativa</g:link></li>
+							<li><g:link controller="usuario">Usuário</g:link></li>						
+						</sec:access>
+						<sec:access expression="hasRole('PAPEL_CANDIDATO')">
+							<li><g:link controller="candidato">Candidato </g:link></li>				
+						</sec:access>
+						<sec:access expression="hasRole('PAPEL_CONTRATANTE')">
+							<li><g:link controller="contratante">Contratante </g:link></li>
+							<li><g:link controller="vaga">VagaController </g:link></li>	
+						</sec:access>
+						
+						<li><g:link controller="logout">Sair </g:link></li>	
+				
+					</sec:ifLoggedIn>
+					<li><a href="/ajuda">Ajuda</a></li>
+					<sec:ifLoggedIn>
+							<li><g:link controller="logout">Sair </g:link></li>	
+					</sec:ifLoggedIn>
+					<sec:ifNotLoggedIn>
+						<li><g:link controller='login' action='auth'>Login</g:link></li>
+						<li><g:link controller='usuario' action='create'>Cadastro</g:link></li>
+					</sec:ifNotLoggedIn>
+				</ul>
+			</nav>
 		</header>
-		<main role="main">
-			<g:layoutBody />
-		</main>
+		<main role="main"> <g:layoutBody /> </main>
 	</div>
 
 </body>
