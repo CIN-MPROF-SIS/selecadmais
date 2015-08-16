@@ -31,7 +31,7 @@
 			</a>
 			<nav class="round">
 				<ul>
-					<li><a href="/">Home</a></li>
+					<li><li><g:link controller="app" action="home" >Home</g:link></li></li>
 					<sec:ifLoggedIn>
 						<sec:loggedInUserInfo field="username"/>
 						
@@ -51,8 +51,6 @@
 							<li><g:link controller="vaga">VagaController </g:link></li>	
 						</sec:access>
 						
-						<li><g:link controller="logout">Sair </g:link></li>	
-				
 					</sec:ifLoggedIn>
 					<li><a href="/ajuda">Ajuda</a></li>
 					<sec:ifLoggedIn>
