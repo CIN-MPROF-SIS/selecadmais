@@ -2,7 +2,7 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: municipioInstance, field: 'nome', 'error')} required">
+<div class="field ${hasErrors(bean: municipioInstance, field: 'nome', 'error')} required">
 	<label for="nome">
 		<g:message code="municipio.nome.label" default="Nome" />
 		<span class="required-indicator">*</span>
@@ -11,7 +11,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: municipioInstance, field: 'unidadeFederativa', 'error')} required">
+<div class="field ${hasErrors(bean: municipioInstance, field: 'unidadeFederativa', 'error')} required">
 	<label for="unidadeFederativa">
 		<g:message code="municipio.unidadeFederativa.label" default="Unidade Federativa" />
 		<span class="required-indicator">*</span>

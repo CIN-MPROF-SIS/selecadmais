@@ -7,35 +7,25 @@
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#edit-faixaSalarial" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
-		<div id="edit-faixaSalarial" class="content scaffold-edit" role="main">
-			<h1><g:message code="default.edit.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<g:hasErrors bean="${faixaSalarialInstance}">
-			<ul class="errors" role="alert">
-				<g:eachError bean="${faixaSalarialInstance}" var="error">
-				<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
-				</g:eachError>
-			</ul>
-			</g:hasErrors>
-			<g:form url="[resource:faixaSalarialInstance, action:'update']" method="PUT" >
-				<g:hiddenField name="version" value="${faixaSalarialInstance?.version}" />
-				<fieldset class="form">
-					<g:render template="form"/>
-				</fieldset>
-				<fieldset class="buttons">
-					<g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-				</fieldset>
-			</g:form>
-		</div>
+		<h1>Alterar Faixa Salarial</h1>
+		<g:if test="${flash.message}">
+		<div class="flash_notice" role="status">${flash.message}</div>
+		</g:if>
+		<g:hasErrors bean="${faixaSalarialInstance}">
+		<ul class="errors" role="alert">
+			<g:eachError bean="${faixaSalarialInstance}" var="error">
+			<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
+			</g:eachError>
+		</ul>
+		</g:hasErrors>
+		<g:form url="[resource:faixaSalarialInstance, action:'update']" method="PUT" >
+			<g:hiddenField name="version" value="${faixaSalarialInstance?.version}" />
+			<g:render template="form"/>
+			<div class="actions">
+				<g:actionSubmit class="save" action="update" value="Atualizar Faixa Salarial" />
+			</div>
+		</g:form>
+		<g:link class="edit" action="show" resource="${faixaSalarialInstance}">ver</g:link>|
+		<g:link class="list" action="index">Voltar</g:link>
 	</body>
 </html>

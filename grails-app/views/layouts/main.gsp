@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title><g:layoutTitle default="Grails" /></title>
+<title>SELECAD+</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}"
 	type="image/x-icon">
@@ -36,11 +36,12 @@
 						<sec:loggedInUserInfo field="username"/>
 						
 						<sec:access expression="hasRole('PAPEL_MODERADOR')">
-							<li><g:link controller="municipio">Municípios </g:link></li>
 							<li><g:link controller="faixaSalarial">Faixa Salariais</g:link></li>
 							<li><g:link controller="lingua">Línguas</g:link></li>
 							<li><g:link controller="nivel">Nivel</g:link></li>
+							<li><g:link controller="grauFormacao">Grau de Formação</g:link></li>
 							<li><g:link controller="unidadeFederativa">Unidade Federativa</g:link></li>
+							<li><g:link controller="municipio">Municípios </g:link></li>
 							<li><g:link controller="usuario">Usuário</g:link></li>						
 						</sec:access>
 						<sec:access expression="hasRole('PAPEL_CANDIDATO')">
@@ -50,8 +51,6 @@
 							<li><g:link controller="contratante">Contratante </g:link></li>
 							<li><g:link controller="vaga">VagaController </g:link></li>	
 						</sec:access>
-						
-						<li><g:link controller="logout">Sair </g:link></li>	
 				
 					</sec:ifLoggedIn>
 					<li><a href="/ajuda">Ajuda</a></li>
@@ -66,6 +65,18 @@
 			</nav>
 		</header>
 		<main role="main"> <g:layoutBody /> </main>
+		<footer>
+			<nav class="round">
+				<ul>
+					<li>
+						<a href="/sobre">Sobre</a>
+					</li>
+					<li>
+						<a href="/contato">Contato</a>
+					</li>
+				</ul>
+			</nav>
+		</footer>
 	</div>
 
 </body>
