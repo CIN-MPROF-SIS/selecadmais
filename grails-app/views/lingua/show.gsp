@@ -14,7 +14,7 @@
 		</g:if>
 		<p>
 			<strong>
-				<g:message code="lingua.descricao.label" default="Descricao" />:
+				<g:message code="lingua.descricao.label" default="Descrição" />:
 			</strong>
 			<g:fieldValue bean="${linguaInstance}" field="descricao"/>
 		</p>
