@@ -39,6 +39,7 @@ class VagaController {
 
 	def create() {
 		
+		def principal = springSecurityService.principal
 		String username = principal.username
 		def usuario = Usuario.findByUsername(username)
 		

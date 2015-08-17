@@ -48,7 +48,7 @@
 					
 						<td><g:formatDate date="${vagaInstance.dataTerminoInscricao}" format="dd/MM/yyyy"/></td>
 					
-						<td><g:link controller="candidatoVaga" action="avaliar" params='[vaga:"${vagaInstance.id}"]'>Selecionar</g:link></td>
+						<!--  <td><g:link controller="candidatoVaga" action="candidatar" params='[vaga:"${vagaInstance.id}"]'>Selecionar</g:link></td> -->
 					</tr>
 				</g:each>
 				</tbody>

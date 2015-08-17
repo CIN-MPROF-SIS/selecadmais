@@ -30,6 +30,7 @@ class CandidatoVagaController {
             order("dataInicioInscricao")
         }
      
+		def principal = springSecurityService.principal
 		String username = principal.username
 		def usuario = Usuario.findByUsername(username)
 	    def candidato = usuario.pessoa
@@ -84,8 +85,11 @@ class CandidatoVagaController {
     def save() {
         def candidatoVagaInstance = new CandidatoVaga()
         def vaga = Vaga.findById(params.vaga)
-        def candidato = Candidato.findById(2)//trocar pelo usuário da sessão
-
+		
+		def principal = springSecurityService.principal
+		String username = principal.username
+		def usuario = Usuario.findByUsername(username)
+		def candidato = usuario.pessoa
 
         if (candidatoVagaInstance.hasErrors()) {
             respond candidatoVagaInstance.errors, view:'create'

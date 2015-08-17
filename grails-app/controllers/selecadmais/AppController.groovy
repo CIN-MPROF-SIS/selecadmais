@@ -15,10 +15,10 @@ class AppController {
 			redirect controller:"vaga", action:"vagasDisponiveis"
 
 		if (authorities.toString()  == '[PAPEL_MODERADOR]')
-			redirect controller:"vaga", action:"index"
+			redirect controller:"usuario", action:"index"
 
 		if (authorities.toString()  == '[PAPEL_CANDIDATO]')
-			redirect controller:"vaga", action:"vagasDisponiveis"
+			redirect controller:"candidatoVaga", action:"home"
 
 		if (authorities.toString()  == '[PAPEL_CONTRATANTE]')
 			redirect controller:"vaga", action:"index"
