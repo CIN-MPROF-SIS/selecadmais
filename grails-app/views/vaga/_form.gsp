@@ -19,6 +19,24 @@
 </div>
 
 <div class="field ${hasErrors(bean: vagaInstance, field: 'dataInicioInscricao', 'error')} required">
+	<label for="contratante">
+		<g:message code="vaga.contratante.label" default="Contratante" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="contratante" name="contratante.id" from="${selecadmais.Contratante.list()}" optionKey="id" required="" value="${vagaInstance?.contratante?.id}" class="many-to-one"/>
+</div>
+
+<div class="field ${hasErrors(bean: vagaInstance, field: 'dataCadastro', 'error')} required">
+	<label for="dataInicioInscricao">
+		<g:message code="vaga.dataCadastro.label" default="Data Cadastro" />
+		<span class="required-indicator">*</span>
+	</label>
+	<calendar:datePicker name="dataCadastro"  dateFormat= "%d/%m/%Y" defaultValue="${vagaInstance?.dataCadastro}"/>
+
+</div>
+
+<div class="field ${hasErrors(bean: vagaInstance, field: 'dataInicioInscricao', 'error')} required">
+>>>>>>> fa687f5ef97d855b8cc5cf80d3b5054e7a54002c
 	<label for="dataInicioInscricao">
 		<g:message code="vaga.dataInicioInscricao.label" default="Data Inicio Inscricao" />
 		<span class="required-indicator">*</span>

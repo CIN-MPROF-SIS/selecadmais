@@ -31,9 +31,11 @@
 			</a>
 			<nav class="round">
 				<ul>
-					<li><a href="/">Home</a></li>
+					<li>
+					<li><g:link controller="app" action="home">Home</g:link></li>
+					</li>
 					<sec:ifLoggedIn>
-						<sec:loggedInUserInfo field="username"/>
+						<sec:loggedInUserInfo field="username" />
 						
 						<sec:access expression="hasRole('PAPEL_MODERADOR')">
 							<li><g:link controller="faixaSalarial">Faixa Salariais</g:link></li>
@@ -42,20 +44,19 @@
 							<li><g:link controller="grauFormacao">Grau de Formação</g:link></li>
 							<li><g:link controller="unidadeFederativa">Unidade Federativa</g:link></li>
 							<li><g:link controller="municipio">Municípios </g:link></li>
-							<li><g:link controller="usuario">Usuário</g:link></li>						
+							<li><g:link controller="usuario">Usuário</g:link></li>
 						</sec:access>
 						<sec:access expression="hasRole('PAPEL_CANDIDATO')">
-							<li><g:link controller="candidato">Candidato </g:link></li>				
+							<li><g:link controller="candidato"  action='create'>Candidato </g:link></li>
 						</sec:access>
 						<sec:access expression="hasRole('PAPEL_CONTRATANTE')">
 							<li><g:link controller="contratante">Perfil </g:link></li>
 							<li><g:link controller="vaga">Vagas </g:link></li>	
 						</sec:access>
-				
 					</sec:ifLoggedIn>
 					<li><a href="/ajuda">Ajuda</a></li>
 					<sec:ifLoggedIn>
-							<li><g:link controller="logout">Sair </g:link></li>	
+						<li><g:link controller="logout">Sair </g:link></li>
 					</sec:ifLoggedIn>
 					<sec:ifNotLoggedIn>
 						<li><g:link controller='login' action='auth'>Login</g:link></li>
@@ -68,12 +69,8 @@
 		<footer>
 			<nav class="round">
 				<ul>
-					<li>
-						<a href="/sobre">Sobre</a>
-					</li>
-					<li>
-						<a href="/contato">Contato</a>
-					</li>
+					<li><a href="/sobre">Sobre</a></li>
+					<li><a href="/contato">Contato</a></li>
 				</ul>
 			</nav>
 		</footer>

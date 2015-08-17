@@ -9,6 +9,7 @@ import grails.transaction.Transactional
 class CandidatoVagaController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+	def springSecurityService
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -28,8 +29,11 @@ class CandidatoVagaController {
             }
             order("dataInicioInscricao")
         }
-        //def vagas = Vaga.findAll()
-        def candidato = Candidato.findById(2)
+     
+		def principal = springSecurityService.principal
+		String username = principal.username
+		def usuario = Usuario.findByUsername(username)
+	    def candidato = usuario.pessoa
 
         def candidaturas = [:]
         CandidatoVaga.findAllByCandidato(candidato).each{
@@ -81,8 +85,11 @@ class CandidatoVagaController {
     def save() {
         def candidatoVagaInstance = new CandidatoVaga()
         def vaga = Vaga.findById(params.vaga)
-        def candidato = Candidato.findById(2)//trocar pelo usuário da sessão
-
+		
+		def principal = springSecurityService.principal
+		String username = principal.username
+		def usuario = Usuario.findByUsername(username)
+		def candidato = usuario.pessoa
 
         if (candidatoVagaInstance.hasErrors()) {
             respond candidatoVagaInstance.errors, view:'create'

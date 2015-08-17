@@ -9,6 +9,8 @@ import grails.transaction.Transactional
 class UsuarioController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+	
+	def papel
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -38,9 +40,9 @@ class UsuarioController {
 
         usuarioInstance.save flush:true
 
-        def moderadorRole = Papel.findByAuthority('PAPEL_MODERADOR') ?: new Papel(authority: 'PAPEL_MODERADOR').save(failOnError: true,flush: true)
-        if (!usuarioInstance.authorities.contains(moderadorRole)) {
-            UsuarioPapel.create usuarioInstance, moderadorRole
+		def papelUsuario = Papel.findByAuthority(usuarioInstance.papel)
+        if (!usuarioInstance.authorities.contains(papelUsuario)) {
+             UsuarioPapel.create usuarioInstance, papelUsuario
         }
 
         request.withFormat {
@@ -69,11 +71,11 @@ class UsuarioController {
         }
 
         usuarioInstance.save flush:true
-
-        def moderadorRole = Papel.findByAuthority('PAPEL_MODERADOR') ?: new Papel(authority: 'PAPEL_MODERADOR').save(failOnError: true,flush: true)
-        if (!usuarioInstance.authorities.contains(moderadorRole)) {
-            UsuarioPapel.create usuarioInstance, moderadorRole
-        }
+        
+		def papelUsuario = Papel.findByAuthority(usuarioInstance.papel)
+        if (!usuarioInstance.authorities.contains(papelUsuario)) {
+             UsuarioPapel.create usuarioInstance, papelUsuario
+        }  
 
         request.withFormat {
             form multipartForm {

@@ -156,4 +156,5 @@ class ContratanteController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
 }

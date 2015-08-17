@@ -16,16 +16,16 @@
 		<g:message code="usuario.password.label" default="Password" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="password" required="" value="${usuarioInstance?.password}"/>
+	<g:passwordField name="password" required="" value="${usuarioInstance?.password}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'pessoa', 'error')} ">
+<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'papel', 'error')} ">
 	<label for="pessoa">
-		<g:message code="usuario.pessoa.label" default="Pessoa" />
+		<g:message code="usuario.papel.label" default="Papel" />
 		
 	</label>
-	<g:select id="pessoa" name="pessoa.id" from="${selecadmais.Pessoa.list()}" optionKey="id" value="${usuarioInstance?.pessoa?.id}" class="many-to-one" noSelection="['null': '']"/>
+	<g:select id="papel" name="papel" from="${selecadmais.Papel.list()}" optionKey="authority" value="${usuarioInstance?.papel}" class="many-to-one" noSelection="['null': '']"/>
 
 </div>
 

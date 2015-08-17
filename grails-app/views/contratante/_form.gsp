@@ -67,7 +67,8 @@
 		Logo da Empresa
 		
 	</label>
-	<input type="file" name="fileLogo" id="fileLogo" />
+	<input type="hidden" name="logo" id="logo"  value="333"/>
+	<input type="file" name="fileLogo" id="fileLogo"  value="333"/>
 
 	<g:if test="${contratanteInstance?.logo}">
 		<img src="${contratanteInstance?.logo}" style="max-width:100px;max-height:100px">
