@@ -99,11 +99,13 @@
 		<g:message code="candidato.foto.label" default="Foto" />
 		
 	</label>
-	<input type="file" name="fileFoto" id="fileFoto" />
-
 	<g:if test="${candidatoInstance?.foto}">
 		<img src="${candidatoInstance?.foto}" style="max-width:100px;max-height:100px">
 	</g:if>
+	<br>
+	<input type="file" name="fileFoto" id="fileFoto" />
+
+	
 </div>
 
 <div class="field" style="width:100%;float:clear">   </div>
