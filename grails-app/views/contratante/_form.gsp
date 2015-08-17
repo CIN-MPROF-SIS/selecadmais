@@ -120,7 +120,7 @@
 	<label for="cep">
 		<g:message code="contratante.cep.label" default="Cep" />
 		<span class="required-indicator">*</span>
-	</label><br>
+	</label>
 	<g:textField name="cep" maxlength="9" required="" value="${contratanteInstance?.cep}"/>
 
 </div>

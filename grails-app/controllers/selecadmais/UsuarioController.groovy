@@ -37,13 +37,12 @@ class UsuarioController {
         }
 
         usuarioInstance.save flush:true
-println "antes"
+
         def moderadorRole = Papel.findByAuthority('PAPEL_MODERADOR') ?: new Papel(authority: 'PAPEL_MODERADOR').save(failOnError: true,flush: true)
         if (!usuarioInstance.authorities.contains(moderadorRole)) {
-            println "if"
             UsuarioPapel.create usuarioInstance, moderadorRole
         }
-println "depois"
+
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'usuario.label', default: 'Usuario'), usuarioInstance.id])
@@ -70,13 +69,12 @@ println "depois"
         }
 
         usuarioInstance.save flush:true
-println "antes"
+
         def moderadorRole = Papel.findByAuthority('PAPEL_MODERADOR') ?: new Papel(authority: 'PAPEL_MODERADOR').save(failOnError: true,flush: true)
         if (!usuarioInstance.authorities.contains(moderadorRole)) {
-            println "if"
             UsuarioPapel.create usuarioInstance, moderadorRole
         }
-println "depois"
+
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Usuario.label', default: 'Usuario'), usuarioInstance.id])

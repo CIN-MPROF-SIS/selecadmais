@@ -6,6 +6,7 @@
 		<g:set var="entityName" value="${message(code: 'candidato.label', default: 'Candidato')}" />
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
 		<script src="../../js/candidato.js" type="text/javascript" ></script>
+		<script src="../js/candidato.js" type="text/javascript" ></script>
 	</head>
 	<body>
 		<a href="#edit-candidato" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>

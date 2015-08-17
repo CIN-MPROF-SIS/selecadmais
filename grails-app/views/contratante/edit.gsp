@@ -6,6 +6,7 @@
 		<g:set var="entityName" value="${message(code: 'contratante.label', default: 'Contratante')}" />
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
 		<script src="../../js/contratante.js" type="text/javascript" ></script>
+		<script src="../js/contratante.js" type="text/javascript" ></script>
 	</head>
 	<body>
 		<h1>Perfil</h1>

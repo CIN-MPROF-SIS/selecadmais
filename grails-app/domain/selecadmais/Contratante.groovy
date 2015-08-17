@@ -10,7 +10,7 @@ class Contratante extends Pessoa {
 
     static constraints = {
     	cpf(size:0..14, unique: true, nullable:true)
-        cnpj(size:0..14, unique: true, nullable:true)
+        cnpj(size:0..18, unique: true, nullable:true)
     	inscricaoEstadual(size:0..50,nullable:true)
     	logo(size:0..200,nullable:true)
     	

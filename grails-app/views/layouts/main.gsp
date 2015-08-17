@@ -48,8 +48,8 @@
 							<li><g:link controller="candidato">Candidato </g:link></li>				
 						</sec:access>
 						<sec:access expression="hasRole('PAPEL_CONTRATANTE')">
-							<li><g:link controller="contratante">Contratante </g:link></li>
-							<li><g:link controller="vaga">VagaController </g:link></li>	
+							<li><g:link controller="contratante">Perfil </g:link></li>
+							<li><g:link controller="vaga">Vagas </g:link></li>	
 						</sec:access>
 				
 					</sec:ifLoggedIn>

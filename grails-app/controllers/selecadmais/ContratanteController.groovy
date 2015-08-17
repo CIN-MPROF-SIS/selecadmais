@@ -1,7 +1,7 @@
 package selecadmais
 
 
-
+import grails.plugin.springsecurity.SpringSecurityService
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -9,11 +9,20 @@ import grails.transaction.Transactional
 class ContratanteController {
 
     FileUploadService fileUploadService
+    SpringSecurityService springSecurityService
     static allowedMethods = [save: "POST", update: "POST", delete: "DELETE"]
 
     def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond Contratante.list(params), model:[contratanteInstanceCount: Contratante.count()]
+        
+        if(springSecurityService.currentUser.pessoa == null){
+            create()
+        }
+        else{
+            edit()
+        }
+
+        //params.max = Math.min(max ?: 10, 100)
+        //respond Contratante.list(params), model:[contratanteInstanceCount: Contratante.count()]
     }
 
     def show(Contratante contratanteInstance) {
@@ -21,7 +30,8 @@ class ContratanteController {
     }
 
     def create() {
-        respond new Contratante(params)
+        render(view: "create", model: [contratanteInstance: new Contratante(params)])
+        //respond new Contratante(params)
     }
 
     @Transactional
@@ -58,6 +68,9 @@ class ContratanteController {
 
         contratanteInstance.save flush:true
 
+        springSecurityService.currentUser.pessoa = contratanteInstance
+        springSecurityService.currentUser.save flush:true
+
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'contratante.label', default: 'Contratante'), contratanteInstance.id])
@@ -68,7 +81,8 @@ class ContratanteController {
     }
 
     def edit(Contratante contratanteInstance) {
-        respond contratanteInstance
+        render(view: "edit", model: [contratanteInstance: springSecurityService.currentUser.pessoa])
+        //respond contratanteInstance
     }
 
     @Transactional
