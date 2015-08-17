@@ -14,7 +14,7 @@
 		</g:if>
 		<p>
 			<strong>
-				<g:message code="nivel.descricao.label" default="Descricao" />:
+				<g:message code="nivel.descricao.label" default="Descrição" />:
 			</strong>
 			<g:fieldValue bean="${nivelInstance}" field="descricao"/>
 		</p>
