@@ -23,7 +23,8 @@
 					
 						<g:sortableColumn property="dataCadastro" title="${message(code: 'vaga.dataCadastro.label', default: 'Data Cadastro')}" />
 					
-						<th><g:message code="vaga.contratante.label" default="Contratante" /></th>
+						<g:sortableColumn property="descricaoContratante" title="${message(code: 'contratante.descricao.label', default: 'Contratante')}"  
+						/>
 					
 						<g:sortableColumn property="dataInicioInscricao" title="${message(code: 'vaga.dataInicioInscricao.label', default: 'Data Inicio Inscricao')}" />
 					
