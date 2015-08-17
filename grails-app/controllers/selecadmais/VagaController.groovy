@@ -15,7 +15,8 @@ class VagaController {
 
 	def index(Integer max) {
 		params.max = Math.min(max ?: 10, 100)
-		respond Vaga.list(params), model:[vagaInstanceCount: Vaga.count()]
+		def vagas = Vaga.findAllByContratante(springSecurityService.currentUser.pessoa, params)
+		respond vagas, model:[vagaInstanceCount: Vaga.count()]
 	}
 
 	def vagasDisponiveis() {
@@ -39,7 +40,7 @@ class VagaController {
 
 	def create() {
 		
-		def principal = springSecurityService.principal
+		/*def principal = springSecurityService.principal
 		String username = principal.username
 		def usuario = Usuario.findByUsername(username)
 		
@@ -47,11 +48,22 @@ class VagaController {
 		vaga.contratante= usuario.pessoa
 		vaga.dataCadastro = new Date()  
 		
-		respond vaga 
+		respond vaga */
+		respond new Usuario(params)
 	}
 
 	@Transactional
 	def save(Vaga vagaInstance) {
+		def savedErrors = vagaInstance.errors.allErrors.findAll{ true }
+        def cdError = savedErrors.findAll{ it.field == "dataCadastro" || it.field == "contratante"}
+        savedErrors.removeAll(cdError)
+        vagaInstance.clearErrors()
+        savedErrors.each {
+                vagaInstance.errors.addError(it)
+        } 
+
+		vagaInstance.dataCadastro = new Date()
+		vagaInstance.contratante = springSecurityService.currentUser.pessoa
 		if (vagaInstance == null) {
 			notFound()
 			return

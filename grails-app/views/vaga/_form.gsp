@@ -19,24 +19,6 @@
 </div>
 
 <div class="field ${hasErrors(bean: vagaInstance, field: 'dataInicioInscricao', 'error')} required">
-	<label for="contratante">
-		<g:message code="vaga.contratante.label" default="Contratante" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="contratante" name="contratante.id" from="${selecadmais.Contratante.list()}" optionKey="id" required="" value="${vagaInstance?.contratante?.id}" class="many-to-one"/>
-</div>
-
-<div class="field ${hasErrors(bean: vagaInstance, field: 'dataCadastro', 'error')} required">
-	<label for="dataInicioInscricao">
-		<g:message code="vaga.dataCadastro.label" default="Data Cadastro" />
-		<span class="required-indicator">*</span>
-	</label>
-	<calendar:datePicker name="dataCadastro"  dateFormat= "%d/%m/%Y" defaultValue="${vagaInstance?.dataCadastro}"/>
-
-</div>
-
-<div class="field ${hasErrors(bean: vagaInstance, field: 'dataInicioInscricao', 'error')} required">
->>>>>>> fa687f5ef97d855b8cc5cf80d3b5054e7a54002c
 	<label for="dataInicioInscricao">
 		<g:message code="vaga.dataInicioInscricao.label" default="Data Inicio Inscricao" />
 		<span class="required-indicator">*</span>
@@ -63,6 +45,15 @@
 
 </div>
 
+<div class="field ${hasErrors(bean: vagaInstance, field: 'quantidade', 'error')} required">
+	<label for="quantidade">
+		<g:message code="vaga.quantidade.label" default="Quantidade" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="quantidade" value="${fieldValue(bean: vagaInstance, field: 'quantidade')}" required=""/>
+
+</div>
+
 <div class="field  ${hasErrors(bean: candidatoInstance, field: 'municipio', 'error')} required">
 	<label for="municipio">
 		<g:message code="candidato.municipio.unidadeFederativa.label" default="Unidade Federativa" />
@@ -83,15 +74,6 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="municipio" name="municipio.id" from="${[]}" optionKey="id" required="" value="${vagaInstance?.municipio?.id}" class="many-to-one" noSelection="['':'']"/>
-
-</div>
-
-<div class="field ${hasErrors(bean: vagaInstance, field: 'quantidade', 'error')} required">
-	<label for="quantidade">
-		<g:message code="vaga.quantidade.label" default="Quantidade" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field name="quantidade" value="${fieldValue(bean: vagaInstance, field: 'quantidade')}" required=""/>
 
 </div>
 

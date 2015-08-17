@@ -22,8 +22,6 @@
 				
 					<g:sortableColumn property="dataCadastro" title="${message(code: 'vaga.dataCadastro.label', default: 'Data Cadastro')}" />
 				
-					<th><g:message code="vaga.contratante.label" default="Contratante" /></th>
-				
 					<g:sortableColumn property="dataInicioInscricao" title="${message(code: 'vaga.dataInicioInscricao.label', default: 'Data Inicio Inscricao')}" />
 				
 					<g:sortableColumn property="dataTerminoInscricao" title="${message(code: 'vaga.dataTerminoInscricao.label', default: 'Data Termino Inscricao')}" />
@@ -39,9 +37,7 @@
 				
 					<td>${fieldValue(bean: vagaInstance, field: "cargo")}</td>
 				
-					<td><g:formatDate date="${vagaInstance.dataCadastro}" format="dd/MM/yyyy"/></td>
-				
-					<td>${fieldValue(bean: vagaInstance, field: "contratante")}</td>
+					<td><g:formatDate date="${vagaInstance.dataCadastro}" format="dd/MM/yyyy HH:mm:ss"/></td>
 				
 					<td><g:formatDate date="${vagaInstance.dataInicioInscricao}" format="dd/MM/yyyy"/></td>
 				
