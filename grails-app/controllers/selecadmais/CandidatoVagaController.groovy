@@ -1,7 +1,7 @@
 package selecadmais
 
 
-
+import grails.plugin.springsecurity.SpringSecurityService
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -13,7 +13,8 @@ class CandidatoVagaController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond CandidatoVaga.list(params), model:[candidatoVagaInstanceCount: CandidatoVaga.count()]
+        def candidaturas = CandidatoVaga.findAllByCandidato(springSecurityService.currentUser.pessoa, params)
+        respond candidaturas, model:[candidatoVagaInstanceCount: CandidatoVaga.count()]
     }
 
     def home(){

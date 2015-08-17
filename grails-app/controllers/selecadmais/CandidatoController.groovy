@@ -1,7 +1,7 @@
 package selecadmais
 
 
-//import org.springframework.web.multipart.MultipartFile
+import grails.plugin.springsecurity.SpringSecurityService
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -9,11 +9,16 @@ import grails.transaction.Transactional
 class CandidatoController {
 
     FileUploadService fileUploadService
+    SpringSecurityService springSecurityService
     static allowedMethods = [save: "POST", update: "POST", delete: "DELETE"]
 
     def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond Candidato.list(params), model:[candidatoInstanceCount: Candidato.count()]
+        if(springSecurityService.currentUser.pessoa == null){
+            create()
+        }
+        else{
+            edit()
+        }
     }
 
     def show(Candidato candidatoInstance) {
@@ -21,7 +26,7 @@ class CandidatoController {
     }
 
     def create() {
-        respond new Candidato(params)
+        render(view: "create", model: [candidatoInstance: new Candidato(params)])
     }
 
     @Transactional
@@ -67,6 +72,9 @@ class CandidatoController {
 
         candidatoInstance.save(flush:true)
 
+        springSecurityService.currentUser.pessoa = candidatoInstance
+        springSecurityService.currentUser.save flush:true
+
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'candidato.label', default: 'Candidato'), candidatoInstance.id])
@@ -77,7 +85,7 @@ class CandidatoController {
     }
 
     def edit(Candidato candidatoInstance) {
-        respond candidatoInstance
+        render(view: "edit", model: [candidatoInstance: springSecurityService.currentUser.pessoa])
     }
 
     @Transactional

@@ -47,7 +47,9 @@
 							<li><g:link controller="usuario">Usuário</g:link></li>
 						</sec:access>
 						<sec:access expression="hasRole('PAPEL_CANDIDATO')">
-							<li><g:link controller="candidato"  action='create'>Candidato </g:link></li>
+							<li><g:link controller="candidato">Perfil </g:link></li>
+							<li><g:link controller="candidatoVaga">Minhas Candidaturas </g:link></li>
+							<li><g:link controller="candidatoVaga" action="home">Vagas Disponíveis </g:link></li>
 						</sec:access>
 						<sec:access expression="hasRole('PAPEL_CONTRATANTE')">
 							<li><g:link controller="contratante">Perfil </g:link></li>

@@ -8,7 +8,7 @@
 		<g:message code="candidato.nome.label" default="Nome" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="nome" maxlength="100" required="" value="${candidatoInstance?.nome}"/>
+	<g:textField name="nome" maxlength="100" required="" value="${candidatoInstance?.nome}" style="width:95%"/>
 
 </div>
 
