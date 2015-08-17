@@ -26,6 +26,14 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="contratante" name="contratante.id" from="${selecadmais.Contratante.list()}" optionKey="id" required="" value="${vagaInstance?.contratante?.id}" class="many-to-one"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: vagaInstance, field: 'dataCadastro', 'error')} required">
+	<label for="dataInicioInscricao">
+		<g:message code="vaga.dataCadastro.label" default="Data Cadastro" />
+		<span class="required-indicator">*</span>
+	</label>
+	<calendar:datePicker name="dataCadastro"  dateFormat= "%d/%m/%Y" defaultValue="${vagaInstance?.dataCadastro}"/>
 
 </div>
 

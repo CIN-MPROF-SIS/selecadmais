@@ -2,7 +2,7 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: faixaSalarialInstance, field: 'valor', 'error')} required">
+<div class="field ${hasErrors(bean: faixaSalarialInstance, field: 'valor', 'error')} required">
 	<label for="valor">
 		<g:message code="faixaSalarial.valor.label" default="Valor" />
 		<span class="required-indicator">*</span>

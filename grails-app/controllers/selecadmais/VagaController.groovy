@@ -9,6 +9,9 @@ import grails.transaction.Transactional
 class VagaController {
 
 	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+	
+	def springSecurityService
+	
 
 	def index(Integer max) {
 		params.max = Math.min(max ?: 10, 100)
@@ -35,7 +38,15 @@ class VagaController {
 	}
 
 	def create() {
-		respond new Vaga(params)
+		
+		String username = principal.username
+		def usuario = Usuario.findByUsername(username)
+		
+		def vaga = new Vaga(params)
+		vaga.contratante= usuario.pessoa
+		vaga.dataCadastro = new Date()  
+		
+		respond vaga 
 	}
 
 	@Transactional

@@ -2,7 +2,7 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: linguaInstance, field: 'descricao', 'error')} required">
+<div class="field ${hasErrors(bean: linguaInstance, field: 'descricao', 'error')} required">
 	<label for="descricao">
 		<g:message code="lingua.descricao.label" default="Descricao" />
 		<span class="required-indicator">*</span>

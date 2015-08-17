@@ -7,6 +7,7 @@ class Vaga {
 	Date dataCadastro
 	Date dataInicioInscricao
 	Date dataTerminoInscricao
+	Contratante contratante
 
 	static belongsTo = [ 
 		contratante : Contratante,

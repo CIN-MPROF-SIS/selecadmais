@@ -9,10 +9,10 @@ class Contratante extends Pessoa {
 	String inscricaoEstadual
 
     static constraints = {
-    	cpf(size:0..14, unique: true, nullable:true)
-        cnpj(size:0..14, unique: true, nullable:true)
-    	inscricaoEstadual(size:0..50,nullable:true)
-    	logo(size:0..200,nullable:true)
+    	cpf(size:0..14, unique: true, blank:true, nullable: true)
+        cnpj(size:0..14, unique: true, blank:true, nullable: true)
+    	inscricaoEstadual(size:0..50,blank:true, nullable: true)
+    	logo(size:0..200,blank:true, nullable: true)
     	
     }
 

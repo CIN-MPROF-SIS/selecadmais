@@ -8,138 +8,177 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class ContratanteController {
 
-    FileUploadService fileUploadService
-    static allowedMethods = [save: "POST", update: "POST", delete: "DELETE"]
+	def springSecurityService
 
-    def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond Contratante.list(params), model:[contratanteInstanceCount: Contratante.count()]
-    }
+	FileUploadService fileUploadService
+	static allowedMethods = [save: "POST", update: "POST", delete: "DELETE"]
 
-    def show(Contratante contratanteInstance) {
-        respond contratanteInstance
-    }
+	def index(Integer max) {
+		params.max = Math.min(max ?: 10, 100)
+		respond Contratante.list(params), model:[contratanteInstanceCount: Contratante.count()]
+	}
 
-    def create() {
-        respond new Contratante(params)
-    }
+	def show(Contratante contratanteInstance) {
+		respond contratanteInstance
+	}
 
-    @Transactional
-    def save(Contratante contratanteInstance) {
-        if (contratanteInstance == null) {
-            notFound()
-            return
-        }
+	def cadastrar() {
+		def principal = springSecurityService.principal
+		String username = principal.username
 
-        if (contratanteInstance.hasErrors()) {
-            respond contratanteInstance.errors, view:'create'
-            return
-        }
+		def usuario = Usuario.findByUsername(username)
+		def pessoa = usuario.pessoa
 
-        def extensoes_logo = ['jpg', 'jpeg', 'gif', 'png']
-        def logo = request.getFile('fileLogo')
-    
-        if (!logo.isEmpty()) {
-            if(!extensoes_logo.contains(logo.getOriginalFilename().split("\\.")[1].toLowerCase()))
-            {
-                request.withFormat {
-                    form multipartForm {
-                            candidatoInstance.errors.rejectValue(
-                            'logo',
-                            'Formato da logo não é de imagem')
-                        render(view: "create", model: [contratanteInstance: contratanteInstance])
-                    }
-                    '*'{ respond contratanteInstance, [status: error] }
-                }
-                return;
-            }
-            contratanteInstance.logo = fileUploadService.uploadFile(logo, logo.getOriginalFilename(), "logos/" + contratanteInstance.id)
-        }
+		if(pessoa ==null){
+			redirect(action: "create")
+		}
+		else {
+			render(view: "edit", model: [contratanteInstance: pessoa])
+		}
+	}
 
-        contratanteInstance.save flush:true
+	def create() {
+		respond new Contratante(params)
+	}
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'contratante.label', default: 'Contratante'), contratanteInstance.id])
-                redirect contratanteInstance
-            }
-            '*' { respond contratanteInstance, [status: CREATED] }
-        }
-    }
+	@Transactional
+	def save(Contratante contratanteInstance) {
+		if (contratanteInstance == null) {
+			notFound()
+			return
+		}
 
-    def edit(Contratante contratanteInstance) {
-        respond contratanteInstance
-    }
+		if (contratanteInstance.hasErrors()) {
+			respond contratanteInstance.errors, view:'create'
+			return
+		}
 
-    @Transactional
-    def update(Contratante contratanteInstance) {
-        if (contratanteInstance == null) {
-            notFound()
-            return
-        }
+		def extensoes_logo = ['jpg', 'jpeg', 'gif', 'png']
+		def logo = request.getFile('fileLogo')
 
-        if (contratanteInstance.hasErrors()) {
-            respond contratanteInstance.errors, view:'edit'
-            return
-        }
+		if (!logo.isEmpty()) {
+			if(!extensoes_logo.contains(logo.getOriginalFilename().split("\\.")[1].toLowerCase())) {
+				request.withFormat {
+					form multipartForm {
+						candidatoInstance.errors.rejectValue(
+								'logo',
+								'Formato da logo não é de imagem')
+						render(view: "create", model: [contratanteInstance: contratanteInstance])
+					}
+					'*'{
+						respond contratanteInstance, [status: error]
+					}
+				}
+				return;
+			}
+			contratanteInstance.logo = fileUploadService.uploadFile(logo, logo.getOriginalFilename(), "logos/" + contratanteInstance.id)
+		}
 
-        def extensoes_logo = ['jpg', 'jpeg', 'gif', 'png']
-        def logo = request.getFile('fileLogo')
-    
-        if (!logo.isEmpty()) {
-            if(!extensoes_logo.contains(logo.getOriginalFilename().split("\\.")[1].toLowerCase()))
-            {
-                request.withFormat {
-                    form multipartForm {
-                            candidatoInstance.errors.rejectValue(
-                            'logo',
-                            'Formato da logo não é de imagem')
-                        render(view: "edit", model: [contratanteInstance: contratanteInstance])
-                    }
-                    '*'{ respond contratanteInstance, [status: error] }
-                }
-                return;
-            }
-            contratanteInstance.logo = fileUploadService.uploadFile(logo, logo.getOriginalFilename(), "logos/" + contratanteInstance.id)
-        }
+		contratanteInstance.save flush:true
 
-        contratanteInstance.save flush:true
+		// Salvar usuário
+		def principal = springSecurityService.principal
+		String username = principal.username
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Contratante.label', default: 'Contratante'), contratanteInstance.id])
-                redirect contratanteInstance
-            }
-            '*'{ respond contratanteInstance, [status: OK] }
-        }
-    }
+		def usuario = Usuario.findByUsername(username)
+		usuario.pessoa = contratanteInstance
+		usuario.save flush:true
 
-    @Transactional
-    def delete(Contratante contratanteInstance) {
 
-        if (contratanteInstance == null) {
-            notFound()
-            return
-        }
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.created.message', args: [
+					message(code: 'contratante.label', default: 'Contratante'),
+					contratanteInstance.id
+				])
+				redirect contratanteInstance
+			}
+			'*' { respond contratanteInstance, [status: CREATED] }
+		}
+	}
 
-        contratanteInstance.delete flush:true
+	def edit(Contratante contratanteInstance) {
+		respond contratanteInstance
+	}
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Contratante.label', default: 'Contratante'), contratanteInstance.id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
-    }
+	@Transactional
+	def update(Contratante contratanteInstance) {
+		if (contratanteInstance == null) {
+			notFound()
+			return
+		}
 
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'contratante.label', default: 'Contratante'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*'{ render status: NOT_FOUND }
-        }
-    }
+		if (contratanteInstance.hasErrors()) {
+			respond contratanteInstance.errors, view:'edit'
+			return
+		}
+
+		def extensoes_logo = ['jpg', 'jpeg', 'gif', 'png']
+		def logo = request.getFile('fileLogo')
+
+		if (!logo.isEmpty()) {
+			if(!extensoes_logo.contains(logo.getOriginalFilename().split("\\.")[1].toLowerCase()))
+			{
+				request.withFormat {
+					form multipartForm {
+						candidatoInstance.errors.rejectValue(
+								'logo',
+								'Formato da logo não é de imagem')
+						render(view: "edit", model: [contratanteInstance: contratanteInstance])
+					}
+					'*'{ respond contratanteInstance, [status: error] }
+				}
+				return;
+			}
+			contratanteInstance.logo = fileUploadService.uploadFile(logo, logo.getOriginalFilename(), "logos/" + contratanteInstance.id)
+		}
+
+		contratanteInstance.save flush:true
+
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.updated.message', args: [
+					message(code: 'Contratante.label', default: 'Contratante'),
+					contratanteInstance.id
+				])
+				redirect contratanteInstance
+			}
+			'*'{ respond contratanteInstance, [status: OK] }
+		}
+	}
+
+	@Transactional
+	def delete(Contratante contratanteInstance) {
+
+		if (contratanteInstance == null) {
+			notFound()
+			return
+		}
+
+		contratanteInstance.delete flush:true
+
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.deleted.message', args: [
+					message(code: 'Contratante.label', default: 'Contratante'),
+					contratanteInstance.id
+				])
+				redirect action:"index", method:"GET"
+			}
+			'*'{ render status: NO_CONTENT }
+		}
+	}
+
+	protected void notFound() {
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.not.found.message', args: [
+					message(code: 'contratante.label', default: 'Contratante'),
+					params.id
+				])
+				redirect action: "index", method: "GET"
+			}
+			'*'{ render status: NOT_FOUND }
+		}
+	}
 }
