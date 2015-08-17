@@ -4,7 +4,7 @@
 
 <div class="field ${hasErrors(bean: nivelInstance, field: 'descricao', 'error')} required">
 	<label for="descricao">
-		<g:message code="nivel.descricao.label" default="Descricao" />
+		<g:message code="nivel.descricao.label" default="Descrição" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="descricao" maxlength="50" required="" value="${nivelInstance?.descricao}"/>
