@@ -16,9 +16,17 @@
 		<thead>
 				<tr>
 				
-					<th><g:message code="candidatoVaga.candidato.label" default="Candidato" /></th>
+					<th><g:message code="candidatoVaga.vaga.contratante.label" default="Contratante" /></th>
 				
-					<th><g:message code="candidatoVaga.vaga.label" default="Vaga" /></th>
+					<th><g:message code="candidatoVaga.vaga.faixaSalarial.label" default="Faixa Salarial" /></th>
+
+					<th><g:message code="candidatoVaga.vaga.municipio.label" default="Município" /></th>
+
+					<th><g:message code="candidatoVaga.vaga.cargo.label" default="Cargo" /></th>
+
+					<th><g:message code="candidatoVaga.vaga.dataCadastro.label" default="Data Cadastro" /></th>
+
+					<th colspan="3"></th>
 				
 				</tr>
 			</thead>
@@ -26,10 +34,31 @@
 			<g:each in="${candidatoVagaInstanceList}" status="i" var="candidatoVagaInstance">
 				<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 				
-					<td>${fieldValue(bean: candidatoVagaInstance, field: "candidato")}</td>
+					<td>${fieldValue(bean: candidatoVagaInstance, field: "vaga.contratante")}</td>
 				
-					<td>${fieldValue(bean: candidatoVagaInstance, field: "vaga")}</td>
-				
+					<td>${fieldValue(bean: candidatoVagaInstance, field: "vaga.faixaSalarial")}</td>
+
+					<td>${fieldValue(bean: candidatoVagaInstance, field: "vaga.municipio")}</td>
+
+					<td>${fieldValue(bean: candidatoVagaInstance, field: "vaga.cargo")}</td>
+
+					<td>
+						<g:formatDate date="${candidatoVagaInstance.vaga.dataCadastro}" format="dd/MM/yyyy HH:mm:ss"/>
+					</td>
+
+					<td>
+						<g:link action="show" id="${candidatoVagaInstance.vaga.id}">Ver Vaga</g:link>
+					</td>
+
+					<td>
+						<g:link action="show" id="${candidatoVagaInstance.id}">Desistir</g:link>
+					</td>
+
+					<g:if test="${candidatoVagaInstance.selecionado}">
+					<td>
+						<g:link controller="questionario" action="vaga" id="${candidatoVagaInstance.vaga.id}">Questionário</g:link>
+					</td>
+					</g:if>
 				</tr>
 			</g:each>
 			</tbody>

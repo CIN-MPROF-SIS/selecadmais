@@ -1,7 +1,7 @@
 package selecadmais
 
 
-
+import grails.plugin.springsecurity.SpringSecurityService
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
