@@ -14,7 +14,7 @@
 		</g:if>
 		<p>
 			<strong>
-				<g:message code="grauFormacao.descricao.label" default="Descricao" />:
+				<g:message code="grauFormacao.descricao.label" default="Descrição" />:
 			</strong>
 			<g:fieldValue bean="${grauFormacaoInstance}" field="descricao"/>
 		</p>
