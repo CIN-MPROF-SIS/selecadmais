@@ -12,9 +12,14 @@ class CandidatoVagaController {
 	def springSecurityService
 
     def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+		if(springSecurityService.currentUser.pessoa == null){
+			redirect controller:"candidato", action:"index"
+		}else{
+		 params.max = Math.min(max ?: 10, 100)
         def candidaturas = CandidatoVaga.findAllByCandidato(springSecurityService.currentUser.pessoa, params)
         respond candidaturas, model:[candidatoVagaInstanceCount: CandidatoVaga.count()]
+		}
+      
     }
 
     def home(){
@@ -41,7 +46,7 @@ class CandidatoVagaController {
             candidaturas[it.vaga.id] = true
         }
 
-        render (view:"home", model: [candidaturas: candidaturas, vagas: vagas])
+        render (view:"home", model: [candidaturas: candidaturas, vagas: vagas, usuario:usuario])
     }
 
     def candidatar(){

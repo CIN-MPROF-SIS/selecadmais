@@ -71,9 +71,14 @@ class CandidatoController {
             candidatoInstance.curriculo = null*/
 
         candidatoInstance.save(flush:true)
+		
+		def principal = springSecurityService.principal
+		String username = principal.username
+		def usuario = Usuario.findByUsername(username)
 
-        springSecurityService.currentUser.pessoa = candidatoInstance
-        springSecurityService.currentUser.save flush:true
+        usuario.pessoa = candidatoInstance
+		usuario.desativada=false
+        usuario.save flush:true
 
         request.withFormat {
             form multipartForm {
@@ -187,6 +192,15 @@ class CandidatoController {
             candidatoInstance.curriculo = null*/
 
         candidatoInstance.save(flush:true)
+		
+		
+		def principal = springSecurityService.principal
+		String username = principal.username
+		def usuario = Usuario.findByUsername(username)
+
+		usuario.pessoa = candidatoInstance
+		usuario.desativada = false
+		usuario.save flush:true
 
         request.withFormat {
             form multipartForm {
