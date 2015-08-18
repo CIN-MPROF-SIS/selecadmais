@@ -2,7 +2,7 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'username', 'error')} required">
+<div class="field ${hasErrors(bean: usuarioInstance, field: 'username', 'error')} required">
 	<label for="username">
 		<g:message code="usuario.username.label" default="Usuário" />
 		<span class="required-indicator">*</span>
@@ -11,7 +11,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'password', 'error')} required">
+<div class="field ${hasErrors(bean: usuarioInstance, field: 'password', 'error')} required">
 	<label for="password">
 		<g:message code="usuario.password.label" default="Senha" />
 		<span class="required-indicator">*</span>
@@ -20,7 +20,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'papel', 'error')} ">
+<div class="field ${hasErrors(bean: usuarioInstance, field: 'papel', 'error')} ">
 	<label for="pessoa">
 		<g:message code="usuario.papel.label" default="Papel" />
 		
@@ -29,7 +29,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'accountExpired', 'error')} ">
+<div class="field ${hasErrors(bean: usuarioInstance, field: 'accountExpired', 'error')} ">
 	<label for="accountExpired">
 		<g:message code="usuario.accountExpired.label" default="Conta Expirada" />
 		
@@ -38,7 +38,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'accountLocked', 'error')} ">
+<div class="field ${hasErrors(bean: usuarioInstance, field: 'accountLocked', 'error')} ">
 	<label for="accountLocked">
 		<g:message code="usuario.accountLocked.label" default="Conta Bloqueada" />
 		
@@ -47,7 +47,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'enabled', 'error')} ">
+<div class="field ${hasErrors(bean: usuarioInstance, field: 'enabled', 'error')} ">
 	<label for="enabled">
 		<g:message code="usuario.enabled.label" default="Desabilitado" />
 		
@@ -56,7 +56,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'passwordExpired', 'error')} ">
+<div class="field ${hasErrors(bean: usuarioInstance, field: 'passwordExpired', 'error')} ">
 	<label for="passwordExpired">
 		<g:message code="usuario.passwordExpired.label" default="Senha expirada" />
 		

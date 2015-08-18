@@ -18,7 +18,7 @@
 		<span class="required-indicator">*</span>
 	</label>
 
-    <calendar:datePicker name="dataNascimento"  dateFormat= "%d/%m/%Y" defaultValue="${candidatoInstance?.dataNascimento}" style="width:100px"/>
+    <calendar:datePicker name="dataNascimento"  dateFormat= "%d/%m/%Y" defaultValue="${candidatoInstance?.dataNascimento}" years="1900, 2900" style="width:100px"/>
 
 </div>
 

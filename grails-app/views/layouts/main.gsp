@@ -14,7 +14,7 @@
 <asset:stylesheet src="screen.css" />
 <asset:stylesheet src="custom.css" />
 <asset:javascript src="application.js" />
-<calendar:resources lang="en" theme="tiger" />
+<calendar:resources lang="en" theme="tiger" years="[1900, 2900]" />
 
 <g:layoutHead />
 </head>

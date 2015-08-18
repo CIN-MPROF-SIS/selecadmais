@@ -86,12 +86,18 @@
 			</p>
 		</g:if>
 
-		<g:form url="[resource:vagaInstance, action:'delete']" method="DELETE">
-			<div class="actions">
-				<g:link class="edit" action="edit" resource="${vagaInstance}">Alterar</g:link>|
-				<g:link class="list" action="index">Voltar</g:link>
-				<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-			</div>
-		</g:form>
+		<sec:ifLoggedIn>
+			<sec:access expression="hasRole('PAPEL_CONTRATANTE')">
+				<g:form url="[resource:vagaInstance, action:'delete']" method="DELETE">
+					<div class="actions">
+						<g:link class="edit" action="edit" resource="${vagaInstance}">Alterar</g:link>|
+						<g:link class="list" action="index">Voltar</g:link>
+						<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+					</div>
+				</g:form>
+			</sec:access>
+		</sec:ifLoggedIn>
+
+
 	</body>
 </html>

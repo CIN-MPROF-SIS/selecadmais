@@ -59,11 +59,11 @@
 		<g:message code="candidato.municipio.unidadeFederativa.label" default="Unidade Federativa" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="cmdUnidadeFederativa" name="cmdUnidadeFederativa" from="${selecadmais.UnidadeFederativa.list()}" optionKey="id" required="" value="${candidatoInstance?.municipio?.unidadeFederativa?.id}" class="many-to-one" noSelection="['':'']"
+	<g:select id="cmdUnidadeFederativa" name="cmdUnidadeFederativa" from="${selecadmais.UnidadeFederativa.list()}" optionKey="id" required="" value="${vagaInstance?.municipio?.unidadeFederativa?.id}" class="many-to-one" noSelection="['':'']"
 		onchange="${remoteFunction (
                         controller: 'candidato',
                         action: 'getMunicipios',
-                        params: '\'uf=\' + this.value + \'&update=municipio&id=' + candidatoInstance?.municipio?.id + '\'',
+                        params: '\'uf=\' + this.value + \'&update=municipio&id=' + vagaInstance?.municipio?.id + '\'',
                         update: 'municipio'
                 )}"/>
 </div>
