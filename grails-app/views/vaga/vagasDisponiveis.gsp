@@ -17,17 +17,18 @@
 			<thead>
 					<tr>
 					
-						<g:sortableColumn property="descricao" title="${message(code: 'vaga.descricao.label', default: 'Descricao')}" />
+						<g:sortableColumn property="descricao" title="${message(code: 'vaga.descricao.label', default: 'Descrição')}" />
 					
 						<g:sortableColumn property="cargo" title="${message(code: 'vaga.cargo.label', default: 'Cargo')}" />
 					
 						<g:sortableColumn property="dataCadastro" title="${message(code: 'vaga.dataCadastro.label', default: 'Data Cadastro')}" />
 					
-						<th><g:message code="vaga.contratante.label" default="Contratante" /></th>
+						<g:sortableColumn property="descricaoContratante" title="${message(code: 'contratante.descricao.label', default: 'Contratante')}"  
+						/>
 					
-						<g:sortableColumn property="dataInicioInscricao" title="${message(code: 'vaga.dataInicioInscricao.label', default: 'Data Inicio Inscricao')}" />
+						<g:sortableColumn property="dataInicioInscricao" title="${message(code: 'vaga.dataInicioInscricao.label', default: 'Data Início Inscrição')}" />
 					
-						<g:sortableColumn property="dataTerminoInscricao" title="${message(code: 'vaga.dataTerminoInscricao.label', default: 'Data Termino Inscricao')}" />
+						<g:sortableColumn property="dataTerminoInscricao" title="${message(code: 'vaga.dataTerminoInscricao.label', default: 'Data Término Inscrição')}" />
 						<th></th>
 					
 					</tr>

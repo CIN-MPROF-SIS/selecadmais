@@ -6,7 +6,7 @@
     <g:hiddenField name='questoes[${i}].opcoes[${io}].deleted' value='false'/>
     <g:hiddenField name='questoes[${i}].opcoes[${io}].new' value='false'/>
     <label>Opção</label>
-    <g:textField name='questoes[${i}].opcoes[${io}].descricao' value='${opcao?.descricao}' size="20" />
+    <g:textField name='questoes[${i}].opcoes[${io}].descricao' value='${opcao?.descricao}' size="20" style="width: 60%"/>
     <g:checkBox name="questoes[${i}].opcoes[${io}].gabarito" value="${opcao?.gabarito}" />
     <label>Resposta Correta</label>
     <span class="del-opcao">

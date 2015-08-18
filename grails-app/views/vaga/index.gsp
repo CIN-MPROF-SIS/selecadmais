@@ -16,16 +16,16 @@
 		<thead>
 				<tr>
 				
-					<g:sortableColumn property="descricao" title="${message(code: 'vaga.descricao.label', default: 'Descricao')}" />
+					<g:sortableColumn property="descricao" title="${message(code: 'vaga.descricao.label', default: 'Descrição')}" />
 				
 					<g:sortableColumn property="cargo" title="${message(code: 'vaga.cargo.label', default: 'Cargo')}" />
 				
 					<g:sortableColumn property="dataCadastro" title="${message(code: 'vaga.dataCadastro.label', default: 'Data Cadastro')}" />
 				
-					<g:sortableColumn property="dataInicioInscricao" title="${message(code: 'vaga.dataInicioInscricao.label', default: 'Data Inicio Inscricao')}" />
+					<g:sortableColumn property="dataInicioInscricao" title="${message(code: 'vaga.dataInicioInscricao.label', default: 'Data Início Inscrição')}" />
 				
-					<g:sortableColumn property="dataTerminoInscricao" title="${message(code: 'vaga.dataTerminoInscricao.label', default: 'Data Termino Inscricao')}" />
-					<th></th>
+					<g:sortableColumn property="dataTerminoInscricao" title="${message(code: 'vaga.dataTerminoInscricao.label', default: 'Data Término Inscrição')}" />
+					<th colspan="2"></th>
 				
 				</tr>
 			</thead>
@@ -42,7 +42,8 @@
 					<td><g:formatDate date="${vagaInstance.dataInicioInscricao}" format="dd/MM/yyyy"/></td>
 				
 					<td><g:formatDate date="${vagaInstance.dataTerminoInscricao}" format="dd/MM/yyyy"/></td>
-				
+
+					<td><g:link controller="questionario" action="index" params='[id:"${vagaInstance.id}"]'>Questionários</g:link></td>				
 					<td><g:link controller="candidatoVaga" action="avaliar" params='[vaga:"${vagaInstance.id}"]'>Selecionar</g:link></td>
 				</tr>
 			</g:each>

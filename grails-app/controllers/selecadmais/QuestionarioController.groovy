@@ -1,20 +1,52 @@
 package selecadmais
 
 
-
+import grails.plugin.springsecurity.SpringSecurityService
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class QuestionarioController {
-
+    def springSecurityService
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE", salvarRespostas: "POST"]
 
     def index(Integer max) {
+        def candidadoRole = Papel.findByAuthority('PAPEL_CANDIDATO')
         def vaga = Vaga.findById(params.id)
+        def selecionado = false
+
+        if (springSecurityService.currentUser.authorities.contains(candidadoRole))
+            selecionado = CandidatoVaga.findByCandidato(springSecurityService.currentUser.pessoa).selecionado
 
         params.max = Math.min(max ?: 10, 100)
-        respond Questionario.findAllByVaga(vaga), model:[questionarioInstanceCount: Questionario.count()]
+
+        def questionarios = Questionario.findAllByVaga(vaga)
+        def respondido = [:]
+
+        questionarios.each(
+        {
+            def quest = it
+            def respostas = Resposta.withCriteria {
+                and{
+                    opcao {
+                        
+                        questao {
+                            questionario{
+                                eq("id", quest.id)
+                            }
+                            
+                        }
+                    }
+                    candidato{
+                        eq("id", springSecurityService.currentUser.pessoa.id)
+                    }
+                }
+            }
+            respondido[it.id] = respostas.size() > 0    
+        })
+
+        [respondido:respondido, selecionado: selecionado, questionarioInstanceList: questionarios, id: params.id, questionarioInstanceCount: Questionario.count()]
+        //respond Questionario.findAllByVaga(vaga), model:[vaga: params.id, questionarioInstanceCount: Questionario.count()]
     }
 
     def show(Questionario questionarioInstance) {
@@ -22,25 +54,41 @@ class QuestionarioController {
     }
 
     def create() {
-        respond new Questionario(params)
+        [questionarioInstance: new Questionario(params), vaga: params.id]
+        //respond new Questionario(params)
     }
 
     def responder(){
         def questionarioInstance = Questionario.findById(params.id)
-        respond questionarioInstance
+        [questionarioInstance: questionarioInstance]
     }
 
     def salvarRespostas(){
-        def candidato = Candidato.findById(2)
         def questionarioInstance = Questionario.findById(params.id)
 
-/*        def respostas = Resposta.withCriteria
-        {
+        /*def respostas = Resposta.where {
+            opcao.questao.questionario.id == questionarioInstance.id &&
+            opcao.candidato.id == springSecurityService.currentUser.pessoa.id
+        }//.deleteAll()*/
+
+        def respostas = Resposta.withCriteria {
             and{
-                opcao.questao.questionario.id == questionarioInstance.id
-                opcao.candidato.id == 2
+                opcao {
+                    
+                    questao {
+                        questionario{
+                            eq("id", questionarioInstance.id)
+                        }
+                        
+                    }
+                }
+                candidato{
+                    eq("id", springSecurityService.currentUser.pessoa.id)
+                }
             }
-        }.deleteAll()*/
+        }
+
+        Resposta.deleteAll(respostas);
         
         def cont = 0
         questionarioInstance.questoes.each {
@@ -49,7 +97,7 @@ class QuestionarioController {
                 def r = new Resposta()
 
                 r.opcao = o
-                r.candidato = candidato//@current_user.pessoa
+                r.candidato = springSecurityService.currentUser.pessoa
                 r.save flush:true
             }
 
@@ -66,6 +114,16 @@ class QuestionarioController {
 
     @Transactional
     def save(Questionario questionarioInstance) {
+        def savedErrors = questionarioInstance.errors.allErrors.findAll{ true }
+        def cdError = savedErrors.findAll{ it.field == "vaga"}
+        savedErrors.removeAll(cdError)
+        questionarioInstance.clearErrors()
+        savedErrors.each {
+            questionarioInstance.errors.addError(it)
+        } 
+
+        Vaga vaga = Vaga.findById(params.vaga)
+        questionarioInstance.vaga = vaga
         if (questionarioInstance == null) {
             notFound()
             return
