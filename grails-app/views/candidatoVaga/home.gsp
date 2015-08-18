@@ -41,8 +41,9 @@
 						<g:if test="${candidaturas.containsKey(vaga.id)}">
 							Já Candidatou
 						</g:if>
-						<g:if test="${!candidaturas.containsKey(vaga.id)}">
+						<g:if test="${!candidaturas.containsKey(vaga.id) && !usuario.desativada}">
 							<g:link action="candidatar" id="${vaga.id}">Candidatar</g:link>
+							
 						</g:if>
 					</td>
 				

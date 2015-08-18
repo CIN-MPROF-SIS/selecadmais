@@ -25,7 +25,12 @@
 		<g:message code="usuario.papel.label" default="Papel" />
 		
 	</label>
-	<g:select id="papel" name="papel" from="${selecadmais.Papel.list()}" optionKey="authority" value="${usuarioInstance?.papel}" class="many-to-one" noSelection="['null': '']"/>
+	<!-- <g:select id="papel" name="papel" from="${selecadmais.Papel.list()}" optionKey="authority" value="${usuarioInstance?.papel}" class="many-to-one" noSelection="['null': '']"/>-->
+ <select id="papel" class="many-to-one" name="papel">
+    <option value="null"></option>
+    <option value="PAPEL_CANDIDATO"> Candidato</option>
+    <option value="PAPEL_CONTRATANTE">Contratante</option>
+ </select>
 
 </div>
 
@@ -43,16 +48,16 @@
 		<g:message code="usuario.accountLocked.label" default="Conta Bloqueada" />
 		
 	</label>
-	<g:checkBox name="accountLocked" value="${usuarioInstance?.accountLocked}" />
+	<g:checkBox name="accountLocked" value="${usuarioInstance?.accountLocked}" disabled="true" />
 
 </div>
 
 <div class="field ${hasErrors(bean: usuarioInstance, field: 'enabled', 'error')} ">
 	<label for="enabled">
-		<g:message code="usuario.enabled.label" default="Desabilitado" />
+		<g:message code="usuario.enabled.label" default="Ativo"/>
 		
 	</label>
-	<g:checkBox name="enabled" value="${usuarioInstance?.enabled}" />
+	<g:checkBox name="enabled" value="${usuarioInstance?.enabled}"  />
 
 </div>
 

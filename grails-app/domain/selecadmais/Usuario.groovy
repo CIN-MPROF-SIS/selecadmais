@@ -10,6 +10,7 @@ class Usuario implements Serializable {
 	String password
 	String papel
 	boolean enabled = true
+	boolean desativada = true
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
@@ -63,7 +64,8 @@ class Usuario implements Serializable {
 		username blank: false, unique: true
 		password blank: false
 		pessoa(nullable:true)
-		papel(nullable:true)
+		papel(nullable:true)	
+		
 	}
 
 	static mapping = {

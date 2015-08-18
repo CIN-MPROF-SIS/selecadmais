@@ -18,12 +18,15 @@ class UsuarioController {
     }
 
     def show(Usuario usuarioInstance) {
-        println "show"
+       
         respond usuarioInstance
     }
 
     def create() {
-        respond new Usuario(params)
+		def usuario = new Usuario(params)
+		usuario.desativada = false
+		usuario.enabled = true
+		respond usuario
     }
 
     @Transactional

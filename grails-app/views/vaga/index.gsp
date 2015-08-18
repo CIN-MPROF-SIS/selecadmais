@@ -24,7 +24,7 @@
 				
 					<g:sortableColumn property="dataInicioInscricao" title="${message(code: 'vaga.dataInicioInscricao.label', default: 'Data Início Inscrição')}" />
 				
-					<g:sortableColumn property="dataTerminoInscricao" title="${message(code: 'vaga.dataTerminoInscricao.label', default: 'Data Termino Inscricao')}" />
+					<g:sortableColumn property="dataTerminoInscricao" title="${message(code: 'vaga.dataTerminoInscricao.label', default: 'Data Término Inscrição')}" />
 					<th colspan="2"></th>
 				
 				</tr>
