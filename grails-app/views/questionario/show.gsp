@@ -36,6 +36,9 @@
 							<g:each in="${q.opcoes}" var="o">
 								<p>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<g:link controller="opcao" action="show" id="${o.id}">${o?.encodeAsHTML()}</g:link>
+									<g:if test="${o.gabarito}">
+										- Gagarito
+									</g:if>
 								</p>
 							</g:each>
 						</fieldset>

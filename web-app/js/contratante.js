@@ -2,7 +2,7 @@ $( document ).ready(function() {
   $("#cmdUnidadeFederativa").change();
 
   //if($("#dataNascimento_year").val() != "")
-  $("#dataNascimento").val("struct");
+  //$("#dataNascimento").val("struct");
 
   rdTipoPessoa_Click(tipoPessoa);
 });

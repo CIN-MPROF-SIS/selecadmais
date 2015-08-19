@@ -31,12 +31,6 @@ class CandidatoController {
 
     @Transactional
     def save(Candidato candidatoInstance) {
-        println "----------------------"
-        println candidatoInstance.dataNascimento
-        println "----------------------"
-        println "----------------------"
-        println params.dataNascimento
-        println "----------------------"
         if (candidatoInstance == null) {
             notFound()
             return

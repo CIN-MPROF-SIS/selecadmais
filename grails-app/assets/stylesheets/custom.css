@@ -438,7 +438,7 @@ input[type="text"], input[type="password"], input[type="email"], input.text, inp
 }
 
 fieldset{
-  width: 100%;
+  /*width: 100%;*/
 }
 
 .required-indicator{

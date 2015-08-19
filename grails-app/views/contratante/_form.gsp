@@ -18,7 +18,7 @@
 
 <div class="field ${hasErrors(bean: contratanteInstance, field: 'inscricaoEstadual', 'error')} " pj>
 	<label for="inscricaoEstadual">
-		<g:message code="contratante.inscricaoEstadual.label" default="Inscricao Estadual" />
+		<g:message code="contratante.inscricaoEstadual.label" default="Inscrição Estadual" />
 		
 	</label>
 	<g:textField name="inscricaoEstadual" maxlength="50" value="${contratanteInstance?.inscricaoEstadual}"/>
@@ -34,6 +34,16 @@
 	<g:textField name="cpf" maxlength="14" value="${contratanteInstance?.cpf}" mascara="cpf"/>
 
 </div>
+
+<div class="field field ${hasErrors(bean: contratanteInstance, field: 'dataNascimento', 'error')} required" pf style="display:none">
+	<label for="dataNascimento">
+		<g:message code="contratante.dataNascimento.label" default="Data Nascimento" />
+		<span class="required-indicator">*</span>
+	</label>
+
+	<g:jqDatePicker name="dataNascimento"  value="${contratanteInstance?.dataNascimento}" style="width:100px" provider="datepicker" mascara="date"/>
+</div>
+
 
 <div class="field ${hasErrors(bean: contratanteInstance, field: 'nome', 'error')} required">
 	<label for="nome">
@@ -55,7 +65,7 @@
 
 <div class="field ${hasErrors(bean: contratanteInstance, field: 'email', 'error')} required">
 	<label for="email">
-		<g:message code="contratante.email.label" default="Email" />
+		<g:message code="contratante.email.label" default="E-mail" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:field type="email" name="email" maxlength="50" required="" value="${contratanteInstance?.email}"/>
@@ -101,7 +111,7 @@
 
 <div class="field ${hasErrors(bean: contratanteInstance, field: 'numero', 'error')} ">
 	<label for="numero">
-		<g:message code="contratante.numero.label" default="Numero" />
+		<g:message code="contratante.numero.label" default="Número" />
 		
 	</label>
 	<g:textField name="numero" maxlength="20" value="${contratanteInstance?.numero}"/>
@@ -119,20 +129,11 @@
 
 <div class="field ${hasErrors(bean: contratanteInstance, field: 'cep', 'error')} required">
 	<label for="cep">
-		<g:message code="contratante.cep.label" default="Cep" />
+		<g:message code="contratante.cep.label" default="CEP" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="cep" maxlength="9" required="" value="${contratanteInstance?.cep}" mascara="cep"/>
 
-</div>
-
-<div class="field field ${hasErrors(bean: contratanteInstance, field: 'dataNascimento', 'error')} required">
-	<label for="dataNascimento">
-		<g:message code="contratante.dataNascimento.label" default="Data Nascimento" />
-		<span class="required-indicator">*</span>
-	</label>
-
-	<jqueryPicker:date name="dataNascimento"  value="${contratanteInstance?.dataNascimento}" style="width:100px" provider="datepicker" mascara="date"/>
 </div>
 
 <div class="field field ${hasErrors(bean: contratanteInstance, field: 'municipio', 'error')} required">
@@ -151,7 +152,7 @@
 
 <div class="field ${hasErrors(bean: contratanteInstance, field: 'municipio', 'error')} required">
 	<label for="municipio">
-		<g:message code="contratante.municipio.label" default="Municipio" />
+		<g:message code="contratante.municipio.label" default="Município" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="municipio" name="municipio.id" from="${[]}" optionKey="id" required="" value="${contratanteInstance?.municipio?.id}" class="many-to-one"/>

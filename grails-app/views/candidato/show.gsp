@@ -196,7 +196,7 @@
 		</ol>
 		<g:form url="[resource:candidatoInstance, action:'delete']" method="DELETE">
 			<div class="actions">
-				<g:link class="edit" action="edit" resource="${candidatoInstance}">alterar</g:link>
+				<g:link class="edit" action="edit" resource="${candidatoInstance}">Alterar</g:link>
 			</div>
 		</g:form>
 	</body>

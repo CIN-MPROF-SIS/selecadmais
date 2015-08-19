@@ -19,10 +19,10 @@
         <g:textField name='formacoesAcademicas[${i}].cargaHoraria' value='${formacaoAcademica?.cargaHoraria}' />
     </td>
     <td>
-        <jqueryPicker:date name="formacoesAcademicas[${i}].dataInicio"  value="${formatDate(format:'dd/MM/yyyy',date:formacaoAcademica?.dataInicio)}" style="width:100px" provider="datepicker" mascara="date"/>
+        <g:jqDatePicker name="formacoesAcademicas[${i}].dataInicio"  value="${formatDate(format:'dd/MM/yyyy',date:formacaoAcademica?.dataInicio)}" style="width:100px" provider="datepicker" mascara="date"/>
     </td>
     <td>
-        <jqueryPicker:date name="formacoesAcademicas[${i}].dataConclusao"  value="${formatDate(format:'dd/MM/yyyy',date:formacaoAcademica?.dataConclusao)}" style="width:100px" provider="datepicker" mascara="date"/>
+        <g:jqDatePicker name="formacoesAcademicas[${i}].dataConclusao"  value="${formatDate(format:'dd/MM/yyyy',date:formacaoAcademica?.dataConclusao)}" style="width:100px" provider="datepicker" mascara="date"/>
     </td>
     <td>
         <span class="del-formacaoAcademica">

@@ -16,10 +16,10 @@
         <g:textField name='experienciasProfissionais[${i}].areaAtuacao' value='${experienciaProfissional?.areaAtuacao}' />
     </td>
     <td>
-        <jqueryPicker:date name="experienciasProfissionais[${i}].dataInicio"  value="${formatDate(format:'dd/MM/yyyy',date:experienciaProfissional?.dataInicio)}" style="width:100px" provider="datepicker" mascara="date"/>
+        <g:jqDatePicker name="experienciasProfissionais[${i}].dataInicio"  value="${formatDate(format:'dd/MM/yyyy',date:experienciaProfissional?.dataInicio)}" style="width:100px" provider="datepicker" mascara="date"/>
     </td>
     <td>
-        <jqueryPicker:date name="experienciasProfissionais[${i}].dataConclusao"  value="${formatDate(format:'dd/MM/yyyy',date:experienciaProfissional?.dataConclusao)}" style="width:100px" provider="datepicker" mascara="date"/>
+        <g:jqDatePicker name="experienciasProfissionais[${i}].dataConclusao"  value="${formatDate(format:'dd/MM/yyyy',date:experienciaProfissional?.dataConclusao)}" style="width:100px" provider="datepicker" mascara="date"/>
     </td>
     <td>
         <span class="del-experienciaProfissional">

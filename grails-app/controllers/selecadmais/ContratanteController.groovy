@@ -46,6 +46,9 @@ class ContratanteController {
             return
         }
 
+        if(contratanteInstance.dataNascimento == null)
+            contratanteInstance.dataNascimento = new Date()
+
         def extensoes_logo = ['jpg', 'jpeg', 'gif', 'png']
         def logo = request.getFile('fileLogo')
     
@@ -96,6 +99,9 @@ class ContratanteController {
             respond contratanteInstance.errors, view:'edit'
             return
         }
+
+        if(contratanteInstance.dataNascimento == null)
+            contratanteInstance.dataNascimento = new Date()
 
         def extensoes_logo = ['jpg', 'jpeg', 'gif', 'png']
         def logo = request.getFile('fileLogo')
