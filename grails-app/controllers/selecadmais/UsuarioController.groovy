@@ -120,6 +120,9 @@ class UsuarioController {
             notFound()
             return
         }
+		
+		
+		UsuarioPapel.removeAll(usuarioInstance,true)
 
         usuarioInstance.delete flush:true
 
