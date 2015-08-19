@@ -12,52 +12,34 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>SELECAD+</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/selecadmais/assets/screen.css?compile=false"  />
+<link rel="stylesheet" href="/assets/screen.css?compile=false"  />
 
-<link rel="stylesheet" href="/selecadmais/assets/custom.css?compile=false"  />
+<link rel="stylesheet" href="/assets/custom.css?compile=false"  />
 
 <script src="/selecadmais/assets/jquery-mask.js?compile=false" type="text/javascript" ></script>
 
 <script src="/selecadmais/assets/jquery-ui.js?compile=false" type="text/javascript" ></script>
 
-<script src="/selecadmais/assets/jquery/jquery-1.11.1.js?compile=false" type="text/javascript" ></script>
-<script src="/selecadmais/assets/jquery.js?compile=false" type="text/javascript" ></script>
-<script src="/selecadmais/assets/jquery-mask.js?compile=false" type="text/javascript" ></script>
-<script src="/selecadmais/assets/jquery-ui.js?compile=false" type="text/javascript" ></script>
-<script src="/selecadmais/assets/application.js?compile=false" type="text/javascript" ></script>
+<meta name="layout" content="main">
 
-<style type='text/css'>@import url(/selecadmais/plugins/calendar-1.2.1/css/tiger.css);</style>
-	            <script type="text/javascript" src="/selecadmais/plugins/calendar-1.2.1/js/calendar.js"></script>
-
-	            <script type="text/javascript" src="/selecadmais/plugins/calendar-1.2.1/js/lang/calendar-en.js"></script>
-
-	            <script type="text/javascript" src="/selecadmais/plugins/calendar-1.2.1/js/calendar-setup.js"></script>
-
-
-               
-
-
-		<meta name="layout" content="main">
-		
-		
-	
 </head>
+
 <body>
 	<div class="container">
 		<header>
-			<a href="/"> <img src="/selecadmais/assets/logo.jpg" class="logo"/>
+			<a href="/"> <img src="/assets/logo.jpg" class="logo"/>
 			</a>
 			<nav class="round">
 				<ul>
 					<li>
-					<li><a href="/selecadmais/">Home</a></li>
+					<li><a href="/">Home</a></li>
 					</li>
 					
 					<li><a href="/ajuda">Ajuda</a></li>
 					
 					
-						<li><a href="/selecadmais/login/auth">Login</a></li>
-						<li><a href="/selecadmais/usuario/create">Cadastro</a></li>
+						<li><a href="/login/auth">Login</a></li>
+						<li><a href="/usuario/create">Cadastro</a></li>
 					
 				</ul>
 			</nav>
@@ -83,7 +65,7 @@
 		<footer>
 			<nav class="round">
 				<ul>
-					<li><a href="/selecadmais/sobre/sobre.gsp">Sobre</a></li>
+					<li><a href="/sobre/sobre.gsp">Sobre</a></li>
 					<li><a href="/contato">Contato</a></li>
 				</ul>
 			</nav>
