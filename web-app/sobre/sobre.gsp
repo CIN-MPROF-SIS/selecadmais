@@ -16,10 +16,6 @@
 
 <link rel="stylesheet" href="/assets/custom.css?compile=false"  />
 
-<script src="/selecadmais/assets/jquery-mask.js?compile=false" type="text/javascript" ></script>
-
-<script src="/selecadmais/assets/jquery-ui.js?compile=false" type="text/javascript" ></script>
-
 <meta name="layout" content="main">
 
 </head>
