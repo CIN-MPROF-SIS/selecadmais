@@ -1,5 +1,7 @@
 package selecadmais
 
+import java.awt.GraphicsConfiguration.DefaultBufferCapabilities;
+
 class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 1
@@ -65,6 +67,7 @@ class Usuario implements Serializable {
 		password blank: false
 		pessoa(nullable:true)
 		papel(nullable:true)	
+		desativada(default: true )
 		
 	}
 
