@@ -62,13 +62,7 @@ class UsuarioController {
              UsuarioPapel.create usuarioInstance, papelUsuario
         }
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'usuario.label', default: 'Usuario'), usuarioInstance.id])
-                redirect usuarioInstance
-            }
-            '*' { respond usuarioInstance, [status: CREATED] }
-        }
+        redirect controller:"app", action:"home"
     }
 	
 	@Transactional
@@ -116,13 +110,7 @@ class UsuarioController {
              UsuarioPapel.create usuarioInstance, papelUsuario
         }  
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Usuario.label', default: 'Usuario'), usuarioInstance.id])
-                redirect usuarioInstance
-            }
-            '*'{ respond usuarioInstance, [status: OK] }
-        }
+        redirect controller:"app", action:"home"
     }
 
     @Transactional
