@@ -29,7 +29,7 @@
 			</g:each>
 
 			<div class="actions">
-				<g:actionSubmit class="save" action="salvarRespostas" value="${message(code: 'default.button.update.label', default: 'Update')}" />
+				<g:actionSubmit class="save" action="salvarRespostas" value="Salvar Respostas"/>
 			</div>
 			<g:link controller="questionario" action="vaga" id="${questionarioInstance.vaga.id}">Voltar</g:link>
 		</g:form>

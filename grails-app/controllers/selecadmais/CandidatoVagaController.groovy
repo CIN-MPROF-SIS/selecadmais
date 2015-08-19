@@ -61,6 +61,7 @@ class CandidatoVagaController {
         render(view:"avaliar", model:[candidaturas: candidaturas, vaga: vaga])
     }
 
+    @Transactional
     def selecionar(){
         def vaga = Vaga.findById(params.vaga)
 
@@ -76,6 +77,7 @@ class CandidatoVagaController {
 
             candidatura.save flush:true
         }
+        flash.message = "Candidatos Selecionados com sucesso"
         avaliar()
     }
 

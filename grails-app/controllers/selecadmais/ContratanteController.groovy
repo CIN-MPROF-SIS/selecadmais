@@ -66,10 +66,15 @@ class ContratanteController {
                 }
                 return;
             }
-            contratanteInstance.logo = fileUploadService.uploadFile(logo, logo.getOriginalFilename(), "logos/" + contratanteInstance.id)
         }
 
         contratanteInstance.save flush:true
+
+        if (!logo.isEmpty()) {
+            contratanteInstance.logo = fileUploadService.uploadFile(logo, logo.getOriginalFilename(), "logos/" + contratanteInstance.id)
+
+            contratanteInstance.save flush:true
+        }
 
         springSecurityService.currentUser.pessoa = contratanteInstance
         springSecurityService.currentUser.save flush:true

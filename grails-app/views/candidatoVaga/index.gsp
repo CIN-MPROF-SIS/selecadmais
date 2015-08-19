@@ -54,11 +54,9 @@
 						<g:link action="show" id="${candidatoVagaInstance.id}">Desistir</g:link>
 					</td>
 
-					<g:if test="${candidatoVagaInstance.selecionado}">
 					<td>
 						<g:link controller="questionario" action="vaga" id="${candidatoVagaInstance.vaga.id}">Questionário</g:link>
 					</td>
-					</g:if>
 				</tr>
 			</g:each>
 			</tbody>

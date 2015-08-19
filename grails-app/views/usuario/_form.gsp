@@ -33,7 +33,7 @@
 
 </div>
 
-<div class="field ${hasErrors(bean: usuarioInstance, field: 'accountExpired', 'error')} ">
+<div class="field ${hasErrors(bean: usuarioInstance, field: 'accountExpired', 'error')} " style="display:none">
 	<label for="accountExpired">
 		<g:message code="usuario.accountExpired.label" default="Conta Expirada" />
 		
@@ -42,7 +42,7 @@
 
 </div>
 
-<div class="field ${hasErrors(bean: usuarioInstance, field: 'accountLocked', 'error')} ">
+<div class="field ${hasErrors(bean: usuarioInstance, field: 'accountLocked', 'error')} "  style="display:none">
 	<label for="accountLocked">
 		<g:message code="usuario.accountLocked.label" default="Conta Bloqueada" />
 		
@@ -51,7 +51,7 @@
 
 </div>
 
-<div class="field ${hasErrors(bean: usuarioInstance, field: 'enabled', 'error')} ">
+<div class="field ${hasErrors(bean: usuarioInstance, field: 'enabled', 'error')} "  style="display:none">
 	<label for="enabled">
 		<g:message code="usuario.enabled.label" default="Ativo"/>
 		
@@ -60,7 +60,7 @@
 
 </div>
 
-<div class="field ${hasErrors(bean: usuarioInstance, field: 'passwordExpired', 'error')} ">
+<div class="field ${hasErrors(bean: usuarioInstance, field: 'passwordExpired', 'error')} "  style="display:none">
 	<label for="passwordExpired">
 		<g:message code="usuario.passwordExpired.label" default="Senha expirada" />
 		
