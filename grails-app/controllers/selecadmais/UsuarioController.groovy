@@ -16,6 +16,20 @@ class UsuarioController {
         params.max = Math.min(max ?: 10, 100)
         respond Usuario.list(params), model:[usuarioInstanceCount: Usuario.count()]
     }
+	
+	def moderar(Integer max) {
+		params.max = Math.min(max ?: 10, 100)
+		
+		def c = Usuario.createCriteria()
+		def results = c.list {
+			isNotNull("pessoa")
+			and {
+				eq("desativada", true)
+			}
+			
+		}
+		render(view: "moderar", model: [usuarioInstanceList: results])
+	}
 
     def show(Usuario usuarioInstance) {
        
@@ -56,6 +70,28 @@ class UsuarioController {
             '*' { respond usuarioInstance, [status: CREATED] }
         }
     }
+	
+	@Transactional
+	def aprovar(Usuario usuarioInstance) {
+		if (usuarioInstance == null) {
+			notFound()
+			return
+		}
+		
+		usuarioInstance.desativada=false
+		usuarioInstance.save flush:true
+		
+		def c = Usuario.createCriteria()
+		def results = c.list {
+			isNotNull("pessoa")
+			and {
+				eq("desativada", true)
+			}
+			
+		}
+
+		render(view: "moderar", model: [usuarioInstanceList: results])
+	}
 
     def edit(Usuario usuarioInstance) {
         respond usuarioInstance

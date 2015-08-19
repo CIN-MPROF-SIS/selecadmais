@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		 <div id="list-usuario" class="content scaffold-list" role="main">
-			<h1>Lista de Usuários</h1>
+			<h1>Aprovar Usuários</h1>
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -35,7 +35,11 @@
 						<td>${fieldValue(bean: usuarioInstance, field: "pessoa")}</td>
 						
 						<td><g:formatBoolean boolean="${usuarioInstance.desativada}" /></td>
-																
+						
+						<td>
+							<g:link action="aprovar" id="${usuarioInstance.id}">Aprovar</g:link>
+						</td>
+					
 					</tr>
 				</g:each>
 				</tbody>
