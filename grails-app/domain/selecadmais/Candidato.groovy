@@ -7,6 +7,9 @@ class Candidato extends Pessoa {
 	String nacionalidade
 	String foto
 	String curriculo
+    Float nota
+
+    static transients = [ 'nota' ]
 
     static belongsTo = [ naturalidade : Municipio ] 
 

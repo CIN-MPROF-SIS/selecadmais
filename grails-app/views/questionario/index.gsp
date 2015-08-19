@@ -36,7 +36,7 @@
 					<td>
 						<sec:ifLoggedIn>
 							<sec:access expression="hasRole('PAPEL_CONTRATANTE')">
-								<g:link action="show" id="${questionarioInstance.id}">Notas Candidatos</g:link></td>
+								<g:link controller="candidatoVaga" action="mostrarNotasQuestionario" id="${questionarioInstance.id}">Notas Candidatos</g:link></td>
 							</sec:access>
 							<sec:access expression="hasRole('PAPEL_CANDIDATO')">
 								<g:if test="${!respondido[questionarioInstance.id]}">

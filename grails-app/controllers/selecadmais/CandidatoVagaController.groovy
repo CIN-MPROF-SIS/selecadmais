@@ -22,6 +22,39 @@ class CandidatoVagaController {
       
     }
 
+    def mostrarNotasQuestionario(){
+
+        def respostasCandidatos = Resposta.withCriteria {
+            opcao {
+                questao {
+                    questionario{
+                        eq("id", params.id.toLong())
+                    }
+                    
+                }
+            }
+        }
+        def candidatos = respostasCandidatos.collect{it.candidato}
+        def candidaturas = []
+
+        candidatos.each{
+            def candidato = it
+            candidato.nota = 0
+            respostasCandidatos.each{
+                if(it.candidato.id == candidato.id){
+                    if(it.opcao.gabarito){
+                        candidato.nota += it.opcao.questao.nota
+                    }
+                }
+            }
+
+            candidaturas << candidato
+        }
+
+        [candidaturas]
+        render (view: "mostrarNotasQuestionario", model:[candidaturas: candidaturas])
+    }
+
     def home(){
         def dataAtual = new Date()
         def criteria = Vaga.createCriteria()
