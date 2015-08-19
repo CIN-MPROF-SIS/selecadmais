@@ -277,7 +277,7 @@ function addFormacaoAcademica(){
   var htmlId = 'formacoesAcademicas['+childCountFormacoesAcademicas+'].';
   var instituicaoInput = clone.find("input[id$=instituicao]");
   var cargaHorariaInput = clone.find("input[id$=cargaHoraria]");
-  var grauFormacaoInput = clone.find("input[id$='grauFormacao.id']");
+  var grauFormacaoInput = clone.find("select[id$='grauFormacao.id']");
   var dataInicioInput = clone.find("input[id$=dataInicio]");
   var dataInicio_yearInput = clone.find("input[id$=dataInicio_year]");
   var dataInicio_monthInput = clone.find("input[id$=dataInicio_month]");
@@ -418,9 +418,7 @@ $( document ).ready(function() {
     $("#formacoesAcademicas[" + cont + "].dataInicio").val("struct");
     $("#formacoesAcademicas[" + cont + "].dataConclusao").val("struct");
   }
-
-    //bind click event on delete buttons using jquery live
-    $('.del-certificado').on('click', function() {
+    $(document).on("click", '.del-certificado', function() {
         //find the parent div
         var prnt = $(this).parent().parent();
         
@@ -429,6 +427,7 @@ $( document ).ready(function() {
         //check if this is still not persisted
         var newValue = prnt.find("input[id$=new]").attr('value');
         //if it is new then i can safely remove from dom
+
         if(newValue == 'true'){
             prnt.remove();
         }else{
@@ -439,7 +438,7 @@ $( document ).ready(function() {
         }        
     });
 
-    $('.del-candidatoLingua').on('click', function() {
+    $(document).on("click", '.del-candidatoLingua', function() {
         //find the parent div
         var prnt = $(this).parent().parent();
         //find the deleted hidden input
@@ -457,7 +456,7 @@ $( document ).ready(function() {
         }        
     });
 
-    $('.del-experienciaProfissional').on('click', function() {
+    $(document).on("click", '.del-experienciaProfissional', function() {
         //find the parent div
         var prnt = $(this).parent().parent();
         //find the deleted hidden input
@@ -475,7 +474,7 @@ $( document ).ready(function() {
         }        
     });
 
-    $('.del-formacaoAcademica').on('click', function() {
+    $(document).on("click", '.del-formacaoAcademica', function() {
         //find the parent div
         var prnt = $(this).parent().parent();
         //find the deleted hidden input

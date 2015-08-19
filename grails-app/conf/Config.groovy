@@ -106,7 +106,7 @@ log4j.main = {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
     //}
 	
-	info 'grails.plugin.springsecurity.web.filter.DebugFilter'
+	//info 'grails.plugin.springsecurity.web.filter.DebugFilter'
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP
@@ -120,7 +120,7 @@ log4j.main = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 	
-	debug 'org.springframework.security'
+	//debug 'org.springframework.security'
 }
 
 

@@ -10,8 +10,7 @@
 	</head>
 	<body>
 		
-		<div id="edit-candidato" class="content scaffold-edit" role="main">
-			<h1><g:message code="default.edit.label" args="[entityName]" /></h1>
+			<h1>Perfil</h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -24,17 +23,14 @@
 			</g:hasErrors>
 			<g:uploadForm url="[resource:candidatoInstance, action:'update']" method="POST">
 				<g:hiddenField name="version" value="${candidatoInstance?.version}" />
-				<fieldset class="form">
-					<g:render template="form"/>
-				</fieldset>
-				<fieldset class="buttons">
+				<g:render template="form"/>
+				<div class="actions">
 					<g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-				</fieldset>
+				</div>
 			</g:uploadForm>
 		    <g:render template='certificado' model="['certificado':null,'i':'_clone','hidden':true]"/>
 		    <g:render template='candidato_lingua' model="['candidatoLingua':null,'i':'_clone','hidden':true]"/>
 		    <g:render template='experiencia_profissional' model="['experienciaProfissional':null,'i':'_clone','hidden':true]"/>
 		    <g:render template='formacao_academica' model="['formacaoAcademica':null,'i':'_clone','hidden':true]"/>
-		</div>
 	</body>
 </html>

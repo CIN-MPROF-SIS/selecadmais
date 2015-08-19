@@ -18,7 +18,7 @@
 		<span class="required-indicator">*</span>
 	</label>
 
-	<g:jqDatePicker name="dataNascimento" value="${candidatoInstance?.dataNascimento}" style="width:100px" mascara="date"></g:jqDatePicker>
+	<g:jqDatePicker name="dataNascimento" value="${formatDate(format:'dd/MM/yyyy',date:candidatoInstance?.dataNascimento)}" style="width:100px" mascara="date"></g:jqDatePicker>
 
 </div>
 

@@ -13,9 +13,10 @@ class JqDatePickerTagLib {
         def val = attrs.value ?: ''
         def mascara = attrs.mascara ?: ''
         def style = attrs.style ?: ''
+        def provider = attrs.provider ?: ''
 
         //Create date text field and supporting hidden text fields need by grails
-        out.println "<input type=\"text\" name=\"${name}\" id=\"${id}\" value=\"${val}\" class=\"datepicker input-small\" mascara=\"${mascara}\" style=\"${style}\"/>"
+        out.println "<input type=\"text\" name=\"${name}\" id=\"${id}\" value=\"${val}\" class=\"datepicker input-small\" mascara=\"${mascara}\" style=\"${style}\" provider=\"${provider}\" />"
         out.println "<input type=\"hidden\" name=\"${name}_day\" id=\"${id}_day\" />"
         out.println "<input type=\"hidden\" name=\"${name}_month\" id=\"${id}_month\" />"
         out.println "<input type=\"hidden\" name=\"${name}_year\" id=\"${id}_year\" />"
