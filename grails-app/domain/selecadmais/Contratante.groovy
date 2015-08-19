@@ -13,7 +13,7 @@ class Contratante extends Pessoa {
         cnpj(size:0..18, unique: true, nullable:true)
     	inscricaoEstadual(size:0..50,nullable:true)
     	logo(size:0..200,nullable:true)
-    	
+    	dataNascimento(nullable: true)
     }
 
     String toString(){
