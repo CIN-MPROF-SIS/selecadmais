@@ -61,6 +61,7 @@ class CandidatoVagaController {
         render(view:"avaliar", model:[candidaturas: candidaturas, vaga: vaga])
     }
 
+    @Transactional
     def selecionar(){
         def vaga = Vaga.findById(params.vaga)
 
