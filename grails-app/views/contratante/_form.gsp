@@ -18,7 +18,7 @@
 
 <div class="field ${hasErrors(bean: contratanteInstance, field: 'inscricaoEstadual', 'error')} " pj>
 	<label for="inscricaoEstadual">
-		<g:message code="contratante.inscricaoEstadual.label" default="Inscricao Estadual" />
+		<g:message code="contratante.inscricaoEstadual.label" default="Inscrição Estadual" />
 		
 	</label>
 	<g:textField name="inscricaoEstadual" maxlength="50" value="${contratanteInstance?.inscricaoEstadual}"/>
