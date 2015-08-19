@@ -17,7 +17,7 @@
 		<g:if test="${candidatoVagaInstance.vaga?.descricao}">
 			<p>
 				<b>
-					<g:message code="vaga.descricao.label" default="Descricao" />:
+					<g:message code="vaga.descricao.label" default="Descrição" />:
 				</b>
 				<g:fieldValue bean="${candidatoVagaInstance.vaga}" field="descricao"/>
 			</p>
@@ -44,7 +44,7 @@
 		<g:if test="${candidatoVagaInstance.vaga?.dataInicioInscricao}">
 			<p>
 				<b>
-					<g:message code="vaga.dataInicioInscricao.label" default="Data Inicio Inscricao" />:
+					<g:message code="vaga.dataInicioInscricao.label" default="Data Início Inscrição" />:
 				</b>
 				<g:formatDate date="${candidatoVagaInstance.vaga?.dataInicioInscricao}" format="dd/MM/yyyy" /></span>
 			</p>
@@ -54,7 +54,7 @@
 		<g:if test="${candidatoVagaInstance.vaga?.dataTerminoInscricao}">
 			<p>
 				<b>
-					<g:message code="vaga.dataTerminoInscricao.label" default="Data Termino Inscricao" />:
+					<g:message code="vaga.dataTerminoInscricao.label" default="Data Término Inscrição" />:
 				</b>
 				<g:formatDate date="${candidatoVagaInstance.vaga?.dataTerminoInscricao}" format="dd/MM/yyyy"/>
 			</p>
@@ -72,7 +72,7 @@
 		<g:if test="${candidatoVagaInstance.vaga?.municipio}">
 			<p>
 				<b>
-					<g:message code="vaga.municipio.label" default="Municipio" />:
+					<g:message code="vaga.municipio.label" default="Município" />:
 				</b>
 				<g:link controller="municipio" action="show" id="${candidatoVagaInstance.vaga?.municipio?.id}">${candidatoVagaInstance.vaga?.municipio?.encodeAsHTML()}</g:link>
 			</p>

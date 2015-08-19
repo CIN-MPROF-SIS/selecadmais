@@ -12,7 +12,7 @@
 		<g:message code="contratante.cnpj.label" default="CNPJ" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="cnpj" required="" value="${contratanteInstance?.cnpj}"/>
+	<g:textField name="cnpj" required="" value="${contratanteInstance?.cnpj}" mascara="cnpj"/>
 
 </div>
 
@@ -31,7 +31,7 @@
 		<g:message code="contratante.cpf.label" default="Cpf" />
 		
 	</label>
-	<g:textField name="cpf" maxlength="14" value="${contratanteInstance?.cpf}"/>
+	<g:textField name="cpf" maxlength="14" value="${contratanteInstance?.cpf}" mascara="cpf"/>
 
 </div>
 
@@ -49,7 +49,7 @@
 		<g:message code="contratante.telefone.label" default="Telefone" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="telefone" maxlength="150" required="" value="${contratanteInstance?.telefone}"/>
+	<g:textField name="telefone" maxlength="150" required="" value="${contratanteInstance?.telefone}" mascara="telefone"/>
 
 </div>
 
@@ -122,7 +122,7 @@
 		<g:message code="contratante.cep.label" default="Cep" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="cep" maxlength="9" required="" value="${contratanteInstance?.cep}"/>
+	<g:textField name="cep" maxlength="9" required="" value="${contratanteInstance?.cep}" mascara="cep"/>
 
 </div>
 
@@ -132,7 +132,7 @@
 		<span class="required-indicator">*</span>
 	</label>
 
-	<calendar:datePicker name="dataNascimento"  dateFormat= "%d/%m/%Y" defaultValue="${contratanteInstance?.dataNascimento}"/>
+	<jqueryPicker:date name="dataNascimento"  value="${contratanteInstance?.dataNascimento}" style="width:100px" provider="datepicker" mascara="date"/>
 </div>
 
 <div class="field field ${hasErrors(bean: contratanteInstance, field: 'municipio', 'error')} required">

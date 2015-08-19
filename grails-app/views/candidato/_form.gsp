@@ -18,7 +18,7 @@
 		<span class="required-indicator">*</span>
 	</label>
 
-    <calendar:datePicker name="dataNascimento"  dateFormat= "%d/%m/%Y" defaultValue="${candidatoInstance?.dataNascimento}" years="1900, 2900" style="width:100px"/>
+	<g:jqDatePicker name="dataNascimento" value="${candidatoInstance?.dataNascimento}" style="width:100px" mascara="date"></g:jqDatePicker>
 
 </div>
 
@@ -27,7 +27,7 @@
 		<g:message code="candidato.cpf.label" default="CPF" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="cpf" maxlength="14" required="" value="${candidatoInstance?.cpf}"/>
+	<g:textField name="cpf" maxlength="14" required="" value="${candidatoInstance?.cpf}" mascara="cpf"/>
 
 </div>
 
@@ -68,7 +68,7 @@
 		<g:message code="candidato.telefone.label" default="Telefone" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="telefone" maxlength="150" required="" value="${candidatoInstance?.telefone}"/>
+	<g:textField name="telefone" maxlength="150" required="" value="${candidatoInstance?.telefone}" mascara="telefone"/>
 
 </div>
 
@@ -155,7 +155,7 @@
 		<g:message code="candidato.cep.label" default="CEP" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="cep" maxlength="9" required="" value="${candidatoInstance?.cep}"/>
+	<g:textField name="cep" maxlength="9" required="" value="${candidatoInstance?.cep}" mascara="cep"/>
 
 </div>
 

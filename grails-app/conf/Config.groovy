@@ -167,3 +167,4 @@ grails.plugin.springsecurity.interceptUrlMap = [
 //    ]
 
 
+grails.databinding.dateFormats = [ 'dd/MM/yyyy', 'yyyy/MM/dd' ]

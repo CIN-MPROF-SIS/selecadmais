@@ -224,7 +224,7 @@ function addExperienciaProfissional(){
   clone.show();
   empresaInput.focus();
 
-  Calendar.setup({
+  /*Calendar.setup({
       name:"experienciasProfissionais[" + childCountExperienciasProfissionais + "].dataInicio",
       inputField:"experienciasProfissionais[" + childCountExperienciasProfissionais + "].dataInicio_value",
       ifFormat:"%d/%m/%Y",
@@ -267,7 +267,7 @@ function addExperienciaProfissional(){
     {
       indiceExperienciaProfissional = $(this).attr("indice");
     }
-  );
+  );*/
 
   childCountExperienciasProfissionais++;
 }
@@ -351,7 +351,7 @@ function addFormacaoAcademica(){
   clone.show();
   instituicaoInput.focus();
 
-  Calendar.setup({
+  /*Calendar.setup({
       name:"formacoesAcademicas[" + childCountFormacoesAcademicas + "].dataInicio",
       inputField:"formacoesAcademicas[" + childCountFormacoesAcademicas + "].dataInicio_value",
       ifFormat:"%d/%m/%Y",
@@ -394,7 +394,7 @@ function addFormacaoAcademica(){
     {
       indiceFormacaoAcademica = $(this).attr("indice");
     }
-  );
+  );*/
 
   childCountFormacoesAcademicas++;
 }
@@ -404,7 +404,7 @@ $( document ).ready(function() {
   $("#cmdUnidadeFederativaNaturalidade").change();
 
   //if($("#dataNascimento_year").val() != "")
-  $("#dataNascimento").val("struct");
+  //$("#dataNascimento").val("struct");
   
 
   for(var cont = 0; cont <= childCountExperienciasProfissionais; cont++)
