@@ -63,6 +63,7 @@ class QuestionarioController {
         [questionarioInstance: questionarioInstance]
     }
 
+    @Transactional
     def salvarRespostas(){
         def questionarioInstance = Questionario.findById(params.id)
 
@@ -102,11 +103,6 @@ class QuestionarioController {
             }
 
             cont++
-        }
-
-        params["resposta"].each{
-            println "it " + it
-
         }
 
         redirect  (controller: "questionario" , action:"index", params: [id: params.idVaga])

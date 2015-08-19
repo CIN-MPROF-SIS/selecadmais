@@ -10,7 +10,7 @@
         <label>Pergunta</label>
         <g:textField name='questoes[${i}].descricao' value='${questao?.descricao}' size="50" style="width: 70%"/>
         <label>Nota</label>
-        <g:textField name='questoes[${i}].nota' value='${questao?.nota}' size="8" style="width: 80px"/>
+        <g:textField name='questoes[${i}].nota' value='${questao?.nota}' size="8" style="width: 80px" mascara="numero"/>
         <span class="del-questao">
             <img src="${resource(dir:'images/skin', file:'icon_delete.png')}"
                 style="vertical-align:middle;"/>

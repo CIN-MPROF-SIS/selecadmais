@@ -77,6 +77,7 @@ class CandidatoVagaController {
 
             candidatura.save flush:true
         }
+        flash.message = "Candidatos Selecionados com sucesso"
         avaliar()
     }
 

@@ -28,6 +28,7 @@ $( document ).ready(function() {
   mascaras['telefone'] = '(99) 99999999';
   mascaras['cpf'] = '999.999.999-99';
   mascaras['cnpj'] = '99.999.999/9999-99';
+  mascaras['numero'] = "#.##0,00";
   
   for(mascara in mascaras)
   {
