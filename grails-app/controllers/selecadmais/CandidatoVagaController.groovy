@@ -34,7 +34,14 @@ class CandidatoVagaController {
                 }
             }
         }
-        def candidatos = respostasCandidatos.collect{it.candidato}
+
+        def candidatos = []
+        respostasCandidatos.each{
+            if(!candidatos.contains(it.candidato))
+                candidatos << it.candidato
+        }
+
+        //def candidatos = respostasCandidatos.collect{it.candidato}
         def candidaturas = []
 
         candidatos.each{
