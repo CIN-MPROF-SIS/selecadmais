@@ -41,7 +41,7 @@
 		<span class="required-indicator">*</span>
 	</label>
 
-	<jqueryPicker:date name="dataNascimento"  value="${contratanteInstance?.dataNascimento}" style="width:100px" provider="datepicker" mascara="date"/>
+	<g:jqDatePicker name="dataNascimento"  value="${contratanteInstance?.dataNascimento}" style="width:100px" provider="datepicker" mascara="date"/>
 </div>
 
 
