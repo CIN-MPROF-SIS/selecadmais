@@ -25,7 +25,6 @@
 		<g:message code="usuario.papel.label" default="Papel" />
 		
 	</label>
-	<!-- <g:select id="papel" name="papel" from="${selecadmais.Papel.list()}" optionKey="authority" value="${usuarioInstance?.papel}" class="many-to-one" noSelection="['null': '']"/>-->
  <select id="papel" class="many-to-one" name="papel">
     <option value="null"></option>
     <option value="PAPEL_CANDIDATO"> Candidato</option>
@@ -39,7 +38,7 @@
 		<g:message code="usuario.accountExpired.label" default="Conta Expirada" />
 		
 	</label>
-	<g:checkBox name="accountExpired" value="${usuarioInstance?.accountExpired}" />
+	<g:checkBox name="accountExpired" value="${usuarioInstance?.accountExpired}" disabled="true" />
 
 </div>
 
@@ -66,7 +65,7 @@
 		<g:message code="usuario.passwordExpired.label" default="Senha expirada" />
 		
 	</label>
-	<g:checkBox name="passwordExpired" value="${usuarioInstance?.passwordExpired}" />
+	<g:checkBox name="passwordExpired" value="${usuarioInstance?.passwordExpired}" disabled="true" />
 
 </div>
 
