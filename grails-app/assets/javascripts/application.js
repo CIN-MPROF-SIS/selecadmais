@@ -18,3 +18,18 @@ if (typeof jQuery !== 'undefined') {
 		});
 	})(jQuery);
 }
+
+$( document ).ready(function() {
+  var mascaras = Array();
+  mascaras['date'] = '99/99/9999';
+  mascaras['cep'] = '99999-999';
+  mascaras['telefone'] = '(99) 99999999';
+  mascaras['cpf'] = '999.999.999-99';
+  mascaras['cnpj'] = '99.999.999/9999-99';
+  
+  for(mascara in mascaras)
+  {
+    //alert(mascara + "-" + mascaras[mascara]);
+    $('[mascara=' + mascara + ']').mask(mascaras[mascara]);
+  }
+});
