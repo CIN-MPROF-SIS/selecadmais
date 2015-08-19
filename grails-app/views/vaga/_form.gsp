@@ -2,7 +2,7 @@
 
 <div class="field ${hasErrors(bean: vagaInstance, field: 'descricao', 'error')} required">
 	<label for="descricao">
-		<g:message code="vaga.descricao.label" default="Descricao" />
+		<g:message code="vaga.descricao.label" default="Descrição" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="descricao" required="" value="${vagaInstance?.descricao}"/>
@@ -20,7 +20,7 @@
 
 <div class="field ${hasErrors(bean: vagaInstance, field: 'dataInicioInscricao', 'error')} required">
 	<label for="dataInicioInscricao">
-		<g:message code="vaga.dataInicioInscricao.label" default="Data Inicio Inscricao" />
+		<g:message code="vaga.dataInicioInscricao.label" default="Data Início Inscrição" />
 		<span class="required-indicator">*</span>
 	</label>
 	<calendar:datePicker name="dataInicioInscricao"  dateFormat= "%d/%m/%Y" defaultValue="${vagaInstance?.dataInicioInscricao}"/>
@@ -29,7 +29,7 @@
 
 <div class="field ${hasErrors(bean: vagaInstance, field: 'dataTerminoInscricao', 'error')} required">
 	<label for="dataTerminoInscricao">
-		<g:message code="vaga.dataTerminoInscricao.label" default="Data Termino Inscricao" />
+		<g:message code="vaga.dataTerminoInscricao.label" default="Data Término Inscrição" />
 		<span class="required-indicator">*</span>
 	</label>
 	<calendar:datePicker name="dataTerminoInscricao"  dateFormat= "%d/%m/%Y" defaultValue="${vagaInstance?.dataTerminoInscricao}"/>
@@ -70,7 +70,7 @@
 
 <div class="field ${hasErrors(bean: vagaInstance, field: 'municipio', 'error')} required">
 	<label for="municipio">
-		<g:message code="vaga.municipio.label" default="Municipio" />
+		<g:message code="vaga.municipio.label" default="Município" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="municipio" name="municipio.id" from="${[]}" optionKey="id" required="" value="${vagaInstance?.municipio?.id}" class="many-to-one" noSelection="['':'']"/>
