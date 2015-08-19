@@ -23,7 +23,7 @@
 		<g:message code="vaga.dataInicioInscricao.label" default="Data Início Inscrição" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:jqDatePicker  name="dataInicioInscricao"  dateFormat= "%d/%m/%Y" defaultValue="${vagaInstance?.dataInicioInscricao}" style="width:100px" mascara="date"/>
+	<g:textField name="dataInicioInscricao"  value="${formatDate(format:'dd/MM/yyyy',date:vagaInstance?.dataInicioInscricao)}" style="width:100px" provider="datepicker" mascara="date"/>
 
 </div>
 
@@ -32,7 +32,7 @@
 		<g:message code="vaga.dataTerminoInscricao.label" default="Data Término Inscrição" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:jqDatePicker  name="dataTerminoInscricao"  dateFormat= "%d/%m/%Y" defaultValue="${vagaInstance?.dataTerminoInscricao}"  style="width:100px" mascara="date"/>
+	<g:textField name="dataTerminoInscricao"  value="${formatDate(format:'dd/MM/yyyy',date:vagaInstance?.dataTerminoInscricao)}" style="width:100px" provider="datepicker" mascara="date"/>
 
 </div>
 
