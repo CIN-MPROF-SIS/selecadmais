@@ -55,7 +55,7 @@
 
 <div class="field ${hasErrors(bean: contratanteInstance, field: 'email', 'error')} required">
 	<label for="email">
-		<g:message code="contratante.email.label" default="Email" />
+		<g:message code="contratante.email.label" default="E-mail" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:field type="email" name="email" maxlength="50" required="" value="${contratanteInstance?.email}"/>
@@ -101,7 +101,7 @@
 
 <div class="field ${hasErrors(bean: contratanteInstance, field: 'numero', 'error')} ">
 	<label for="numero">
-		<g:message code="contratante.numero.label" default="Numero" />
+		<g:message code="contratante.numero.label" default="Número" />
 		
 	</label>
 	<g:textField name="numero" maxlength="20" value="${contratanteInstance?.numero}"/>
@@ -119,7 +119,7 @@
 
 <div class="field ${hasErrors(bean: contratanteInstance, field: 'cep', 'error')} required">
 	<label for="cep">
-		<g:message code="contratante.cep.label" default="Cep" />
+		<g:message code="contratante.cep.label" default="CEP" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="cep" maxlength="9" required="" value="${contratanteInstance?.cep}" mascara="cep"/>
@@ -151,7 +151,7 @@
 
 <div class="field ${hasErrors(bean: contratanteInstance, field: 'municipio', 'error')} required">
 	<label for="municipio">
-		<g:message code="contratante.municipio.label" default="Municipio" />
+		<g:message code="contratante.municipio.label" default="Município" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="municipio" name="municipio.id" from="${[]}" optionKey="id" required="" value="${contratanteInstance?.municipio?.id}" class="many-to-one"/>
