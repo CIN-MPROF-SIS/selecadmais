@@ -24,9 +24,12 @@
 			<tbody>
 			<g:each in="${questionarioInstanceList}" status="i" var="questionarioInstance">
 				<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-				
-					<td><g:link action="show" id="${questionarioInstance.id}">${fieldValue(bean: questionarioInstance, field: "descricao")}</g:link></td>
-				
+					<td>
+						<sec:ifLoggedIn>
+							<sec:access expression="hasRole('PAPEL_CONTRATANTE')">
+								<g:link action="show" id="${questionarioInstance.id}">${fieldValue(bean: questionarioInstance, field: "descricao")}</g:link></td>
+							</sec:access>
+						</sec:ifLoggedIn>
 					<td>
 						<sec:ifLoggedIn>
 							<sec:access expression="hasRole('PAPEL_CANDIDATO')">

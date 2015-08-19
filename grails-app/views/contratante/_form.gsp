@@ -41,7 +41,8 @@
 		<span class="required-indicator">*</span>
 	</label>
 
-	<g:jqDatePicker name="dataNascimento"  value="${contratanteInstance?.dataNascimento}" style="width:100px" provider="datepicker" mascara="date"/>
+
+	<g:textField name="dataNascimento"  value="${formatDate(format:'dd/MM/yyyy',date:contratanteInstance?.dataNascimento)}" style="width:100px" provider="datepicker" mascara="date"/>
 </div>
 
 
