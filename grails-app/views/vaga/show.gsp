@@ -96,6 +96,12 @@
 					</div>
 				</g:form>
 			</sec:access>
+
+			<sec:access expression="hasRole('PAPEL_CANDIDATO')">
+				<div class="actions">
+					<g:link controller="candidatoVaga" class="list" action="index">Voltar</g:link>
+				</div>
+			</sec:access>
 		</sec:ifLoggedIn>
 
 

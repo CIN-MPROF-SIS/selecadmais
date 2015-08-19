@@ -30,8 +30,8 @@ class CandidatoVagaController {
         {
             and
             {
-                lt("dataInicioInscricao",dataAtual)
-                gt("dataTerminoInscricao",dataAtual)
+                le("dataInicioInscricao",dataAtual)
+                ge("dataTerminoInscricao",dataAtual)
             }
             order("dataInicioInscricao")
         }

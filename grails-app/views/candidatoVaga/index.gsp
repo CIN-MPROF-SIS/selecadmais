@@ -47,7 +47,7 @@
 					</td>
 
 					<td>
-						<g:link action="show" id="${candidatoVagaInstance.vaga.id}">Ver Vaga</g:link>
+						<g:link controller="vaga" action="show" id="${candidatoVagaInstance.vaga.id}">Ver Vaga</g:link>
 					</td>
 
 					<td>
@@ -55,7 +55,9 @@
 					</td>
 
 					<td>
-						<g:link controller="questionario" action="vaga" id="${candidatoVagaInstance.vaga.id}">Questionário</g:link>
+						<g:if test="${candidatoVagaInstance.selecionado}">
+							<g:link controller="questionario" action="vaga" id="${candidatoVagaInstance.vaga.id}">Questionário</g:link>
+						</g:if>
 					</td>
 				</tr>
 			</g:each>

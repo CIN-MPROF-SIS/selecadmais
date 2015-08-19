@@ -29,9 +29,15 @@
 							<sec:access expression="hasRole('PAPEL_CONTRATANTE')">
 								<g:link action="show" id="${questionarioInstance.id}">${fieldValue(bean: questionarioInstance, field: "descricao")}</g:link></td>
 							</sec:access>
+							<sec:access expression="hasRole('PAPEL_CANDIDATO')">
+								${fieldValue(bean: questionarioInstance, field: "descricao")}
+							</sec:access>
 						</sec:ifLoggedIn>
 					<td>
 						<sec:ifLoggedIn>
+							<sec:access expression="hasRole('PAPEL_CONTRATANTE')">
+								<g:link action="show" id="${questionarioInstance.id}">Notas Candidatos</g:link></td>
+							</sec:access>
 							<sec:access expression="hasRole('PAPEL_CANDIDATO')">
 								<g:if test="${selecionado}">
 									<g:if test="${!respondido[questionarioInstance.id]}">
