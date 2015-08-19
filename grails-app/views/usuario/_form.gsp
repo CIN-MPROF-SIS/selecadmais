@@ -70,3 +70,8 @@
 
 </div>
 
+<g:if test="${usuarioInstance?.papel}">
+<script>
+	$("#papel").val("${usuarioInstance?.papel}");
+</script>
+</g:if>

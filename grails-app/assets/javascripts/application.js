@@ -8,6 +8,8 @@
 //= require jquery
 //= require_tree .
 //= require_self
+//= require js/jquery-ui-1.10.4.custom
+//= require jquery-ui/js/jquery-ui-1.10.4.custom.min
 
 if (typeof jQuery !== 'undefined') {
 	(function($) {
@@ -32,4 +34,8 @@ $( document ).ready(function() {
     //alert(mascara + "-" + mascaras[mascara]);
     $('[mascara=' + mascara + ']').mask(mascaras[mascara]);
   }
+
+    $('body').on('focus',"[provider=datepicker]", function(){
+        $(this).datepicker({ "dateFormat": "dd/mm/yy"});
+    });
 });

@@ -67,13 +67,15 @@ grails.project.dependency.resolution = {
 		compile ':heroku:1.0.1'
 		compile ':cloud-support:1.0.11'
         compile ':spring-security-core:2.0-RC5'
-        compile ':calendar:1.2.1'
+        //compile ":jquery-ui:1.10.4"
+        compile ':jquery-date-time-picker:0.2.0'
 		compile ":database-session:1.2.1"
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate4:4.3.8.1" // or ":hibernate:3.6.10.18"
         runtime ":database-migration:1.4.0"
         runtime ":jquery:1.11.1"
+        runtime ":jquery-ui:1.10.4"
 
         // Uncomment these to enable additional asset-pipeline capabilities
         //compile ":sass-asset-pipeline:1.9.0"

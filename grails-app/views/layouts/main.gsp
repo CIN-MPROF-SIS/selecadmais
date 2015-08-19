@@ -13,10 +13,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <asset:stylesheet src="screen.css" />
 <asset:stylesheet src="custom.css" />
+
 <asset:javascript src="jquery-mask.js" />
-<asset:javascript src="jquery-ui.js" />
+
 <asset:javascript src="application.js" />
-<calendar:resources lang="en" theme="tiger" years="[1900, 2900]" />
+<g:javascript library="jquery" /> 
+<jqui:resources />
 
 <g:layoutHead />
 </head>

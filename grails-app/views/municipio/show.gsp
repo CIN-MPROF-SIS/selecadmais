@@ -26,11 +26,11 @@
 		</p>
 
 		<g:form url="[resource:municipioInstance, action:'delete']" method="DELETE">
-			<fieldset class="buttons">
+			<div class="actions">
 				<g:link class="edit" action="edit" resource="${municipioInstance}">Alterar</g:link>|
 				<g:link class="list" action="index">Voltar</g:link>
 				<g:actionSubmit class="delete" action="delete" value="Excluir" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-			</fieldset>
+			</div>
 		</g:form>
 	</body>
 </html>

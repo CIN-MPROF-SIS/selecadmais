@@ -132,7 +132,7 @@
 		<span class="required-indicator">*</span>
 	</label>
 
-	<calendar:datePicker name="dataNascimento"  dateFormat= "%d/%m/%Y" defaultValue="${contratanteInstance?.dataNascimento}"/>
+	<jqueryPicker:date name="dataNascimento"  value="${contratanteInstance?.dataNascimento}" style="width:100px" provider="datepicker" mascara="date"/>
 </div>
 
 <div class="field field ${hasErrors(bean: contratanteInstance, field: 'municipio', 'error')} required">
