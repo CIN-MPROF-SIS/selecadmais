@@ -1,5 +1,5 @@
 <%@ page import="selecadmais.Contratante" %>
-<g:if test="${usuario.desativada}">
+<g:if test="${usuario?.desativada}">
  <div class="pergunta radius10 sombra">
          Caro usuário, <p/> Seu acesso ainda não foi autorizado pelo moderador. Realize o cadastro de seus dados e aguarde.
        
