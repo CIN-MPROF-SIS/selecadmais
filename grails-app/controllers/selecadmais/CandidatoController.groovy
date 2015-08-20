@@ -64,9 +64,7 @@ class CandidatoController {
             candidatoInstance.foto = null*/
 
         def curriculo = request.getFile('fileCurriculo')
-        if (!curriculo.isEmpty()) {
-            candidatoInstance.curriculo = fileUploadService.uploadFile(curriculo, curriculo.getOriginalFilename(), "curriculos/" + candidatoInstance.id)
-        }
+
         /*else
             candidatoInstance.curriculo = null*/
 
@@ -74,9 +72,13 @@ class CandidatoController {
 
         if (!foto.isEmpty()) {
             candidatoInstance.foto = fileUploadService.uploadFile(foto, foto.getOriginalFilename(), "fotos/" + candidatoInstance.id)
-
-            candidatoInstance.save flush:true
         }
+
+        if (!curriculo.isEmpty()) {
+            candidatoInstance.curriculo = fileUploadService.uploadFile(curriculo, curriculo.getOriginalFilename(), "curriculos/" + candidatoInstance.id)
+        }
+
+        candidatoInstance.save flush:true
 		
 		def principal = springSecurityService.principal
 		String username = principal.username
