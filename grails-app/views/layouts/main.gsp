@@ -54,7 +54,6 @@
 							<li><g:link controller="vaga">Vagas </g:link></li>	
 						</sec:access>
 					</sec:ifLoggedIn>
-					<li><a href="/ajuda">Ajuda</a></li>
 					<sec:ifLoggedIn>
 						<li><g:link controller="logout">Sair </g:link></li>
 					</sec:ifLoggedIn>

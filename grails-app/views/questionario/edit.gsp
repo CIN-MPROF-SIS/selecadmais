@@ -10,7 +10,7 @@
 	<body>
 		<h1>Alterar Questionário</h1>
 		<g:if test="${flash.message}">
-		<div class="message" role="status">${flash.message}</div>
+		<div class="flash_notice" role="status">${flash.message}</div>
 		</g:if>
 		<g:hasErrors bean="${questionarioInstance}">
 		<ul class="errors" role="alert">
