@@ -89,7 +89,7 @@ class ContratanteController {
     }
 
     def edit(Contratante contratanteInstance) {
-        render(view: "edit", model: [contratanteInstance: springSecurityService.currentUser.pessoa])
+        render(view: "edit", model: [contratanteInstance: springSecurityService.currentUser.pessoa, usuario: springSecurityService.currentUser])
         //respond contratanteInstance
     }
 
