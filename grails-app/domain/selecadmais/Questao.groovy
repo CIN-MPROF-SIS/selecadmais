@@ -8,7 +8,7 @@ class Questao {
 		questionario: Questionario] 
 
     static constraints = {
-    	descricao(size: 5..100, blank:false)
+    	descricao(size: 5..200, blank:false)
     }
 
     static hasMany = [ 

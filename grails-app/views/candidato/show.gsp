@@ -13,11 +13,9 @@
 		<div class="flash_notice" role="status">${flash.message}</div>
 		</g:if>
 		<ol class="property-list candidato">
-
 			<g:if test="${candidatoInstance?.foto}">
-			<p>
-				<img src="${candidatoInstance?.foto}" style="max-width:100px;max-height:100px">
-				
+			<p>			
+			    <img src="${resource(dir:'', file: candidatoInstance?.foto)}" style="max-width:100px;max-height:100px" />				
 			</p>
 			</g:if>
 		

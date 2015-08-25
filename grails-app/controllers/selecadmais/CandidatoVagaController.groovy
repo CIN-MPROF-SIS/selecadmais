@@ -124,6 +124,14 @@ class CandidatoVagaController {
     def show(CandidatoVaga candidatoVagaInstance) {
         respond candidatoVagaInstance
     }
+	
+	@Transactional
+	def desistir(CandidatoVaga candidatoVagaInstance) {
+		
+		candidatoVagaInstance.delete()	
+		
+		redirect controller:"app", action:"home"
+	}
 
     def create() {
         respond new CandidatoVaga(params)

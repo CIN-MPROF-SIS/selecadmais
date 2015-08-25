@@ -41,7 +41,7 @@ class VagaController {
 	def show(Vaga vagaInstance) {
 		respond vagaInstance
 	}
-
+	
 	def create() {
 
 		/*def principal = springSecurityService.principal
@@ -76,18 +76,9 @@ class VagaController {
 			return
 		}
 
-		vagaInstance.save flush:true
+		vagaInstance.save flush:true	
 
-		request.withFormat {
-			form multipartForm {
-				flash.message = message(code: 'default.created.message', args: [
-					message(code: 'vaga.label', default: 'Vaga'),
-					vagaInstance.id
-				])
-				redirect vagaInstance
-			}
-			'*' { respond vagaInstance, [status: CREATED] }
-		}
+		redirect controller:"app", action:"home"
 	}
 
 	def edit(Vaga vagaInstance) {

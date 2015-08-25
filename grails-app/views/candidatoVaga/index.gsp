@@ -51,7 +51,7 @@
 					</td>
 
 					<td>
-						<g:link action="show" id="${candidatoVagaInstance.id}">Desistir</g:link>
+						<g:link action="desistir" id="${candidatoVagaInstance.id}">Desistir</g:link>
 					</td>
 
 					<td>

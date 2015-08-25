@@ -30,7 +30,7 @@ class ContratanteController {
     }
 
     def create() {
-        render(view: "create", model: [contratanteInstance: new Contratante(params)])
+        render(view: "create", model: [contratanteInstance: new Contratante(params),usuario: springSecurityService.currentUser])
         //respond new Contratante(params)
     }
 

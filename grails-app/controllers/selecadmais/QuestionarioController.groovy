@@ -132,13 +132,7 @@ class QuestionarioController {
 
         questionarioInstance.save flush:true
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'questionario.label', default: 'Questionario'), questionarioInstance.id])
-                redirect questionarioInstance
-            }
-            '*' { respond questionarioInstance, [status: CREATED] }
-        }
+        redirect controller:"app", action:"home"
     }
 
     def edit(Questionario questionarioInstance) {
