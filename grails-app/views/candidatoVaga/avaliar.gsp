@@ -24,7 +24,7 @@
 						<th>Email</th>
 						<th>Telefone</th>
 						<th>Municipio</th>
-					
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -39,7 +39,11 @@
 					
 						<td>${candidatura.candidato.telefone}</td>
 						<td>${candidatura.candidato.municipio}</td>
-					
+				        <td>
+				          <g:if test="${candidatura.candidato.curriculo}">
+				          <a href="${candidatura?.candidato?.curriculo}" target="_blank">Download</a>
+				          </g:if>
+				        </td>
 					</tr>
 				</g:each>
 				</tbody>
